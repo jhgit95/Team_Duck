@@ -4,9 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+
+    <list default="true" id="cf189fc3-f77d-48e9-9622-67b7b4e25083" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Data/ScoreData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Data/ScoreData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Data/StudentData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Data/StudentData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Data/SubjectData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Data/SubjectData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/StudentInfo/Inquiry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/StudentInfo/Inquiry.java" afterDir="false" />
+
     <list default="true" id="cf189fc3-f77d-48e9-9622-67b7b4e25083" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/src/Data/ScoreData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Data/ScoreData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Data/StudentData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Data/StudentData.java" afterDir="false" />
+
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,6 +61,20 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="camp-management-app" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -66,6 +90,11 @@
       <created>1721781533222</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
+
+      <updated>1722477975827</updated>
+      <workItem from="1722477976854" duration="772000" />
+      <workItem from="1722479467838" duration="15301000" />
+
       <updated>1721781533222</updated>
       <workItem from="1721781534251" duration="2073000" />
       <workItem from="1721785764900" duration="20474000" />
@@ -89,6 +118,7 @@
       <workItem from="1722412229385" duration="22000" />
       <workItem from="1722427178031" duration="276000" />
       <workItem from="1722475183684" duration="58000" />
+
     </task>
     <servers />
   </component>

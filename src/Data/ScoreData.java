@@ -12,7 +12,6 @@ public class ScoreData {
     protected final ArrayList<String> GradeList;
 
     public void setScoreList(int score,String subjectType){
-
         ScoreList.add(String.valueOf(score));
 
         //subjectType==R이면 필수과목
@@ -52,8 +51,6 @@ public class ScoreData {
         else{
             //예외처리필요
         }
-
-
 
     }
     public ArrayList<String> getScoreList(){

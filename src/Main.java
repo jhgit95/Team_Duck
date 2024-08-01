@@ -1,4 +1,10 @@
+
+import Data.ScoreData;
+import Data.StudentData;
+import Data.SubjectData;
+
 import java.util.Scanner;
+
 
 public class Main {
 
@@ -6,6 +12,12 @@ public class Main {
 
 
     public static void main(String[] args) {
+
+        StudentData student1=new StudentData(1);
+        student1.setScoreList(91,"R");
+        System.out.println(student1.getScoreList());
+        System.out.println(student1.getGradeList());
+
 
         int choice;
         String stop_keyword = "";
@@ -144,18 +156,5 @@ public class Main {
         System.out.println("\t=---------------------------------------=");
     }
 
-    public static void displayMenu_ScoreManagement() {
-        System.out.println("\t=========================================");
-        System.out.println("\t=    NBC management system  -   Score   =");
-        System.out.println("\t=========================================");
-        System.out.println("\t=        What do you want to do?        =");
-        System.out.println("\t=---------------------------------------=");
-        System.out.println("\t=                                       =");
-        System.out.println("\t=         [1] Add Score Info            =");
-        System.out.println("\t=         [2] Inquiry Score Info        =");
-        System.out.println("\t=         [3] Modify Score Info         =");
-        System.out.println("\t=         [4] Back to Main              =");
-        System.out.println("\t=                                       =");
-        System.out.println("\t=---------------------------------------=");
-    }
+   
 }
