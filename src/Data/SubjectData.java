@@ -3,20 +3,28 @@ package Data;
 import java.util.ArrayList;
 
 public class SubjectData {
-    int subjectId;
-    String subjectName;
-    String subjectType;
+    protected String subjectId;
+    protected String subjectName;
+    protected String subjectType;
 
     ArrayList<String[]> subjectList = new ArrayList<>();
     public SubjectData() {
-
+        subjectList.add(new String[]{"0001", "Java", "필수"});
+        subjectList.add(new String[]{"0002", "객체지향", "필수"});
+        subjectList.add(new String[]{"0003", "Spring", "필수"});
+        subjectList.add(new String[]{"0004", "JPA", "필수"});
+        subjectList.add(new String[]{"0005", "MySQL", "필수"});
+        subjectList.add(new String[]{"0006", "디자인 패턴", "선택"});
+        subjectList.add(new String[]{"0007", "Spring Security", "선택"});
+        subjectList.add(new String[]{"0008", "Redis", "선택"});
+        subjectList.add(new String[]{"0009", "MongoDB", "선택"});
 
     }
-    public int getSubjectId() {
+    public String getSubjectId() {
         return this.subjectId;
     }
 
-    public void getSubjectId(int subjectId) {
+    public void getSubjectId(String subjectId) {
         this.subjectId = subjectId;
     }
 
