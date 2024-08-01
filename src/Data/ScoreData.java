@@ -5,9 +5,9 @@ import java.util.ArrayList;
 public class ScoreData {
     protected int subjectId;
     protected int studentId;
-    protected int round; //[][0]
-    protected int score; //[][1]
-    protected char grade;//[][2]
+    protected int round;
+    protected int score;
+    protected char grade;
     protected final ArrayList<String> ScoreList;
     protected final ArrayList<String> GradeList;
     public void setScoreList(int score,String subjectType){
