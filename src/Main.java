@@ -1,3 +1,6 @@
+import Manager.ScoreManager;
+import Manager.StudentManager;
+
 import java.util.Scanner;
 
 public class Main {
@@ -45,6 +48,7 @@ public class Main {
 
     // 수강생 정보 관리
     public static void managementStudentInfo() {
+        StudentManager studentManager = new StudentManager();
         int choice;
         String stop_keyword = "";
 
@@ -56,10 +60,13 @@ public class Main {
             // 선택값에 대한 함수 실행 / 1. 등록 / 2. 조회 / 3. 수정 / 4. 메인으로 /
             switch(choice) {
                 case 1:
+                    studentManager.addData();
                     break;
                 case 2:
+                    studentManager.inquiryData();
                     break;
                 case 3:
+                    studentManager.modifyData();
                     break;
                 case 4:
                     stop_keyword = "exit";
@@ -79,6 +86,7 @@ public class Main {
 
     // 점수 정보 관리
     public static void managementScoreInfo() {
+        ScoreManager scoreManager = new ScoreManager();
         int choice;
         String stop_keyword = "";
 
@@ -90,10 +98,13 @@ public class Main {
             // 선택값에 대한 함수 실행 / 1. 등록 / 2. 조회 / 3. 수정 / 4. 메인으로 /
             switch(choice) {
                 case 1:
+                    scoreManager.addData();
                     break;
                 case 2:
+                    scoreManager.inquiryData();
                     break;
                 case 3:
+                    scoreManager.modifyData();
                     break;
                 case 4:
                     stop_keyword = "exit";
