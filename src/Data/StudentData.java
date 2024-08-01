@@ -30,19 +30,19 @@ public class StudentData {
 
 
     //내부 get,set메서들은 private으로 하면 접근할수 없음
-    private int getStudentId() {
+    public int getStudentId() {
         return this.studentId;
     }
 
-    private void setStudentId(int studentName) {
+    public void setStudentId(int studentName) {
         this.studentId = studentName;
     }
 
 
-    private String getStudentName() {
+    public String getStudentName() {
         return studentName;
     }
-    private void setStudentName(String name) {
+    public void setStudentName(String name) {
         this.studentName = name;
     }
 
