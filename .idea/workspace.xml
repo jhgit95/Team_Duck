@@ -51,6 +51,20 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="camp-management-app" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -68,7 +82,7 @@
       <option name="presentableId" value="Default" />
       <updated>1722477975827</updated>
       <workItem from="1722477976854" duration="772000" />
-      <workItem from="1722479467838" duration="14479000" />
+      <workItem from="1722479467838" duration="15301000" />
     </task>
     <servers />
   </component>

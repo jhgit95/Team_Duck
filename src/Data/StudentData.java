@@ -3,13 +3,37 @@ package Data;
 import java.util.ArrayList;
 
 public class StudentData {
+    ScoreData scoreData;
+    SubjectData subjectData;
+    //객체생성 각각 ScoreData,SubjectData
     int studentId;
     String studentName;
     ArrayList<String> subjectList = new ArrayList<>();
 
+    public StudentData(int studentId) {
+        this.studentId = studentId;
+        this.subjectData=new SubjectData();
+        this.scoreData=new ScoreData(studentId);
+        //각객체를 Student객체에 종속시킴
+    }
+    public void setScoreList(int score,String subjectType){
+        scoreData.setScoreList(score,subjectType);
+    }
+    public ArrayList<String> getGradeList(){
+        return scoreData.getGradeList();
+        //종속된 ScoreData객체로 만든 scoreData내부 메서드 getGradeList()를실행시킴
+    }
+    public ArrayList<String> getScoreList(){
+        return scoreData.getScoreList();
+        //종속된 ScoreData객체로 만든 scoreData내부 메서드 getScoreList()를실행시킴
+    }
+
+
+    //내부 get,set메서들은 private으로 하면 접근할수 없음
     private int getStudentId() {
         return this.studentId;
     }
+
     private void setStudentId(int studentName) {
         this.studentId = studentName;
     }
