@@ -4,18 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-<<<<<<< HEAD
     <list default="true" id="89b46f06-f4f3-4614-a9ff-318e35eaa832" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-=======
-    <list default="true" id="cf189fc3-f77d-48e9-9622-67b7b4e25083" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Data/ScoreData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Data/ScoreData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Data/StudentData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Data/StudentData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Data/SubjectData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Data/SubjectData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/StudentInfo/Inquiry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/StudentInfo/Inquiry.java" afterDir="false" />
->>>>>>> 583d268cd2bcf9bfa746fdea2637b8c7ddb91bff
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +83,7 @@
       <option name="presentableId" value="Default" />
       <updated>1722477975827</updated>
       <workItem from="1722477976854" duration="772000" />
-      <workItem from="1722479467838" duration="15301000" />
+      <workItem from="1722479467838" duration="17010000" />
     </task>
     <servers />
   </component>
