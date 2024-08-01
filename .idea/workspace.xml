@@ -5,8 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="89b46f06-f4f3-4614-a9ff-318e35eaa832" name="Changes" comment="">
+<<<<<<< HEAD
       <change afterPath="$PROJECT_DIR$/src/StudentInfo/Inquiry.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+=======
+      <change afterPath="$PROJECT_DIR$/src/Data/ScoreData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Data/StudentData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Data/SubjectData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+>>>>>>> 30c2de93d97f8d34d87bf2e9cb1bd9a0d4ec4117
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,15 +44,23 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.Main.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
+<<<<<<< HEAD
     "last_opened_file_path": "C:/Users/momiz/Desktop/Java File/camp-management-app",
+=======
+    "last_opened_file_path": "D:/coding/nbc/project/juhoPersonalTask",
+>>>>>>> 30c2de93d97f8d34d87bf2e9cb1bd9a0d4ec4117
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -65,7 +81,11 @@
       <option name="presentableId" value="Default" />
       <updated>1722477975827</updated>
       <workItem from="1722477976854" duration="772000" />
+<<<<<<< HEAD
       <workItem from="1722478876142" duration="722000" />
+=======
+      <workItem from="1722479467838" duration="7566000" />
+>>>>>>> 30c2de93d97f8d34d87bf2e9cb1bd9a0d4ec4117
     </task>
     <servers />
   </component>
