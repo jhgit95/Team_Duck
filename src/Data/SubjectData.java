@@ -8,6 +8,8 @@ public class SubjectData {
     protected String subjectName;
     protected String subjectType;
     ArrayList<String[]> subjectList = new ArrayList();
+    //subjectList에 초기값
+
 
     public SubjectData() {
     }
