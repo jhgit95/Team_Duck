@@ -1,0 +1,330 @@
+Index: src/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import java.util.Scanner;\r\n\r\npublic class Main {\r\n\r\n    private static Scanner scanner = new Scanner(System.in);\r\n\r\n\r\n    public static void main(String[] args) {\r\n\r\n        int choice;\r\n        String stop_keyword = \"\";\r\n\r\n        do {\r\n\r\n            // 메인 메뉴 제공 및 선택값 받기\r\n            displayMenu_Main();\r\n            choice = scanner.nextInt();\r\n\r\n            // 선택값에 대한 함수 실행 / 1. 학생 관리 / 2. 점수 관리 / 3. 종료 /\r\n            switch(choice) {\r\n                case 1:\r\n                    managementStudentInfo();\r\n                    break;\r\n                case 2:\r\n                    managementScoreInfo();\r\n                    break;\r\n                case 3:\r\n                    System.out.println(\"Terminate Management Program.\");\r\n                    stop_keyword = \"exit\";\r\n                    break;\r\n                default:\r\n                    System.out.println(\"Is not a valid choice.\\nInput right choice again.\");\r\n            }\r\n\r\n\r\n        } while(!stop_keyword.equals(\"exit\"));\r\n\r\n    }\r\n\r\n\r\n\r\n\r\n    // 수강생 정보 관리\r\n    public static void managementStudentInfo() {\r\n        int choice;\r\n        String stop_keyword = \"\";\r\n\r\n        do {\r\n            // 학생 관린 메뉴 제공 및 선택값 받기\r\n            displayMenu_StudentManagement();\r\n            choice = scanner.nextInt();\r\n\r\n            // 선택값에 대한 함수 실행 / 1. 등록 / 2. 조회 / 3. 수정 / 4. 메인으로 /\r\n            switch(choice) {\r\n                case 1:\r\n                    break;\r\n                case 2:\r\n                    break;\r\n                case 3:\r\n                    break;\r\n                case 4:\r\n                    stop_keyword = \"exit\";\r\n                    break;\r\n                default:\r\n                    System.out.println(\"Is not a valid choice.\\nInput right choice again.\");\r\n            }\r\n\r\n        } while(!stop_keyword.equals(\"exit\"));\r\n    }\r\n\r\n\r\n\r\n\r\n    // 점수 정보 관리\r\n    public static void managementScoreInfo() {\r\n        int choice;\r\n        String stop_keyword = \"\";\r\n\r\n        do {\r\n            // 점수 관리 메뉴 제공 및 선택값 받기\r\n            displayMenu_ScoreManagement();\r\n            choice = scanner.nextInt();\r\n\r\n            // 선택값에 대한 함수 실행 / 1. 등록 / 2. 조회 / 3. 수정 / 4. 메인으로 /\r\n            switch(choice) {\r\n                case 1:\r\n                    break;\r\n                case 2:\r\n                    break;\r\n                case 3:\r\n                    break;\r\n                case 4:\r\n                    stop_keyword = \"exit\";\r\n                    break;\r\n                default:\r\n                    System.out.println(\"Is not a valid choice.\\nInput right choice again.\");\r\n            }\r\n\r\n\r\n        } while(!stop_keyword.equals(\"exit\"));\r\n    }\r\n\r\n\r\n\r\n\r\n    // 메뉴판들 모아둔 곳\r\n\r\n    public static void displayMenu_Main() {\r\n        System.out.println(\"\\t=========================================\");\r\n        System.out.println(\"\\t=         NBC management system         =\");\r\n        System.out.println(\"\\t=========================================\");\r\n        System.out.println(\"\\t=        What do you want to do?        =\");\r\n        System.out.println(\"\\t=---------------------------------------=\");\r\n        System.out.println(\"\\t=                                       =\");\r\n        System.out.println(\"\\t=         [1] Student Management        =\");\r\n        System.out.println(\"\\t=         [2] Score Management          =\");\r\n        System.out.println(\"\\t=         [3] Done                      =\");\r\n        System.out.println(\"\\t=                                       =\");\r\n        System.out.println(\"\\t=---------------------------------------=\");\r\n    }\r\n\r\n    public static void displayMenu_StudentManagement() {\r\n        System.out.println(\"\\t=========================================\");\r\n        System.out.println(\"\\t=    NBC management system  -  Student  =\");\r\n        System.out.println(\"\\t=========================================\");\r\n        System.out.println(\"\\t=        What do you want to do?        =\");\r\n        System.out.println(\"\\t=---------------------------------------=\");\r\n        System.out.println(\"\\t=                                       =\");\r\n        System.out.println(\"\\t=         [1] Add Student Info          =\");\r\n        System.out.println(\"\\t=         [2] Inquiry Student Info      =\");\r\n        System.out.println(\"\\t=         [3] Modify Student Info       =\");\r\n        System.out.println(\"\\t=         [4] Back to Main              =\");\r\n        System.out.println(\"\\t=                                       =\");\r\n        System.out.println(\"\\t=---------------------------------------=\");\r\n    }\r\n\r\n    public static void displayMenu_ScoreManagement() {\r\n        System.out.println(\"\\t=========================================\");\r\n        System.out.println(\"\\t=    NBC management system  -   Score   =\");\r\n        System.out.println(\"\\t=========================================\");\r\n        System.out.println(\"\\t=        What do you want to do?        =\");\r\n        System.out.println(\"\\t=---------------------------------------=\");\r\n        System.out.println(\"\\t=                                       =\");\r\n        System.out.println(\"\\t=         [1] Add Score Info            =\");\r\n        System.out.println(\"\\t=         [2] Inquiry Score Info        =\");\r\n        System.out.println(\"\\t=         [3] Modify Score Info         =\");\r\n        System.out.println(\"\\t=         [4] Back to Main              =\");\r\n        System.out.println(\"\\t=                                       =\");\r\n        System.out.println(\"\\t=---------------------------------------=\");\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Main.java b/src/Main.java
+--- a/src/Main.java	(revision c70b53f92b53bcc24d042c22d9da1033cafd0d10)
++++ b/src/Main.java	(date 1722498083912)
+@@ -1,3 +1,5 @@
++import StudentInfo.Score;
++
+ import java.util.Scanner;
+ 
+ public class Main {
+@@ -28,7 +30,7 @@
+                     System.out.println("Terminate Management Program.");
+                     stop_keyword = "exit";
+                     break;
+-                default:
++                default: // 잘못된 입력값 입력
+                     System.out.println("Is not a valid choice.\nInput right choice again.");
+             }
+ 
+@@ -52,16 +54,21 @@
+ 
+             // 선택값에 대한 함수 실행 / 1. 등록 / 2. 조회 / 3. 수정 / 4. 메인으로 /
+             switch(choice) {
+-                case 1:
++                case 1: // 등록
++                    // 수강생 고유 번호 입력 받기
++                    System.out.println("\tInput student ID: ");
++                    int studentID = scanner.nextInt();
++
++
+                     break;
+-                case 2:
++                case 2: // 조회
+                     break;
+-                case 3:
++                case 3: // 수정
+                     break;
+-                case 4:
++                case 4: // 중단
+                     stop_keyword = "exit";
+                     break;
+-                default:
++                default: // 잘못된 입력값 입력
+                     System.out.println("Is not a valid choice.\nInput right choice again.");
+             }
+ 
+@@ -76,23 +83,42 @@
+         int choice;
+         String stop_keyword = "";
+ 
++        ScoreManager scoreManager = new ScoreManager();
++
+         do {
+             // 점수 관리 메뉴 제공 및 선택값 받기
+             displayMenu_ScoreManagement();
+             choice = scanner.nextInt();
+ 
++
+             // 선택값에 대한 함수 실행 / 1. 등록 / 2. 조회 / 3. 수정 / 4. 메인으로 /
+             switch(choice) {
+-                case 1:
++                case 1: // 등록
++                    System.out.println("Input Student ID");
++                    int studentID = scanner.nextInt();
++                    System.out.println("Input Subject ID");
++                    int subjectID = scanner.nextInt();
++                    System.out.println("Input Round of Subject");
++                    int round = scanner.nextInt();
++                    System.out.println("Input score");
++                    int score = scanner.nextInt();
++                    Score scoreA = new Score(studentID, subjectID, round, score);
++                    scoreManager.addScore(scoreA);
+                     break;
+-                case 2:
++                case 2: // 조회
++                    System.out.println("Input Student ID");
++                    int inq_studentID = scanner.nextInt();
++                    System.out.println("Input Subject ID");
++                    int inq_subjectID = scanner.nextInt();
++                    System.out.println(scoreManager.getScore(inq_studentID, inq_subjectID));
++
+                     break;
+-                case 3:
++                case 3: // 수정
+                     break;
+-                case 4:
++                case 4: // 중단
+                     stop_keyword = "exit";
+                     break;
+-                default:
++                default: // 잘못된 입력값 입력
+                     System.out.println("Is not a valid choice.\nInput right choice again.");
+             }
+ 
+Index: src/StudentInfo/Score.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package StudentInfo;\r\n\r\npublic class Score {\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/StudentInfo/Score.java b/src/StudentInfo/Score.java
+--- a/src/StudentInfo/Score.java	(revision c70b53f92b53bcc24d042c22d9da1033cafd0d10)
++++ b/src/StudentInfo/Score.java	(date 1722497402680)
+@@ -1,4 +1,73 @@
+ package StudentInfo;
+ 
+ public class Score {
++    private int studentID;
++    private int subjectID;
++    private int round;
++    private int score;
++    private char grade;
++
++
++    public Score(int studentID, int subjectID, int round, int score) {
++        this.studentID = studentID;
++        this.subjectID = subjectID;
++        this.round = round;
++        this.score = score;
++    }
++
++
++    public int getStudentID() {
++        return studentID;
++    }
++    public void setStudentID(int studentID) {
++        this.studentID = studentID;
++    }
++
++
++    public int getSubjectID() {
++        return subjectID;
++    }
++    public void setSubjectID(int subjectID) {
++        this.subjectID = subjectID;
++    }
++
++
++    public int getRound() {
++        return round;
++    }
++    public void setRound(int round) {
++        this.round = round;
++    }
++
++
++    public int getScore() {
++        return score;
++    }
++    public void setScore(int score) {
++        this.score = score;
++    }
++
++
++    public char getGrade() {
++        if(this.grade < 50) {
++            grade = 'N';
++        } else {
++            grade = 'P';
++        }
++        return grade;
++    }
++
++
++    // 전체 값 문자열로 반환
++    @Override
++    public String toString() {
++        return "Score{" +
++                "studentID=" + studentID +
++                ", subjectID=" + subjectID +
++                ", round=" + round +
++                ", score=" + score +
++                ", grade=" + grade +
++                '}';
++    }
++
+ }
+Index: src/ScoreManager.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/ScoreManager.java b/src/ScoreManager.java
+new file mode 100644
+--- /dev/null	(date 1722497251317)
++++ b/src/ScoreManager.java	(date 1722497251317)
+@@ -0,0 +1,27 @@
++import StudentInfo.Score;
++
++import java.util.ArrayList;
++import java.util.List;
++
++public class ScoreManager {
++    private List<Score> scoreList = new ArrayList<>();
++
++    // 점수 추가
++    public void addScore(Score score) {
++        scoreList.add(score);
++    }
++
++    // 점수 조회
++    public Score getScore(int studentID, int subjectID) {
++        for (Score score: scoreList) {
++            if (score.getStudentID() == studentID && score.getSubjectID() == subjectID) {
++                return score;
++            }
++        }
++
++        return null;
++    }
++
++
++
++}
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"89b46f06-f4f3-4614-a9ff-318e35eaa832\" name=\"Changes\" comment=\"\">\r\n      <change afterPath=\"$PROJECT_DIR$/src/Data/ScoreData.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/Data/StudentData.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/Data/SubjectData.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/Main.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/Main.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 7\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2k2NzZ5BRrU8LuMEtQ23Ma6lcek\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"Application.Main.executor\": \"Run\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"git-widget-placeholder\": \"main\",\r\n    \"kotlin-language-version-configured\": \"true\",\r\n    \"last_opened_file_path\": \"D:/coding/nbc/project/juhoPersonalTask\",\r\n    \"node.js.detected.package.eslint\": \"true\",\r\n    \"node.js.detected.package.tslint\": \"true\",\r\n    \"node.js.selected.package.eslint\": \"(autodetect)\",\r\n    \"node.js.selected.package.tslint\": \"(autodetect)\",\r\n    \"nodejs_package_manager_path\": \"npm\",\r\n    \"project.structure.last.edited\": \"Project\",\r\n    \"project.structure.proportion\": \"0.0\",\r\n    \"project.structure.side.proportion\": \"0.0\",\r\n    \"vue.rearranger.settings.migration\": \"true\"\r\n  }\r\n}]]></component>\r\n  <component name=\"SharedIndexes\">\r\n    <attachedChunks>\r\n      <set>\r\n        <option value=\"bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.18034.62\" />\r\n        <option value=\"bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.18034.62\" />\r\n      </set>\r\n    </attachedChunks>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"89b46f06-f4f3-4614-a9ff-318e35eaa832\" name=\"Changes\" comment=\"\" />\r\n      <created>1722477975827</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1722477975827</updated>\r\n      <workItem from=\"1722477976854\" duration=\"772000\" />\r\n      <workItem from=\"1722479467838\" duration=\"7566000\" />\r\n    </task>\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision c70b53f92b53bcc24d042c22d9da1033cafd0d10)
++++ b/.idea/workspace.xml	(date 1722498084008)
+@@ -5,11 +5,10 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="89b46f06-f4f3-4614-a9ff-318e35eaa832" name="Changes" comment="">
+-      <change afterPath="$PROJECT_DIR$/src/Data/ScoreData.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/Data/StudentData.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/Data/SubjectData.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/ScoreManager.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/StudentInfo/Score.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/StudentInfo/Score.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -26,6 +25,18 @@
+   <component name="Git.Settings">
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+   </component>
++  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
++  "lastFilter": {
++    "state": "OPEN",
++    "assignee": "Jay3029"
++  }
++}]]></component>
++  <component name="GithubPullRequestsUISettings"><![CDATA[{
++  "selectedUrlAndAccountId": {
++    "url": "https://github.com/jhgit95/Team_Duck.git",
++    "accountId": "a66823bb-3099-458a-8fca-80609114593c"
++  }
++}]]></component>
+   <component name="ProjectColorInfo">{
+   &quot;associatedIndex&quot;: 7
+ }</component>
+@@ -37,24 +48,24 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent"><![CDATA[{
+-  "keyToString": {
+-    "Application.Main.executor": "Run",
+-    "RunOnceActivity.ShowReadmeOnStart": "true",
+-    "git-widget-placeholder": "main",
+-    "kotlin-language-version-configured": "true",
+-    "last_opened_file_path": "D:/coding/nbc/project/juhoPersonalTask",
+-    "node.js.detected.package.eslint": "true",
+-    "node.js.detected.package.tslint": "true",
+-    "node.js.selected.package.eslint": "(autodetect)",
+-    "node.js.selected.package.tslint": "(autodetect)",
+-    "nodejs_package_manager_path": "npm",
+-    "project.structure.last.edited": "Project",
+-    "project.structure.proportion": "0.0",
+-    "project.structure.side.proportion": "0.0",
+-    "vue.rearranger.settings.migration": "true"
++  <component name="PropertiesComponent">{
++  &quot;keyToString&quot;: {
++    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
++    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
++    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
++    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
++    &quot;last_opened_file_path&quot;: &quot;D:/coding/nbc/project/juhoPersonalTask&quot;,
++    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
++    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
++    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
++    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
++    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
++    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
++    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
++    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
++    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+   }
+-}]]></component>
++}</component>
+   <component name="SharedIndexes">
+     <attachedChunks>
+       <set>
+@@ -73,10 +84,22 @@
+       <updated>1722477975827</updated>
+       <workItem from="1722477976854" duration="772000" />
+       <workItem from="1722479467838" duration="7566000" />
++      <workItem from="1722492071533" duration="5565000" />
+     </task>
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+     <option name="version" value="3" />
+   </component>
++  <component name="XDebuggerManager">
++    <breakpoint-manager>
++      <breakpoints>
++        <line-breakpoint enabled="true" type="java-line">
++          <url>file://$PROJECT_DIR$/src/Data/ScoreData.java</url>
++          <line>26</line>
++          <option name="timeStamp" value="1" />
++        </line-breakpoint>
++      </breakpoints>
++    </breakpoint-manager>
++  </component>
+ </project>
+\ No newline at end of file
