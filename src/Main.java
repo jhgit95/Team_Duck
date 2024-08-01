@@ -40,6 +40,9 @@ public class Main {
 
 
 
+
+
+
     // 수강생 정보 관리
     public static void managementStudentInfo() {
         int choice;
@@ -67,6 +70,9 @@ public class Main {
 
         } while(!stop_keyword.equals("exit"));
     }
+
+
+
 
 
 
@@ -99,6 +105,10 @@ public class Main {
 
         } while(!stop_keyword.equals("exit"));
     }
+
+
+
+
 
 
 

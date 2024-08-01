@@ -12,29 +12,29 @@ public class SubjectData {
 
 
     }
-    private int getSubjectId() {
+    public int getSubjectId() {
         return this.subjectId;
     }
 
-    private void getSubjectId(int subjectId) {
+    public void getSubjectId(int subjectId) {
         this.subjectId = subjectId;
     }
 
 
-    private String getSubjectName() {
+    public String getSubjectName() {
         return subjectName;
     }
 
-    private void setSubjectName(String subjectName) {
+    public void setSubjectName(String subjectName) {
         this.subjectName = subjectName;
     }
 
 
-    private String getSubjectType() {
+    public String getSubjectType() {
         return subjectType;
     }
 
-    private void setSubjectType(String subjectType) {
+    public void setSubjectType(String subjectType) {
         this.subjectType = subjectType;
     }
 
