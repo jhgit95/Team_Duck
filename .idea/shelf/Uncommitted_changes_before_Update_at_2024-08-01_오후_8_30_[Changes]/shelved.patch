@@ -1,0 +1,219 @@
+Index: src/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import java.util.Scanner;\r\n\r\npublic class Main {\r\n\r\n    private static Scanner scanner = new Scanner(System.in);\r\n\r\n\r\n    public static void main(String[] args) {\r\n\r\n        int choice;\r\n        String stop_keyword = \"\";\r\n\r\n        do {\r\n\r\n            // 메인 메뉴 제공 및 선택값 받기\r\n            displayMenu_Main();\r\n            choice = scanner.nextInt();\r\n\r\n            // 선택값에 대한 함수 실행 / 1. 학생 관리 / 2. 점수 관리 / 3. 종료 /\r\n            switch(choice) {\r\n                case 1:\r\n                    managementStudentInfo();\r\n                    break;\r\n                case 2:\r\n                    managementScoreInfo();\r\n                    break;\r\n                case 3:\r\n                    System.out.println(\"Terminate Management Program.\");\r\n                    stop_keyword = \"exit\";\r\n                    break;\r\n                default:\r\n                    System.out.println(\"Is not a valid choice.\\nInput right choice again.\");\r\n            }\r\n\r\n\r\n        } while(!stop_keyword.equals(\"exit\"));\r\n\r\n    }\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n    // 수강생 정보 관리\r\n    public static void managementStudentInfo() {\r\n        int choice;\r\n        String stop_keyword = \"\";\r\n\r\n        do {\r\n            // 학생 관린 메뉴 제공 및 선택값 받기\r\n            displayMenu_StudentManagement();\r\n            choice = scanner.nextInt();\r\n\r\n            // 선택값에 대한 함수 실행 / 1. 등록 / 2. 조회 / 3. 수정 / 4. 메인으로 /\r\n            switch(choice) {\r\n                case 1:\r\n                    break;\r\n                case 2:\r\n                    break;\r\n                case 3:\r\n                    break;\r\n                case 4:\r\n                    stop_keyword = \"exit\";\r\n                    break;\r\n                default:\r\n                    System.out.println(\"Is not a valid choice.\\nInput right choice again.\");\r\n            }\r\n\r\n        } while(!stop_keyword.equals(\"exit\"));\r\n    }\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n    // 점수 정보 관리\r\n    public static void managementScoreInfo() {\r\n        int choice;\r\n        String stop_keyword = \"\";\r\n\r\n        do {\r\n            // 점수 관리 메뉴 제공 및 선택값 받기\r\n            displayMenu_ScoreManagement();\r\n            choice = scanner.nextInt();\r\n\r\n            // 선택값에 대한 함수 실행 / 1. 등록 / 2. 조회 / 3. 수정 / 4. 메인으로 /\r\n            switch(choice) {\r\n                case 1:\r\n                    break;\r\n                case 2:\r\n                    break;\r\n                case 3:\r\n                    break;\r\n                case 4:\r\n                    stop_keyword = \"exit\";\r\n                    break;\r\n                default:\r\n                    System.out.println(\"Is not a valid choice.\\nInput right choice again.\");\r\n            }\r\n\r\n\r\n        } while(!stop_keyword.equals(\"exit\"));\r\n    }\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n    // 메뉴판들 모아둔 곳\r\n\r\n    public static void displayMenu_Main() {\r\n        System.out.println(\"\\t=========================================\");\r\n        System.out.println(\"\\t=         NBC management system         =\");\r\n        System.out.println(\"\\t=========================================\");\r\n        System.out.println(\"\\t=        What do you want to do?        =\");\r\n        System.out.println(\"\\t=---------------------------------------=\");\r\n        System.out.println(\"\\t=                                       =\");\r\n        System.out.println(\"\\t=         [1] Student Management        =\");\r\n        System.out.println(\"\\t=         [2] Score Management          =\");\r\n        System.out.println(\"\\t=         [3] Done                      =\");\r\n        System.out.println(\"\\t=                                       =\");\r\n        System.out.println(\"\\t=---------------------------------------=\");\r\n    }\r\n\r\n    public static void displayMenu_StudentManagement() {\r\n        System.out.println(\"\\t=========================================\");\r\n        System.out.println(\"\\t=    NBC management system  -  Student  =\");\r\n        System.out.println(\"\\t=========================================\");\r\n        System.out.println(\"\\t=        What do you want to do?        =\");\r\n        System.out.println(\"\\t=---------------------------------------=\");\r\n        System.out.println(\"\\t=                                       =\");\r\n        System.out.println(\"\\t=         [1] Add Student Info          =\");\r\n        System.out.println(\"\\t=         [2] Inquiry Student Info      =\");\r\n        System.out.println(\"\\t=         [3] Modify Student Info       =\");\r\n        System.out.println(\"\\t=         [4] Back to Main              =\");\r\n        System.out.println(\"\\t=                                       =\");\r\n        System.out.println(\"\\t=---------------------------------------=\");\r\n    }\r\n\r\n    public static void displayMenu_ScoreManagement() {\r\n        System.out.println(\"\\t=========================================\");\r\n        System.out.println(\"\\t=    NBC management system  -   Score   =\");\r\n        System.out.println(\"\\t=========================================\");\r\n        System.out.println(\"\\t=        What do you want to do?        =\");\r\n        System.out.println(\"\\t=---------------------------------------=\");\r\n        System.out.println(\"\\t=                                       =\");\r\n        System.out.println(\"\\t=         [1] Add Score Info            =\");\r\n        System.out.println(\"\\t=         [2] Inquiry Score Info        =\");\r\n        System.out.println(\"\\t=         [3] Modify Score Info         =\");\r\n        System.out.println(\"\\t=         [4] Back to Main              =\");\r\n        System.out.println(\"\\t=                                       =\");\r\n        System.out.println(\"\\t=---------------------------------------=\");\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Main.java b/src/Main.java
+--- a/src/Main.java	(revision ef1ee9cd586e3fb14efc6ed570fbf6f25839a8e8)
++++ b/src/Main.java	(date 1722510701682)
+@@ -1,3 +1,6 @@
++import Manager.ScoreManager;
++import Manager.StudentManager;
++
+ import java.util.Scanner;
+ 
+ public class Main {
+@@ -19,17 +22,18 @@
+             // 선택값에 대한 함수 실행 / 1. 학생 관리 / 2. 점수 관리 / 3. 종료 /
+             switch(choice) {
+                 case 1:
+-                    managementStudentInfo();
++                    managementStudentInfo(); // 수강생 관리 메뉴 출력
+                     break;
+                 case 2:
+-                    managementScoreInfo();
++                    managementScoreInfo(); // 점수 관리 메뉴 출력
+                     break;
+                 case 3:
+                     System.out.println("Terminate Management Program.");
+-                    stop_keyword = "exit";
++                    stop_keyword = "exit"; // 종료
+                     break;
+                 default:
+-                    System.out.println("Is not a valid choice.\nInput right choice again.");
++                    // 만일 지정된 값이 아닌 다른 값이 입력된 경우
++                    System.out.println("Is not a valid choice.\nInput right choice again.\n\n");
+             }
+ 
+ 
+@@ -39,12 +43,10 @@
+ 
+ 
+ 
+-
+-
+-
+-
+     // 수강생 정보 관리
+     public static void managementStudentInfo() {
++        StudentManager studentManager = new StudentManager();
++
+         int choice;
+         String stop_keyword = "";
+ 
+@@ -56,16 +58,20 @@
+             // 선택값에 대한 함수 실행 / 1. 등록 / 2. 조회 / 3. 수정 / 4. 메인으로 /
+             switch(choice) {
+                 case 1:
++                    studentManager.addData(); // 새로운 수강생 정보 추가
+                     break;
+                 case 2:
++                    studentManager.inquiryData(); // 등록된 수강생 정보 조회
+                     break;
+                 case 3:
++                    studentManager.modifyData(); // 등록된 수강생 정보 수정
+                     break;
+                 case 4:
+-                    stop_keyword = "exit";
++                    stop_keyword = "exit"; //그만 할래
+                     break;
+                 default:
+-                    System.out.println("Is not a valid choice.\nInput right choice again.");
++                    // 만일 지정된 값이 아닌 다른 값이 입력된 경우
++                    System.out.println("Is not a valid choice.\nInput right choice again.\n\n");
+             }
+ 
+         } while(!stop_keyword.equals("exit"));
+@@ -73,12 +79,10 @@
+ 
+ 
+ 
+-
+-
+-
+-
+     // 점수 정보 관리
+     public static void managementScoreInfo() {
++        ScoreManager scoreManager = new ScoreManager();
++
+         int choice;
+         String stop_keyword = "";
+ 
+@@ -90,16 +94,20 @@
+             // 선택값에 대한 함수 실행 / 1. 등록 / 2. 조회 / 3. 수정 / 4. 메인으로 /
+             switch(choice) {
+                 case 1:
++                    scoreManager.addData(); // 새로운 점수 정보 추가
+                     break;
+                 case 2:
++                    scoreManager.inquiryData(); // 등록된 점수 정보 조회
+                     break;
+                 case 3:
++                    scoreManager.modifyData(); // 등록된 점수 정보 수정
+                     break;
+                 case 4:
+-                    stop_keyword = "exit";
++                    stop_keyword = "exit"; // 그만 할래
+                     break;
+                 default:
+-                    System.out.println("Is not a valid choice.\nInput right choice again.");
++                    // 만일 지정된 값이 아닌 다른 값이 입력된 경우
++                    System.out.println("Is not a valid choice.\nInput right choice again.\n\n");
+             }
+ 
+ 
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"cf189fc3-f77d-48e9-9622-67b7b4e25083\" name=\"Changes\" comment=\"\">\r\n      <change beforePath=\"$PROJECT_DIR$/src/Data/ScoreData.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/Data/ScoreData.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/Data/StudentData.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/Data/StudentData.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n        &quot;associatedIndex&quot;: 0\r\n        }</component>\r\n  <component name=\"ProjectId\" id=\"2jfcNaeLbqCkc1Npe0dLuc087f4\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\">\r\n    <ConfirmationsSetting value=\"1\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"Application.Main.executor\": \"Run\",\r\n    \"Application.Test.executor\": \"Run\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"git-widget-placeholder\": \"data\",\r\n    \"ignore.virus.scanning.warn.message\": \"true\",\r\n    \"kotlin-language-version-configured\": \"true\",\r\n    \"last_opened_file_path\": \"C:/Users/momiz/Desktop/camp-management-app\",\r\n    \"node.js.detected.package.eslint\": \"true\",\r\n    \"node.js.detected.package.tslint\": \"true\",\r\n    \"node.js.selected.package.eslint\": \"(autodetect)\",\r\n    \"node.js.selected.package.tslint\": \"(autodetect)\",\r\n    \"nodejs_package_manager_path\": \"npm\",\r\n    \"vue.rearranger.settings.migration\": \"true\"\r\n  }\r\n}]]></component>\r\n  <component name=\"SharedIndexes\">\r\n    <attachedChunks>\r\n      <set>\r\n        <option value=\"bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.18034.62\" />\r\n        <option value=\"bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.18034.62\" />\r\n      </set>\r\n    </attachedChunks>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"cf189fc3-f77d-48e9-9622-67b7b4e25083\" name=\"Changes\" comment=\"\" />\r\n      <created>1721781533222</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1721781533222</updated>\r\n      <workItem from=\"1721781534251\" duration=\"2073000\" />\r\n      <workItem from=\"1721785764900\" duration=\"20474000\" />\r\n      <workItem from=\"1721871771017\" duration=\"27192000\" />\r\n      <workItem from=\"1721953191844\" duration=\"13411000\" />\r\n      <workItem from=\"1721975888444\" duration=\"19392000\" />\r\n      <workItem from=\"1721997491390\" duration=\"1051000\" />\r\n      <workItem from=\"1722000498837\" duration=\"12000\" />\r\n      <workItem from=\"1722216063680\" duration=\"26779000\" />\r\n      <workItem from=\"1722254719985\" duration=\"291000\" />\r\n      <workItem from=\"1722303715697\" duration=\"1946000\" />\r\n      <workItem from=\"1722320389452\" duration=\"316000\" />\r\n      <workItem from=\"1722320716980\" duration=\"3774000\" />\r\n      <workItem from=\"1722335520092\" duration=\"7735000\" />\r\n      <workItem from=\"1722386866619\" duration=\"123000\" />\r\n      <workItem from=\"1722387984432\" duration=\"428000\" />\r\n      <workItem from=\"1722404474164\" duration=\"117000\" />\r\n      <workItem from=\"1722405397851\" duration=\"55000\" />\r\n      <workItem from=\"1722408597425\" duration=\"1538000\" />\r\n      <workItem from=\"1722412092936\" duration=\"25000\" />\r\n      <workItem from=\"1722412229385\" duration=\"22000\" />\r\n      <workItem from=\"1722427178031\" duration=\"276000\" />\r\n      <workItem from=\"1722475183684\" duration=\"58000\" />\r\n    </task>\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State>\r\n              <option name=\"CUSTOM_BOOLEAN_PROPERTIES\">\r\n                <map>\r\n                  <entry key=\"Show.Git.Branches\" value=\"true\" />\r\n                </map>\r\n              </option>\r\n            </State>\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"\" />\r\n  </component>\r\n  <component name=\"XDebuggerManager\">\r\n    <breakpoint-manager>\r\n      <breakpoints>\r\n        <breakpoint enabled=\"true\" type=\"java-exception\">\r\n          <properties class=\"java.util.InputMismatchException\" package=\"java.util\" />\r\n          <option name=\"timeStamp\" value=\"1\" />\r\n        </breakpoint>\r\n      </breakpoints>\r\n    </breakpoint-manager>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision ef1ee9cd586e3fb14efc6ed570fbf6f25839a8e8)
++++ b/.idea/workspace.xml	(date 1722509884828)
+@@ -4,9 +4,9 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="cf189fc3-f77d-48e9-9622-67b7b4e25083" name="Changes" comment="">
+-      <change beforePath="$PROJECT_DIR$/src/Data/ScoreData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Data/ScoreData.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/Data/StudentData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Data/StudentData.java" afterDir="false" />
++    <list default="true" id="cf189fc3-f77d-48e9-9622-67b7b4e25083" name="Changes" comment="App, Data merge">
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -18,6 +18,13 @@
+       <list>
+         <option value="Class" />
+       </list>
++    </option>
++  </component>
++  <component name="Git.Pull.Settings">
++    <option name="OPTIONS">
++      <set>
++        <option value="REBASE" />
++      </set>
+     </option>
+   </component>
+   <component name="Git.Settings">
+@@ -34,23 +41,23 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent"><![CDATA[{
+-  "keyToString": {
+-    "Application.Main.executor": "Run",
+-    "Application.Test.executor": "Run",
+-    "RunOnceActivity.ShowReadmeOnStart": "true",
+-    "git-widget-placeholder": "data",
+-    "ignore.virus.scanning.warn.message": "true",
+-    "kotlin-language-version-configured": "true",
+-    "last_opened_file_path": "C:/Users/momiz/Desktop/camp-management-app",
+-    "node.js.detected.package.eslint": "true",
+-    "node.js.detected.package.tslint": "true",
+-    "node.js.selected.package.eslint": "(autodetect)",
+-    "node.js.selected.package.tslint": "(autodetect)",
+-    "nodejs_package_manager_path": "npm",
+-    "vue.rearranger.settings.migration": "true"
++  <component name="PropertiesComponent">{
++  &quot;keyToString&quot;: {
++    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
++    &quot;Application.Test.executor&quot;: &quot;Run&quot;,
++    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
++    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
++    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
++    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
++    &quot;last_opened_file_path&quot;: &quot;C:/Users/momiz/Desktop/camp-management-app&quot;,
++    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
++    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
++    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
++    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
++    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
++    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+   }
+-}]]></component>
++}</component>
+   <component name="SharedIndexes">
+     <attachedChunks>
+       <set>
+@@ -90,6 +97,15 @@
+       <workItem from="1722427178031" duration="276000" />
+       <workItem from="1722475183684" duration="58000" />
+     </task>
++    <task id="LOCAL-00001" summary="App, Data merge">
++      <option name="closed" value="true" />
++      <created>1722499056259</created>
++      <option name="number" value="00001" />
++      <option name="presentableId" value="LOCAL-00001" />
++      <option name="project" value="LOCAL" />
++      <updated>1722499056259</updated>
++    </task>
++    <option name="localTasksCounter" value="2" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -113,7 +129,8 @@
+     </option>
+   </component>
+   <component name="VcsManagerConfiguration">
+-    <option name="LAST_COMMIT_MESSAGE" value="" />
++    <MESSAGE value="App, Data merge" />
++    <option name="LAST_COMMIT_MESSAGE" value="App, Data merge" />
+   </component>
+   <component name="XDebuggerManager">
+     <breakpoint-manager>
