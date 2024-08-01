@@ -1,39 +1,59 @@
+
+
 package Data;
 
 import java.util.ArrayList;
 
 public class StudentData {
-    int studentId;
-    String studentName;
-    final ArrayList<String> subjectList = new ArrayList<>();
+    protected ScoreData scoreData;
+    protected SubjectData subjectData;
+    protected int studentId;
+    protected String studentName;
+    protected ArrayList<String> subjectList = new ArrayList();
 
     public StudentData(int studentId) {
         this.studentId = studentId;
+        this.subjectData = new SubjectData();
+        this.scoreData = new ScoreData(studentId);
     }
-    ScoreData scoredata = new ScoreData(studentId);
-    SubjectData subjectData=new SubjectData(studentId);
 
-    private int getStudentId() {
+    public void setScoreList(int score, String subjectType) {
+        this.scoreData.setScoreList(score, subjectType);
+    }
+
+    public ArrayList<String> getGradeList() {
+        return this.scoreData.getGradeList();
+    }
+
+    public ArrayList<String> getScoreList() {
+        return this.scoreData.getScoreList();
+    }
+
+    public int getStudentId() {
         return this.studentId;
     }
-    private void setStudentId(int studentName) {
+
+    public void setStudentId(int studentName) {
         this.studentId = studentName;
     }
 
-
-    private String getStudentName() {
-        return studentName;
+    public ArrayList<String[]> getSubjectDataSubjectList() {
+        return this.subjectData.getSubjectList();
     }
-    private void setStudentName(String name) {
+
+    public String getStudentName() {
+        return this.studentName;
+    }
+
+    public void setStudentName(String name) {
         this.studentName = name;
     }
-
 
     public ArrayList<String> getSubjectList() {
         return this.subjectList;
     }
+
     public void addSubject(String subject) {
         this.subjectList.add(subject);
     }
-
 }

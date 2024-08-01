@@ -1,50 +1,46 @@
+
 package Data;
 
 import java.util.ArrayList;
 
 public class SubjectData {
-    int studentId;
-    int subjectId;
-    String subjectName;
-    String subjectType;
-    public SubjectData(int subjectId) {
-        this.subjectId = subjectId;
-    }
-    ArrayList<String[]> subjectList = new ArrayList<>();
+    protected int subjectId;
+    protected String subjectName;
+    protected String subjectType;
+    ArrayList<String[]> subjectList = new ArrayList();
 
-    private int getSubjectId() {
+    public SubjectData() {
+    }
+
+    public int getSubjectId() {
         return this.subjectId;
     }
 
-    private void getSubjectId(int subjectId) {
+    public void getSubjectId(int subjectId) {
         this.subjectId = subjectId;
     }
 
-
-    private String getSubjectName() {
-        return subjectName;
+    public String getSubjectName() {
+        return this.subjectName;
     }
 
-    private void setSubjectName(String subjectName) {
+    public void setSubjectName(String subjectName) {
         this.subjectName = subjectName;
     }
 
-
-    private String getSubjectType() {
-        return subjectType;
+    public String getSubjectType() {
+        return this.subjectType;
     }
 
-    private void setSubjectType(String subjectType) {
+    public void setSubjectType(String subjectType) {
         this.subjectType = subjectType;
     }
 
-
     public void addSubject(String[] subjectDetails) {
-        subjectList.add(subjectDetails);
+        this.subjectList.add(subjectDetails);
     }
 
     public ArrayList<String[]> getSubjectList() {
         return this.subjectList;
     }
-
 }
