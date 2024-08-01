@@ -8,7 +8,10 @@ public class SubjectData {
     String subjectType;
 
     ArrayList<String[]> subjectList = new ArrayList<>();
+    public SubjectData() {
 
+
+    }
     private int getSubjectId() {
         return this.subjectId;
     }
