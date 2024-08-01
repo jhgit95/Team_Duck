@@ -32,7 +32,7 @@ public class Main {
                     stop_keyword = "exit";
                     break;
                 default:
-                    System.out.println("Is not a valid choice.\nInput right choice again.");
+                    System.out.println("Is not a valid choice.\nInput right choice again.\n");
             }
 
 
@@ -69,7 +69,7 @@ public class Main {
                     stop_keyword = "exit";
                     break;
                 default:
-                    System.out.println("Is not a valid choice.\nInput right choice again.");
+                    System.out.println("Is not a valid choice.\nInput right choice again.\n");
             }
 
         } while(!stop_keyword.equals("exit"));
@@ -104,7 +104,7 @@ public class Main {
                     stop_keyword = "exit";
                     break;
                 default:
-                    System.out.println("Is not a valid choice.\nInput right choice again.");
+                    System.out.println("Is not a valid choice.\nInput right choice again.\n");
             }
 
 
@@ -127,7 +127,7 @@ public class Main {
         System.out.println("\t=         [2] Score Management          =");
         System.out.println("\t=         [3] Done                      =");
         System.out.println("\t=                                       =");
-        System.out.println("\t=---------------------------------------=");
+        System.out.println("\t=---------------------------------------=\n");
     }
 
     public static void displayMenu_StudentManagement() {
@@ -142,7 +142,7 @@ public class Main {
         System.out.println("\t=         [3] Modify Student Info       =");
         System.out.println("\t=         [4] Back to Main              =");
         System.out.println("\t=                                       =");
-        System.out.println("\t=---------------------------------------=");
+        System.out.println("\t=---------------------------------------=\n");
     }
 
     public static void displayMenu_ScoreManagement() {
@@ -157,6 +157,6 @@ public class Main {
         System.out.println("\t=         [3] Modify Score Info         =");
         System.out.println("\t=         [4] Back to Main              =");
         System.out.println("\t=                                       =");
-        System.out.println("\t=---------------------------------------=");
+        System.out.println("\t=---------------------------------------=\n");
     }
 }
