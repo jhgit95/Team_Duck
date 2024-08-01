@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-<<<<<<< HEAD
-    <list default="true" id="89b46f06-f4f3-4614-a9ff-318e35eaa832" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-=======
+
     <list default="true" id="cf189fc3-f77d-48e9-9622-67b7b4e25083" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
@@ -15,7 +12,11 @@
       <change beforePath="$PROJECT_DIR$/src/Data/StudentData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Data/StudentData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Data/SubjectData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Data/SubjectData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/StudentInfo/Inquiry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/StudentInfo/Inquiry.java" afterDir="false" />
->>>>>>> 583d268cd2bcf9bfa746fdea2637b8c7ddb91bff
+
+    <list default="true" id="cf189fc3-f77d-48e9-9622-67b7b4e25083" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/src/Data/ScoreData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Data/ScoreData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Data/StudentData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Data/StudentData.java" afterDir="false" />
+
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,11 +34,11 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 7
-}</component>
-  <component name="ProjectId" id="2k2NzZ5BRrU8LuMEtQ23Ma6lcek" />
+        &quot;associatedIndex&quot;: 0
+        }</component>
+  <component name="ProjectId" id="2jfcNaeLbqCkc1Npe0dLuc087f4" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <ConfirmationsSetting value="2" id="Add" />
+    <ConfirmationsSetting value="1" id="Add" />
   </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -46,18 +47,17 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.Main.executor": "Run",
+    "Application.Test.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "data",
+    "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/coding/nbc/project/juhoPersonalTask",
+    "last_opened_file_path": "C:/Users/momiz/Desktop/camp-management-app",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -86,17 +86,73 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="89b46f06-f4f3-4614-a9ff-318e35eaa832" name="Changes" comment="" />
-      <created>1722477975827</created>
+      <changelist id="cf189fc3-f77d-48e9-9622-67b7b4e25083" name="Changes" comment="" />
+      <created>1721781533222</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
+
       <updated>1722477975827</updated>
       <workItem from="1722477976854" duration="772000" />
       <workItem from="1722479467838" duration="15301000" />
+
+      <updated>1721781533222</updated>
+      <workItem from="1721781534251" duration="2073000" />
+      <workItem from="1721785764900" duration="20474000" />
+      <workItem from="1721871771017" duration="27192000" />
+      <workItem from="1721953191844" duration="13411000" />
+      <workItem from="1721975888444" duration="19392000" />
+      <workItem from="1721997491390" duration="1051000" />
+      <workItem from="1722000498837" duration="12000" />
+      <workItem from="1722216063680" duration="26779000" />
+      <workItem from="1722254719985" duration="291000" />
+      <workItem from="1722303715697" duration="1946000" />
+      <workItem from="1722320389452" duration="316000" />
+      <workItem from="1722320716980" duration="3774000" />
+      <workItem from="1722335520092" duration="7735000" />
+      <workItem from="1722386866619" duration="123000" />
+      <workItem from="1722387984432" duration="428000" />
+      <workItem from="1722404474164" duration="117000" />
+      <workItem from="1722405397851" duration="55000" />
+      <workItem from="1722408597425" duration="1538000" />
+      <workItem from="1722412092936" duration="25000" />
+      <workItem from="1722412229385" duration="22000" />
+      <workItem from="1722427178031" duration="276000" />
+      <workItem from="1722475183684" duration="58000" />
+
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="true" />
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="LAST_COMMIT_MESSAGE" value="" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.util.InputMismatchException" package="java.util" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

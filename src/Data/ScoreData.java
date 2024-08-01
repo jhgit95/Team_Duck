@@ -10,8 +10,10 @@ public class ScoreData {
     protected char grade;
     protected final ArrayList<String> ScoreList;
     protected final ArrayList<String> GradeList;
+
     public void setScoreList(int score,String subjectType){
         ScoreList.add(String.valueOf(score));
+
         //subjectType==R이면 필수과목
         if(subjectType.equals("R")){
             if (score >= 95) {
@@ -28,6 +30,7 @@ public class ScoreData {
                 GradeList.add("N");
             }
         }
+
         //선택과목
         else if(subjectType.equals("E")){
             if (score >= 90) {
@@ -48,8 +51,6 @@ public class ScoreData {
         else{
             //예외처리필요
         }
-
-
 
     }
     public ArrayList<String> getScoreList(){
