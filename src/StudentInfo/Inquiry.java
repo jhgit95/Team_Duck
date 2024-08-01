@@ -1,12 +1,12 @@
 package StudentInfo;
-//import data.*;
+import Data.*;
 import javax.xml.crypto.Data;
 import java.util.ArrayList;
 
 public class Inquiry {
     Integer studentId=0;
+    StudentData studentData;
     public Inquiry(Integer studentId){
-        StudentData studentdata=new StudentData(studentId);
         this.studentId=studentId;
     }
 
@@ -14,9 +14,9 @@ public class Inquiry {
     {
 
 
-        String Name=studentdata.getStudentName(studentId);
+        String Name=studentData.getStudentName(studentId);
 
-        ArrayList<String> subjectList=studentdata.getStudentSubjectList();
+        ArrayList<String> subjectList=studentData.getStudentSubjectList();
 
         System.out.println("학생 번호:"+studentId);
         System.out.println("학생 이름:"+Name);
