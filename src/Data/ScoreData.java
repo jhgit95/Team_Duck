@@ -65,42 +65,42 @@ public class ScoreData {
         GradeList = new ArrayList<String>();
 
     }
-    private int getSubjectId() {
+    public int getSubjectId() {
         return this.subjectId;
     }
-    private void setSubjectId(int subjectId) {
+    public void setSubjectId(int subjectId) {
         this.subjectId = subjectId;
     }
 
 
-    private int getStudentId() {
+    public int getStudentId() {
         return this.studentId;
     }
-    private void setStudentId(int studentId) {
+    public void setStudentId(int studentId) {
         this.studentId = studentId;
     }
 
 
-    private int getRound() {
+    public int getRound() {
         return this.round;
     }
-    private void setRound(int round) {
+    public void setRound(int round) {
         this.round = round;
     }
 
 
-    private int getsSore() {
+    public int getsSore() {
         return this.score;
     }
-    private void setsSore(int score) {
+    public void setsSore(int score) {
         this.score = score;
     }
 
 
-    private char getGrade() {
+    public char getGrade() {
         return this.grade;
     }
-    private void setGrade(char grade) {
+    public void setGrade(char grade) {
         this.grade = grade;
     }
 
