@@ -6,9 +6,11 @@ public class StudentData {
     ScoreData scoreData;
     SubjectData subjectData;
     //객체생성 각각 ScoreData,SubjectData
-    int studentId;
-    String studentName;
+    protected int studentId;
+    protected String studentName;
     ArrayList<String> subjectList = new ArrayList<>();
+
+    String studentState;
 
     public StudentData(int studentId) {
         this.studentId = studentId;
@@ -55,6 +57,13 @@ public class StudentData {
     }
     public void addSubject(String subject) {
         this.subjectList.add(subject);
+    }
+
+    public String getStudentState(){
+        return studentState;
+    }
+    public void setStudentState(String state){
+        this.studentState=state;
     }
 
 }
