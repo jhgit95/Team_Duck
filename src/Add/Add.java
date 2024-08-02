@@ -1,6 +1,9 @@
 package Add;
 
 
+import Data.StudentData;
+
+import java.util.ArrayList;
 
 public class Add {
     int studentId;
@@ -9,13 +12,8 @@ public class Add {
     String subjectId;
     String subjectName; // Java, 객체지향, Spring, JPA, MySQL
     String subsubjectName; // 디자인 패턴, Spring Security, Redis, MongoDB
+    String State;
 
-
-
-    public void Student(String studentname){
-        studentName = studentname;
-        studentId = number;
-        number++;
     }
 
 
@@ -23,6 +21,5 @@ public class Add {
 
     }
 
-
-
 }
+
