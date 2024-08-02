@@ -20,7 +20,7 @@ public class Add {
 
 
     public void Subject(String subjectName){
-        subjectId =
+
     }
 
 

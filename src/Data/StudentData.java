@@ -6,9 +6,11 @@ public class StudentData {
     ScoreData scoreData;
     SubjectData subjectData;
     //객체생성 각각 ScoreData,SubjectData
-    int studentId;
-    String studentName;
+    protected int studentId;
+    protected String studentName;
     ArrayList<String> subjectList = new ArrayList<>();
+
+    String studentState;
 
     public StudentData(int studentId) {
         this.studentId = studentId;
@@ -16,8 +18,8 @@ public class StudentData {
         this.scoreData=new ScoreData(studentId);
         //각객체를 Student객체에 종속시킴
     }
-    public void setScoreList(int score,String subjectType){
-        scoreData.setScoreList(score,subjectType);
+    public void setScoreList(int score,String subjectType, int round){
+        scoreData.setScoreList(score,subjectType, round);
     }
     public ArrayList<String> getGradeList(){
         return scoreData.getGradeList();
@@ -26,6 +28,9 @@ public class StudentData {
     public ArrayList<String> getScoreList(){
         return scoreData.getScoreList();
         //종속된 ScoreData객체로 만든 scoreData내부 메서드 getScoreList()를실행시킴
+    }
+    public ArrayList<String[]> getSubjectDataSubjectList() {
+        return this.subjectData.getSubjectList();
     }
 
 
@@ -52,6 +57,29 @@ public class StudentData {
     }
     public void addSubject(String subject) {
         this.subjectList.add(subject);
+    }
+
+    public String getStudentState(){
+        return studentState;
+    }
+    public void setStudentState(String state){
+        this.studentState=state;
+    }
+
+    // 이 아래는 전부 테스트에 사용되는 메서드
+
+    public void testStudentInit(){
+        this.studentId=999;
+        this.studentName="Test Student";
+        this.studentState="Green";
+        scoreData.setScoreList(100,"R", 1);
+    }
+
+    public void testStudentInput(int id, String name, String state, int score, String type,int round){
+        this.studentId=id;
+        this.studentName=name;
+        this.studentState=state;
+        scoreData.setScoreList(score,type,round);
     }
 
 }
