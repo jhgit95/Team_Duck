@@ -27,6 +27,9 @@ public class StudentData {
         return scoreData.getScoreList();
         //종속된 ScoreData객체로 만든 scoreData내부 메서드 getScoreList()를실행시킴
     }
+    public ArrayList<String[]> getSubjectDataSubjectList() {
+        return this.subjectData.getSubjectList();
+    }
 
 
     //내부 get,set메서들은 private으로 하면 접근할수 없음
