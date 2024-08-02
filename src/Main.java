@@ -1,11 +1,17 @@
+import Data.ScoreData;
+import Data.StudentData;
 import Manager.ScoreManager;
 import Manager.StudentManager;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
 
     private static Scanner scanner = new Scanner(System.in);
+    public static List<StudentData> studentList = new ArrayList<>();
+    public static List<ScoreData> scoreList = new ArrayList<>();
 
 
     public static void main(String[] args) {
@@ -45,7 +51,7 @@ public class Main {
 
     // 수강생 정보 관리
     public static void managementStudentInfo() {
-        StudentManager studentManager = new StudentManager();
+        StudentManager studentManager = new StudentManager(studentList);
         int choice;
         String stop_keyword = "";
 
@@ -60,10 +66,12 @@ public class Main {
                     studentManager.addData();
                     break;
                 case 2:
-                    studentManager.inquiryData();
+                    System.out.println("Please enter Student ID to inquire data");
+                    studentManager.inquiryData(scanner.nextInt());
                     break;
                 case 3:
-                    studentManager.modifyData();
+                    System.out.println("Please enter Student ID to modify data");
+                    studentManager.modifyData(scanner.nextInt());
                     break;
                 case 4:
                     stop_keyword = "exit";
@@ -80,7 +88,7 @@ public class Main {
 
     // 점수 정보 관리
     public static void managementScoreInfo() {
-        ScoreManager scoreManager = new ScoreManager();
+        ScoreManager scoreManager = new ScoreManager(studentList);
         int choice;
         String stop_keyword = "";
 
@@ -92,13 +100,16 @@ public class Main {
             // 선택값에 대한 함수 실행 / 1. 등록 / 2. 조회 / 3. 수정 / 4. 메인으로 /
             switch(choice) {
                 case 1:
+                    System.out.println("Please enter data");
                     scoreManager.addData();
                     break;
                 case 2:
-                    scoreManager.inquiryData();
+                    System.out.println("Please enter Student ID to inquire data");
+                    scoreManager.inquiryData(scanner.nextInt());
                     break;
                 case 3:
-                    scoreManager.modifyData();
+                    System.out.println("Please enter Student ID to inquire data");
+                    scoreManager.modifyData(scanner.nextInt());
                     break;
                 case 4:
                     stop_keyword = "exit";
