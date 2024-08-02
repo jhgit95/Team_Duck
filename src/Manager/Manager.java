@@ -1,16 +1,15 @@
 package Manager;
 import java.util.List;
 
-// Add, Inquiry, Z
 public abstract class Manager {
 
-    protected List<String[]> dataList;
+    //protected List<String[]> dataList;
 
-    public abstract void addData();
+    abstract void addData();
 
-    public abstract void inquiryData(int id);
+    abstract void inquiryData();
 
-    public abstract void modifyData(int id);
+    abstract void modifyData();
 
     /*
     // 데이터 리스트를 파일로 저장하는 메서드
