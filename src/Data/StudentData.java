@@ -3,67 +3,68 @@ package Data;
 import java.util.ArrayList;
 
 public class StudentData {
-    ScoreData scoreData;
-    SubjectData subjectData;
-    //객체생성 각각 ScoreData,SubjectData
-    protected int studentId;
-    protected String studentName;
-    ArrayList<String> subjectList = new ArrayList<>();
 
+    protected Integer studentId;
+    protected String studentName;
+    protected Integer subjectId;
+    //리스트에 들어갈 요소가 많아지면 개수 수정
+    protected final Integer scoreMaxElement=4;
+    //리스트에 들어갈 요소가 많아지면 개수 수정
+    protected final ArrayList<String> subjectList = new ArrayList<>();
+    protected final ArrayList<String>[] scoreList= new ArrayList[scoreMaxElement];
+    //[0][0] [][1] [][2] [][3]
     String studentState;
 
-    public StudentData(int studentId) {
+    public StudentData(Integer studentId) {
         this.studentId = studentId;
-        this.subjectData=new SubjectData();
-        this.scoreData=new ScoreData(studentId);
         //각객체를 Student객체에 종속시킴
     }
-    public void setScoreList(int score,String subjectType){
-        scoreData.setScoreList(score,subjectType);
+    public Integer getStudentId() {
+        return studentId;
     }
-    public ArrayList<String> getGradeList(){
-        return scoreData.getGradeList();
-        //종속된 ScoreData객체로 만든 scoreData내부 메서드 getGradeList()를실행시킴
-    }
-    public ArrayList<String> getScoreList(){
-        return scoreData.getScoreList();
-        //종속된 ScoreData객체로 만든 scoreData내부 메서드 getScoreList()를실행시킴
-    }
-    public ArrayList<String[]> getSubjectDataSubjectList() {
-        return this.subjectData.getSubjectList();
-    }
-
-
-    //내부 get,set메서들은 private으로 하면 접근할수 없음
-    public int getStudentId() {
-        return this.studentId;
-    }
-
-    public void setStudentId(int studentName) {
-        this.studentId = studentName;
-    }
-
-
     public String getStudentName() {
         return studentName;
+    }
+    public ArrayList<String> getSubjectList() {
+        return subjectList;
+    }
+    public ArrayList<String>[] getScoreList(){
+        return scoreList;
+        //종속된 ScoreData객체로 만든 scoreData내부 메서드 getScoreList()를실행시킴
+    }
+    public void setStudentId(Integer studentId) {
+        this.studentId = studentId;
     }
     public void setStudentName(String name) {
         this.studentName = name;
     }
-
-
-    public ArrayList<String> getSubjectList() {
-        return this.subjectList;
-    }
+    //나중에 기능제거필요
     public void addSubject(String subject) {
         this.subjectList.add(subject);
     }
-
     public String getStudentState(){
         return studentState;
     }
     public void setStudentState(String state){
         this.studentState=state;
+    }
+
+    // 이 아래는 전부 테스트에 사용되는 메서드
+
+
+
+    public void testStudentInit(){
+        this.studentId=999;
+        this.studentName="Test Student";
+        this.studentState="Green";
+        //setScoreList(100,"R", 1);
+    }
+
+    public void testStudentInput(int id, String name, String state, int score, String type,int round){
+        this.studentId=id;
+        this.studentName=name;
+        this.studentState=state;
+        //setScoreList(score,type,round);
     }
 
 }

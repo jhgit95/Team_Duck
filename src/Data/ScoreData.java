@@ -6,14 +6,16 @@ public class ScoreData {
     protected int subjectId;
     protected int studentId;
     protected int round;
-    //round수정필요
     protected int score;
     protected char grade;
     protected final ArrayList<String> ScoreList;
     protected final ArrayList<String> GradeList;
 
-    public void setScoreList(int score,String subjectType){
+    public void setScoreList(int score,String subjectType,int round){
+        //[][0] round [][1] score [][2]subjectType
+        //값 입력이끝나면 count++
         ScoreList.add(String.valueOf(score));
+        this.round=round;
 
         //subjectType==R이면 필수과목
         if(subjectType.equals("R")){
@@ -104,6 +106,22 @@ public class ScoreData {
     }
     public void setGrade(char grade) {
         this.grade = grade;
+    }
+    // 이 아래는 전부 테스트에 사용되는 메서드
+    public void testScoreInit(){
+        this.subjectId=1000;
+        this.studentId=10000;
+        this.round=10000;
+        this.score=10000;
+        this.grade='T';
+    }
+
+    public void testScoreInput(int subId, int stuId, int r, int s, char g){
+        this.subjectId=subId;
+        this.studentId=stuId;
+        this.round=r;
+        this.score=s;
+        this.grade=g;
     }
 
 }

@@ -13,33 +13,49 @@ public class Main {
 
     public static void main(String[] args) {
         List<StudentData> students = new ArrayList();
-        //studentData객체를 담는 students
-        StudentData student = new StudentData(1);
-        student.setScoreList(91, "R");
-        student.addSubject("자바");
-        student.setStudentName("이길환");
+        Inquiry inquiry=new Inquiry();
+        StudentData student;
+        TestData testData=new TestData();
+
+        student=new StudentData(0);
+        testData.TestDataInput(student);
         students.add(student);
-
-        Inquiry inquiry = new Inquiry((StudentData)students.get(0));
-        inquiry.InquiryStudentInfo();
-        inquiry.InquirySubjectInfo();
-        inquiry.InquiryScoreInfo();
-
-        student = new StudentData(2);
-        student.setScoreList(75, "E");
-        student.addSubject("Spring");
-        student.setStudentName("김길환");
+        inquiry.InquiryStudentInfo(student);
+        student=new StudentData(1);
+        testData.TestDataInput(student);
         students.add(student);
-        inquiry = new Inquiry((StudentData)students.get(1));
-        inquiry.InquiryStudentInfo();
-        inquiry.InquirySubjectInfo();
-        inquiry.InquiryScoreInfo();
+        inquiry.InquiryStudentInfo(student);
+        student=new StudentData(2);
+        testData.TestDataInput(student);
+        students.add(student);
+        inquiry.InquiryStudentInfo(student);
+        student=new StudentData(3);
+        testData.TestDataInput(student);
+        students.add(student);
+        inquiry.InquiryStudentInfo(student);
+        student=new StudentData(4);
+        testData.TestDataInput(student);
+        students.add(student);
+        inquiry.InquiryStudentInfo(student);
+        student=new StudentData(5);
+        testData.TestDataInput(student);
+        students.add(student);
+        inquiry.InquiryStudentInfo(student);
+        student=new StudentData(6);
+        testData.TestDataInput(student);
+        students.add(student);
+        inquiry.InquiryStudentInfo(student);
+        student=new StudentData(7);
+        testData.TestDataInput(student);
+        students.add(student);
+        inquiry.InquiryStudentInfo(student);
+        inquiry.InquiryStudentsList(students);
+        inquiry.InquiryByState(students);
 
 
 
 
-
-
+        /*
         int choice;
         String stop_keyword = "";
 
@@ -198,5 +214,7 @@ public class Main {
         System.out.println("\t=         [4] Back to Main              =");
         System.out.println("\t=                                       =");
         System.out.println("\t=---------------------------------------=\n");
+
+         */
     }
 }
