@@ -1,8 +1,4 @@
-
-
 package StudentInfo;
-
-import Data.ScoreData;
 import Data.StudentData;
 import Data.SubjectData;
 
@@ -61,14 +57,14 @@ public class Inquiry {
     }
     public void InquiryScoreInfo(StudentData studentData) {
         String Name = studentData.getStudentName();
+        //넘겨받은객체에서 이름받아오기
         ArrayList<String>[] scoreList = studentData.getScoreList();
+        //넘겨받은객체에서 점수리스트2차원배열로 가져오기
         System.out.println(Name + "님의 점수는");
 
         for(int i = 0; i < scoreList.length; ++i) {
-            for(int j=0; j < scoreList.length; ++j) {
-
-                //System.out.println(scoreList[i].get(j)+"과목의 점수는 :"++"등급은 :" +);
-            }
+                //System.out.println(scoreList[i].get(0)+"과목의"+scoreList[i].get(1) +"점수는 :"+scoreList[i].get(2)+"등급은 :"+scoreList[i].get(3));
+                //[0][0] [0][1] [0][2] [0][3] 순서로 출력
         }
 
     }

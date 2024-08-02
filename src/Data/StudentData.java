@@ -11,13 +11,13 @@ public class StudentData {
     protected final Integer scoreMaxElement=4;
     //리스트에 들어갈 요소가 많아지면 개수 수정
     protected final ArrayList<String> subjectList = new ArrayList<>();
+    //과목담을 리스트
     protected final ArrayList<String>[] scoreList= new ArrayList[scoreMaxElement];
     //[0][0] [][1] [][2] [][3]
     String studentState;
 
     public StudentData(Integer studentId) {
         this.studentId = studentId;
-        //각객체를 Student객체에 종속시킴
     }
     public Integer getStudentId() {
         return studentId;
@@ -30,7 +30,6 @@ public class StudentData {
     }
     public ArrayList<String>[] getScoreList(){
         return scoreList;
-        //종속된 ScoreData객체로 만든 scoreData내부 메서드 getScoreList()를실행시킴
     }
     public void setStudentId(Integer studentId) {
         this.studentId = studentId;
