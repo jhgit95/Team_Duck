@@ -106,6 +106,7 @@ public class Main {
             // 선택값에 대한 함수 실행 / 1. 등록 / 2. 조회 / 3. 수정 / 4. 메인으로 /
             switch(choice) {
                 case 1:
+                    System.out.println("Please enter data to add data");
                     studentManager.addData();
                     break;
                 case 2:
