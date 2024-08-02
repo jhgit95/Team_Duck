@@ -3,12 +3,21 @@ package StudentInfo;
 import Data.ScoreData;
 import Data.StudentData;
 
+import java.util.ArrayList;
+
 public class Modify {
     public Modify(){
 
     }
 
-    public StudentData StudentInfoModify(StudentData studentData){
+    public ArrayList<StudentData> StudentInfoModify(ArrayList<StudentData> studentData){
+        
+
+
+
+
+
+
         return studentData;
     }
 
