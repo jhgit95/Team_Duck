@@ -12,6 +12,10 @@ public class ScoreData {
     protected final ArrayList<String> GradeList;
 
     public void setScoreList(int score,String subjectType,int round){
+
+        //[][0] round [][1] score [][2]subjectType
+        //값 입력이끝나면 count++
+
         ScoreList.add(String.valueOf(score));
         this.round=round;
 
