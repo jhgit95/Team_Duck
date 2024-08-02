@@ -1,7 +1,5 @@
 
-import Data.ScoreData;
-import Data.StudentData;
-import Data.SubjectData;
+import Add.Add;
 
 import java.util.Scanner;
 
