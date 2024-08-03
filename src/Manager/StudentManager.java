@@ -4,8 +4,9 @@ public class StudentManager extends Manager {
 
     // private Add addStudent;
     // private Inquiry inquiryStudent
-    // private Modify modifyStudent
+    // private Modify modifyStudent;
     public StudentManager() {
+
         // 초기화
     }
 
