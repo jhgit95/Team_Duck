@@ -132,12 +132,12 @@ public class StudentData {
 //        this.subjectList.add(subject);
 //    }
 
-//    public String getStudentState(){
-//        return studentState;
-//    }
-//    public void setStudentState(String state){
-//        this.studentState=state;
-//    }
+    public int getStudentState(){
+        return studentState;
+    }
+    public void setStudentState(int state){
+        this.studentState = state;
+    }
 
     // 이 아래는 전부 테스트에 사용되는 메서드
 

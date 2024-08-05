@@ -1,6 +1,8 @@
-/*package StudentInfo;
+package StudentInfo;
 
 import Data.StudentData;
+import Data.SubjectData;
+
 import java.util.Scanner;
 import java.util.ArrayList;
 
@@ -46,54 +48,60 @@ public class Modify {
     }
 
     // 수강생 과목별 회차 점수 수정
-    public void ModifyScoreInfo(StudentData studentData) {
+    public StudentData ModifyScoreInfo(StudentData studentData, SubjectData subjectData) {
+        ArrayList<String[]> subjects = subjectData.getSubjectList();
 
-        // 수정할 과목Id와 수정할 회차
-        System.out.println("수정할 과목 ID를 입력하세요.");
+        // 사용자에게 수정할 과목의 ID를 입력받음
+        System.out.print("수정할 과목의 ID를 입력하세요: ");
         int subjectId = scanner.nextInt();
-        System.out.println("수정할 회차를 입력하세요.");
-        int round = scanner.nextInt();
 
-        // 점수 수정할 ScoreData 써치
-        boolean found = false;
-        for (StudentData studentdata : students) {
-            if (studentdata.getStudentId() == studentId && studentdata.getSubjectId() == subjectId
-                    && studentdata.getRound() == round) {
-                found = true; // 일치하는 객체가 있음을 표시
-                System.out.println("새로운 점수를 입력하세요 :");
-                int newScore = scanner.nextInt();
+        // 과목이 존재하는지 확인
+        boolean subjectExists = false;
+        int subjectType = 2;// 초기값 2설정, 존재하지 않는 과목 타입으로 나타냄
+        for (String[] subject : subjects) {
+            if (Integer.parseInt(subject[0]) == subjectId) {
+                String[] arr = {"1","java","필수"};
 
-
-                // 점수 범위 확인(0~100)
-                if (newScore < 0 || newScore > 100) {
-                    System.out.println("입력한 점수 범위가 아닙니다. 점수는 0~100 사이만 가능합니다.");
-                    return;
-                }
-
-                // 점수 수정
-                // 점수가 제대로 설정되었는지 확인(넣어도 되고 안넣어도됨 선택적 사항)
-                int upgradeScore = scoreData.getScore();
-
-                studentdata.setScore(newScore);
-                // 점수에 따른 등급을 만들어야할것같은데 월요일날 상의
-                // 점수에 따른 등급 호출↓↓
-                scoreData.setGrade();
+                subjectExists = true;
+                subjectType = subject[2].equals("필수") ? 0 : 1;
                 break;
             }
         }
-        if (!found) {
-            System.out.println("과목 ID와 회차를 가진 점수가 없습니다.");
-            return;
+        if (!subjectExists) {
+            System.out.println("해당 과목이 존재하지 않습니다.");
+            return studentData;
         }
+
+        // 사용자에게 수정할 회차 입력받음
+        System.out.println("수정할 회차를 입력하세요.");
+        int round = scanner.nextInt();
+
+        if (round < 1 || round > 10) {
+            System.out.println("1에서 10 사이인 회차만 가능합니다.");
+            return studentData;
+        }
+
+        System.out.println("새로운 점수를 입력하세요.");
+        int newScore = scanner.nextInt();
+
+        // 유효한 점수인지(0~100사이) 확인
+        if (newScore < 0 || newScore > 100) {
+            System.out.println("0에서 100사이의 점수만 가능합니다.");
+            return studentData;
+        }
+
+        // 새로운 점수에 대한 등급 계산
+//        char newGrade = studentData.changeScoreGrade(subjectType, newScore);
+
+        // 과목 리스트에서 해당 과목의 점수 수정
+        ArrayList<int[]> subjectList = studentData.();
+            for(int[] subject : subjectList){
+                for()
+                if(subject[0] ==)
+            }
+        //
+        studentData.subjectDetailsInput(subjectId, subjectType, newScore, round);
         System.out.println("점수 수정 완료");
+        return studentData;
     }
-    // 점수에 따른 등급 계산 메서드 선언 (구현필요)
-    private 타입 ...{
-
-    }
-
-    // 고유번호로 수강생 찾기
-
-    // 해당 학생이 없을경우
 }
-}*/
