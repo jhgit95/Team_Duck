@@ -12,6 +12,7 @@ public class Main {
 
 
     public static void main(String[] args) {
+        List<StudentData> students = new ArrayList<>();
         StudentData st=new StudentData(0,"asd",0);
         st.subjectDetailsInput(0001,0,96,1,'A');
         st.subjectDetailsInput(0001,0,86,2,'C');
@@ -29,12 +30,13 @@ public class Main {
         st.subjectDetailsInput(0002,0,94,3,'B');
         st.subjectDetailsInput(0002,0,94,9,'B');
         st.subjectDetailsInput(0002,0,94,7,'B');
+        students.add(st);
         Inquiry inquiry=new Inquiry();
-        //inquiry.InquiryScoreInfo(st);
+        inquiry.InquiryScoreInfo(st);
         //st학생의 점수 Inquiry
-        //inquiry.InquiryStudentInfo(st);
-        //학생의 과목리스트 수정필요 중복과목은안나오게 기능구현필요
-        inquiry.InquirySubjectByRound(st,0001);
+        inquiry.InquiryStudentInfo(st);
+        inquiry.InquiryStudentsList(students);
+        //inquiry.InquirySubjectByRound(st,0001);
 
 
 

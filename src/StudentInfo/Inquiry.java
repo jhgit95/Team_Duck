@@ -2,6 +2,8 @@ package StudentInfo;
 import Data.StudentData;
 import Data.SubjectData;
 import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Inquiry {
     Integer studentId;
@@ -30,7 +32,6 @@ public class Inquiry {
         String Name=studentData.getStudentName();
         subjectList=InquirySort(subjectList);
         System.out.println(Name+" 님의 "+subjectId+" 코드 과목의 회차별 점수는");
-
         for(int i=0;i<subjectList.size();i++) {
             if(subjectList.get(i)[0]==subjectId){
                 System.out.println(subjectList.get(i)[3]+"회차 점수:"+subjectList.get(i)[2]+"등급은:"+studentData.changeScoreGrade(subjectList.get(i)[1],subjectList.get(i)[2]));
@@ -44,12 +45,17 @@ public class Inquiry {
             String Name = Data.getStudentName();
             int Id = Data.getStudentId();
             ArrayList<int[]> subjectList = Data.getSubjectList();
+            List<Integer> list=new ArrayList<>();
             int state = Data.getStudentState();
             System.out.println("-----------------------------------------------------------------------------");
             System.out.println(Name + "님의 고유번호는 " + Id + "입니다");
-            System.out.println(Name + "님은" + subjectList + "의 과목을 수강중입니다.");
-            //수정이필요합니다.
-            System.out.println();
+            System.out.println(Name + "님은");
+            for(int i=0;i<subjectList.size();i++) {
+                list.add(subjectList.get(i)[0]);
+            }
+            Stream<Integer> subject=list.stream().distinct();
+            subject.forEach(System.out::println);
+            System.out.println("과목을 수강중입니다.");
             System.out.println(Name + "님의 현재 상태는" + state + "입니다");
             System.out.println("-----------------------------------------------------------------------------");
         }
