@@ -19,7 +19,6 @@ public class StudentData {
     }
 
 
-
     // subjectType : 0 = 필수, 1 = 선택
     // 등급 : A = 1, B = 2, C = 3, D = 4, F = 5, N = 6
     ArrayList<int[]> subjectList = new ArrayList<>();
