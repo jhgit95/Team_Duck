@@ -12,45 +12,35 @@ public class Main {
 
 
     public static void main(String[] args) {
-        List<StudentData> students = new ArrayList();
-        Inquiry inquiry=new Inquiry();
-        StudentData student;
-        TestData testData=new TestData();
+        StudentData st=new StudentData(0,"asd",0);
+        st.subjectDetailsInput(0001,0,96,1,'A');
+        st.subjectDetailsInput(0001,0,86,2,'C');
+        st.subjectDetailsInput(0001,0,94,3,'B');
+        st.subjectDetailsInput(0001,0,94,5,'B');
+        st.subjectDetailsInput(0001,0,94,4,'B');
+        st.subjectDetailsInput(0001,0,94,7,'B');
+        st.subjectDetailsInput(0001,0,94,6,'B');
+        st.subjectDetailsInput(0001,0,94,9,'B');
 
-        student=new StudentData(0);
-        testData.TestDataInput(student);
-        students.add(student);
-        inquiry.InquiryStudentInfo(student);
-        student=new StudentData(1);
-        testData.TestDataInput(student);
-        students.add(student);
-        inquiry.InquiryStudentInfo(student);
-        student=new StudentData(2);
-        testData.TestDataInput(student);
-        students.add(student);
-        inquiry.InquiryStudentInfo(student);
-        student=new StudentData(3);
-        testData.TestDataInput(student);
-        students.add(student);
-        inquiry.InquiryStudentInfo(student);
-        student=new StudentData(4);
-        testData.TestDataInput(student);
-        students.add(student);
-        inquiry.InquiryStudentInfo(student);
-        student=new StudentData(5);
-        testData.TestDataInput(student);
-        students.add(student);
-        inquiry.InquiryStudentInfo(student);
-        student=new StudentData(6);
-        testData.TestDataInput(student);
-        students.add(student);
-        inquiry.InquiryStudentInfo(student);
-        student=new StudentData(7);
-        testData.TestDataInput(student);
-        students.add(student);
-        inquiry.InquiryStudentInfo(student);
-        inquiry.InquiryStudentsList(students);
-        inquiry.InquiryByState(students);
+        st.subjectDetailsInput(0002,0,96,1,'A');
+        st.subjectDetailsInput(0002,0,94,2,'B');
+        st.subjectDetailsInput(0002,0,94,6,'B');
+        st.subjectDetailsInput(0002,0,94,4,'B');
+        st.subjectDetailsInput(0002,0,94,3,'B');
+        st.subjectDetailsInput(0002,0,94,9,'B');
+        st.subjectDetailsInput(0002,0,94,7,'B');
+        Inquiry inquiry=new Inquiry();
+        inquiry.InquiryScoreInfo(st);
+
+
+
+
+
+
+
+
+
+
 
 
 

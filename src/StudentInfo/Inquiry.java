@@ -1,23 +1,21 @@
 package StudentInfo;
 import Data.StudentData;
 import Data.SubjectData;
-
-import java.util.List;
-import java.util.ArrayList;
+import java.util.*;
 
 public class Inquiry {
     Integer studentId;
     SubjectData subjectData;
     public Inquiry() {
-        SubjectData subjectData=new SubjectData();
+        subjectData=new SubjectData();
 
     }
 
     public void InquiryStudentInfo(StudentData studentData) {
         studentId=studentData.getStudentId();
         String Name = studentData.getStudentName();
-        ArrayList<String> subjectList = studentData.getSubjectList();
-        String state=studentData.getStudentState();
+        ArrayList<int[]> subjectList = studentData.getSubjectList();
+        int state=studentData.getStudentState();
         System.out.println("학생 번호:" +studentId);
         System.out.println("학생 이름:" + Name);
         System.out.println("학생의 과목 목록:"+subjectList);
@@ -28,8 +26,8 @@ public class Inquiry {
         for(StudentData Data:studentsList) {
             String Name = Data.getStudentName();
             int Id = Data.getStudentId();
-            List<String> subjectList = Data.getSubjectList();
-            String state = Data.getStudentState();
+            ArrayList<int[]> subjectList = Data.getSubjectList();
+            int state = Data.getStudentState();
             System.out.println("-----------------------------------------------------------------------------");
             System.out.println(Name + "님의 고유번호는 " + Id + "입니다");
             System.out.println(Name + "님은" + subjectList + "의 과목을 수강중입니다.");
@@ -38,7 +36,7 @@ public class Inquiry {
 
         }
     }
-    public void InquiryByState(List<StudentData> studentsList){
+    /*public void InquiryByState(List<StudentData> studentsList){
         for (StudentData studentData : studentsList) {
             if(studentData.getStudentState().equals("맑음")){
                 InquiryStudentInfo(studentData);
@@ -54,17 +52,44 @@ public class Inquiry {
                 InquiryStudentInfo(studentData);
             }
         }
-    }
+    }*/
     public void InquiryScoreInfo(StudentData studentData) {
         String Name = studentData.getStudentName();
         //넘겨받은객체에서 이름받아오기
-        ArrayList<String>[] scoreList = studentData.getScoreList();
-        //넘겨받은객체에서 점수리스트2차원배열로 가져오기
-        System.out.println(Name + "님의 점수는");
 
-        for(int i = 0; i < scoreList.length; ++i) {
-                //System.out.println(scoreList[i].get(0)+"과목의"+scoreList[i].get(1) +"점수는 :"+scoreList[i].get(2)+"등급은 :"+scoreList[i].get(3));
-                //[0][0] [0][1] [0][2] [0][3] 순서로 출력
+        ArrayList<int[]> scoreList = studentData.getSubjectList();
+        //학생의 점수리스트
+
+        subjectData.inquirySubjectList();
+        //과목의 리스트 출력해 어떤코드가 어떤과목인지 알수있게 하는 메서드
+        System.out.println(Name + "님의 점수는");
+        Collections.sort(scoreList, new Comparator<int[]>() {
+            @Override
+            public int compare(int[] o1, int[] o2) {
+                //첫번째 기준[][0] 값
+                if(o1[0]!=o2[0]){
+                    return Integer.compare(o1[0],o2[0]);
+                }
+                //만약같은값이면->과목이 같은경우에는 round값으로 정렬
+                return Integer.compare(o1[3],o2[3]);
+            }
+        });
+
+
+        for(int i = 0; i < scoreList.size(); i++) {
+            int subjectId = scoreList.get(i)[0];
+            String Type="";
+            if(scoreList.get(i)[1]==0) {
+                Type="필수";
+            }
+            else {
+                Type="선택";
+            }
+            int score = scoreList.get(i)[2];
+            int round = scoreList.get(i)[3];
+            char grade = studentData.changeGradeChar(scoreList.get(i)[4]);
+            System.out.println("Code:"+subjectId+"의 타입은"+Type+"입니다"+round+"회차의 점수는"+score+"점이고 등급은"+grade+"입니다.");
+            //[0][0] [0][1] [0][2] [0][3] 순서로 출력
         }
 
     }
@@ -76,7 +101,7 @@ public class Inquiry {
             String[] subject =subjectList.get(i);
 
             for(int j = 0; j < subject.length; ++j) {
-                System.out.println(subject[j] + "의 고유번호는" + subject[j] + "이고 과목타입은" + subject[j] + "입니다.");
+                System.out.println(subject[0] + "의 고유번호는" + subject[1] + "이고 과목타입은" + subject[2] + "입니다.");
             }
         }
 
