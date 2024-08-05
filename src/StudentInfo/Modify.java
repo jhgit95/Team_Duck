@@ -57,9 +57,11 @@ public class Modify {
 
         // 과목이 존재하는지 확인
         boolean subjectExists = false;
-        int subjectType = 2; // 초기값 2설정, 존재하지 않는 과목 타입으로 나타냄
+        int subjectType = 2;// 초기값 2설정, 존재하지 않는 과목 타입으로 나타냄
         for (String[] subject : subjects) {
             if (Integer.parseInt(subject[0]) == subjectId) {
+                String[] arr = {"1","java","필수"};
+
                 subjectExists = true;
                 subjectType = subject[2].equals("필수") ? 0 : 1;
                 break;
@@ -95,7 +97,7 @@ public class Modify {
         ArrayList<int[]> subjectList = studentData.();
             for(int[] subject : subjectList){
                 for()
-                if(subject[0] ==da )
+                if(subject[0] ==)
             }
         //
         studentData.subjectDetailsInput(subjectId, subjectType, newScore, round);
