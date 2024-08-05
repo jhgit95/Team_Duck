@@ -9,16 +9,17 @@ public class SubjectData {
     ArrayList<String[]> subjectList = new ArrayList<>();
     public SubjectData() {
 
-        subjectList.add(new String[]{"0001", "Java", "필수"});
-        subjectList.add(new String[]{"0002", "객체지향", "필수"});
-        subjectList.add(new String[]{"0003", "Spring", "필수"});
-        subjectList.add(new String[]{"0004", "JPA", "필수"});
-        subjectList.add(new String[]{"0005", "MySQL", "필수"});
-        subjectList.add(new String[]{"0006", "디자인 패턴", "선택"});
-        subjectList.add(new String[]{"0007", "Spring Security", "선택"});
-        subjectList.add(new String[]{"0008", "Redis", "선택"});
-        subjectList.add(new String[]{"0009", "MongoDB", "선택"});
-
+        subjectList.add(new String[]{"1", "Java", "필수"});
+        subjectList.add(new String[]{"2", "객체지향", "필수"});
+        subjectList.add(new String[]{"3", "Spring", "필수"});
+        subjectList.add(new String[]{"4", "JPA", "필수"});
+        subjectList.add(new String[]{"5", "MySQL", "필수"});
+        subjectList.add(new String[]{"6", "디자인 패턴", "선택"});
+        subjectList.add(new String[]{"7", "Spring Security", "선택"});
+        subjectList.add(new String[]{"8", "Redis", "선택"});
+        subjectList.add(new String[]{"9", "MongoDB", "선택"});
+        //0001과 같은 숫자를 사용하면 추가할때 0001로 추가해도 int값이라 1로들어감
+        //때문에 0을제거한 정수값으로 수정
     }
     public void inquirySubjectList(){
         //subjectList를 정렬하여 Inquiry하는 메서드입니다.

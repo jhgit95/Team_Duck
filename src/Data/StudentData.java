@@ -4,8 +4,7 @@ import java.util.ArrayList;
 
 public class StudentData {
     ScoreData scoreData;
-    SubjectData subjectData;
-    //객체생성 각각 ScoreData,SubjectData
+    //객체생성 각각 ScoreData
     protected int studentId;
     protected String studentName;
 
