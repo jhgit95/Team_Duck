@@ -10,10 +10,9 @@ public class Inquiry {
     SubjectData subjectData;
     public Inquiry() {
         subjectData=new SubjectData();
-
     }
-
     public void InquiryStudentInfo(StudentData studentData) {
+        //학생객체를 받아 학생한명의 정보를 Inquiry하는 메서드
         studentId=studentData.getStudentId();
         String Name = studentData.getStudentName();
         ArrayList<int[]> subjectList = studentData.getSubjectList();
@@ -32,6 +31,7 @@ public class Inquiry {
         System.out.println("학생의 상태:"+state);
     }
     public void InquirySubjectByRound(StudentData studentData,int subjectId){
+        //특정 과목의 회차별 점수 Inquiry
         ArrayList<int[]> subjectList = studentData.getSubjectList();
         String Name=studentData.getStudentName();
         subjectList=InquirySort(subjectList);
@@ -41,17 +41,16 @@ public class Inquiry {
                 System.out.println(subjectList.get(i)[3]+"회차 점수:"+subjectList.get(i)[2]+"등급은:"+studentData.changeScoreGrade(subjectList.get(i)[1],subjectList.get(i)[2]));
             }
         }
-
     }
     public void InquiryStudentsList(List<StudentData> studentsList){
         //학생리스트를 통째로받아옴
+        System.out.println("-----------------------------------------------------------------------------");
         for(StudentData Data:studentsList) {
             String Name = Data.getStudentName();
             int Id = Data.getStudentId();
             ArrayList<int[]> subjectList = Data.getSubjectList();
             List<Integer> list=new ArrayList<>();
             int state = Data.getStudentState();
-            System.out.println("-----------------------------------------------------------------------------");
             System.out.println(Name + "님의 고유번호는 " + Id + "입니다");
             System.out.println(Name + "님은");
             for(int i=0;i<subjectList.size();i++) {
@@ -64,8 +63,9 @@ public class Inquiry {
             //중복이 없어진 subject 스트림을 출력
             System.out.println("과목을 수강중입니다.");
             System.out.println(Name + "님의 현재 상태는" + state + "입니다");
-            System.out.println("-----------------------------------------------------------------------------");
+            System.out.println();
         }
+        System.out.println("-----------------------------------------------------------------------------");
     }
     public ArrayList<int[]> InquirySort(ArrayList<int[]> subjectList){
         Collections.sort(subjectList, new Comparator<int[]>() {
@@ -96,11 +96,9 @@ public class Inquiry {
             if(Data.getStudentState()==state){
                 String Name = Data.getStudentName();
                 int Id = Data.getStudentId();
-                System.out.println(Name +" 님의 id는"+ Id+ "입니다");
+                System.out.println(Name +" 님의 id는 "+ Id+ " 입니다");
             }
         }
-
-
     }
     public void InquiryScoreInfo(StudentData studentData) {
         String Name = studentData.getStudentName();

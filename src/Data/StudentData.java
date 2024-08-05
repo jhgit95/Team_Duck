@@ -15,7 +15,7 @@ public class StudentData {
     public StudentData(int studentId, String name, int state) {
         this.studentId = studentId;
         this.studentName = name;
-        this.studentState=state;
+        this.studentState = state;
     }
 
 
@@ -23,8 +23,9 @@ public class StudentData {
     // 등급 : A = 1, B = 2, C = 3, D = 4, F = 5, N = 6
     ArrayList<int[]> subjectList = new ArrayList<>();
     int[] subjectDetails = new int[5];
+    //grade변경시 5부분 수정필요
 
-    public void subjectDetailsInput(int subjectId,int subjectType, int score,int round, char grade){
+    public void subjectDetailsInput(int subjectId,int subjectType, int score,int round){
         subjectDetails = new int[5];
         //초기화 안해주면 고장남!!
         this.subjectDetails[0] = subjectId;
@@ -33,9 +34,7 @@ public class StudentData {
         //점수 범위0~100
         this.subjectDetails[3] = round;
         //회차 범위 1~10
-
         //grade가 굳이 필요한가??
-        this.subjectDetails[4] = changeGradeInt(grade);
         subjectList.add(subjectDetails);
     }
 
