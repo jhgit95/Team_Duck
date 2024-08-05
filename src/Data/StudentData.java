@@ -62,7 +62,7 @@ public class StudentData {
     }
 
     public char changeScoreGrade(int subjectType, int score) {
-        //subjectType==R이면 필수과목
+        // subjectType==0이면 필수과목
         if (subjectType == 0) {
             if (score >= 95) {
                 return 'A';
@@ -79,7 +79,7 @@ public class StudentData {
             }
         }
 
-        //선택과목
+        // 선택과목
         else if (subjectType == 1) {
             if (score >= 90) {
                 return 'A';
