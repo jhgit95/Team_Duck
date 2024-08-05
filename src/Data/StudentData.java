@@ -31,7 +31,11 @@ public class StudentData {
         this.subjectDetails[0] = subjectId;
         this.subjectDetails[1] = subjectType;
         this.subjectDetails[2] = score;
+        //점수 범위0~100
         this.subjectDetails[3] = round;
+        //회차 범위 1~10
+
+        //grade가 굳이 필요한가??
         this.subjectDetails[4] = changeGradeInt(grade);
         subjectList.add(subjectDetails);
     }

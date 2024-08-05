@@ -30,10 +30,11 @@ public class Main {
         st.subjectDetailsInput(0002,0,94,9,'B');
         st.subjectDetailsInput(0002,0,94,7,'B');
         Inquiry inquiry=new Inquiry();
-        inquiry.InquiryScoreInfo(st);
+        //inquiry.InquiryScoreInfo(st);
         //st학생의 점수 Inquiry
-        inquiry.InquiryStudentInfo(st);
+        //inquiry.InquiryStudentInfo(st);
         //학생의 과목리스트 수정필요 중복과목은안나오게 기능구현필요
+        inquiry.InquirySubjectByRound(st,0001);
 
 
 

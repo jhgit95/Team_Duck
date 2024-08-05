@@ -25,6 +25,19 @@ public class Inquiry {
         }
         System.out.println("학생의 상태:"+state);
     }
+    public void InquirySubjectByRound(StudentData studentData,int subjectId){
+        ArrayList<int[]> subjectList = studentData.getSubjectList();
+        String Name=studentData.getStudentName();
+        subjectList=InquirySort(subjectList);
+        System.out.println(Name+" 님의 "+subjectId+" 코드 과목의 회차별 점수는");
+
+        for(int i=0;i<subjectList.size();i++) {
+            if(subjectList.get(i)[0]==subjectId){
+                System.out.println(subjectList.get(i)[3]+"회차 점수:"+subjectList.get(i)[2]+"등급은:"+studentData.changeScoreGrade(subjectList.get(i)[1],subjectList.get(i)[2]));
+            }
+        }
+
+    }
     public void InquiryStudentsList(List<StudentData> studentsList){
         //학생리스트를 통째로받아옴
         for(StudentData Data:studentsList) {
@@ -41,17 +54,7 @@ public class Inquiry {
             System.out.println("-----------------------------------------------------------------------------");
         }
     }
-    public void InquiryByState(List<StudentData> studentsList) {
-
-    }
-    public void InquiryScoreInfo(StudentData studentData) {
-        String Name = studentData.getStudentName();
-        //넘겨받은객체에서 이름받아오기
-        ArrayList<int[]> subjectList = studentData.getSubjectList();
-        //학생의 점수리스트
-        subjectData.inquirySubjectList();
-        //과목의 리스트 출력해 어떤코드가 어떤과목인지 알수있게 하는 메서드
-        System.out.println(Name + "님의 점수는");
+    public ArrayList<int[]> InquirySort(ArrayList<int[]> subjectList){
         Collections.sort(subjectList, new Comparator<int[]>() {
             //점수리스트를 정렬합니다.
             @Override
@@ -65,6 +68,20 @@ public class Inquiry {
                 return Integer.compare(o1[3],o2[3]);
             }
         });
+        return subjectList;
+    }
+    public void InquiryByState(List<StudentData> studentsList) {
+
+    }
+    public void InquiryScoreInfo(StudentData studentData) {
+        String Name = studentData.getStudentName();
+        //넘겨받은객체에서 이름받아오기
+        ArrayList<int[]> subjectList = studentData.getSubjectList();
+        //학생의 점수리스트
+        subjectData.inquirySubjectList();
+        //과목의 리스트 출력해 어떤코드가 어떤과목인지 알수있게 하는 메서드
+        System.out.println(Name + "님의 점수는");
+        subjectList=InquirySort(subjectList);
         for(int i = 0; i < subjectList.size(); i++) {
             int subjectId = subjectList.get(i)[0];
             String Type="";
@@ -76,7 +93,7 @@ public class Inquiry {
             }
             int score = subjectList.get(i)[2];
             int round = subjectList.get(i)[3];
-            char grade = studentData.changeGradeChar(subjectList.get(i)[4]);
+            char grade = studentData.changeScoreGrade(subjectList.get(i)[1],score);
             System.out.println("Code:"+subjectId+"의 타입은"+Type+"입니다"+round+"회차의 점수는"+score+"점이고 등급은"+grade+"입니다.");
             //[0][0] [0][1] [0][2] [0][3] 순서로 출력
         }
