@@ -3,6 +3,7 @@ package Manager;
 import Data.ScoreData;
 import Data.StudentData;
 import StudentInfo.Inquiry;
+import StudentInfo.Modify;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,13 +29,7 @@ public class ScoreManager extends Manager {
         // 입력받은 ID값에 해당하는 StudentData를 리스트에서 찾기
         for(StudentData studentData : studentDataList) {
             if(studentData.getStudentId() == student_ID) {
-                System.out.println("* Enter subject at least 5");
-                System.out.print("Subject ID: ");
-                List<Integer> subjectList;
-                for(int i=0 ; i<5 ;i++) {
-                    int subject = scanner.nextInt();
-                    subjectList.
-                }
+                // Add 호출
 
             }
         }
@@ -43,12 +38,32 @@ public class ScoreManager extends Manager {
 
     @Override
     public void inquiryData() {
-        System.out.println("Enter Student ID to inquiry data");
+        // 수강생 ID 값 입력받기
+        System.out.println("Enter Student ID: ");
+        int student_ID = scanner.nextInt();
+
+        // 입력받은 ID값에 해당하는 StudentData를 리스트에서 찾기
+        for(StudentData studentData : studentDataList) {
+            if(studentData.getStudentId() == student_ID) {
+                Inquiry scoreInquiry = new Inquiry();
+                scoreInquiry.InquiryScoreInfo(studentData);
+            }
+        }
     }
 
     @Override
     public void modifyData() {
+        // 수강생 ID 값 입력받기
+        System.out.println("Enter Student ID: ");
+        int student_ID = scanner.nextInt();
 
+        // 입력받은 ID값에 해당하는 StudentData를 리스트에서 찾기
+        for(StudentData studentData : studentDataList) {
+            if(studentData.getStudentId() == student_ID) {
+                // modify
+                Modify modifyScore = new Modify();
+                studentData = modifyScore.modifyScoreInfo(studentData);
+            }
+        }
     }
-
 }

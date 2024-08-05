@@ -1,7 +1,5 @@
 package Manager;
 
-import org.json.JSONArray;
-
 import Data.ScoreData;
 import Data.StudentData;
 import netscape.javascript.JSObject;

@@ -16,6 +16,8 @@ public class StudentManager extends Manager {
     // private Modify modifyStudent
 
     public List<StudentData> studentDataList;
+    public ArrayList<int[]> subjectDataList;
+
     Scanner scanner = new Scanner(System.in);
 
     public StudentManager(List<StudentData> inputStudentDataList) {
@@ -62,14 +64,14 @@ public class StudentManager extends Manager {
         for(StudentData studentData : studentDataList) {
             if(studentData.getStudentId() == student_ID) {
                 // modify
-                Modify modify = new Modify();
-                studentData = modify.modifyStudentInfo(studentData);
+                Modify modifyStudent = new Modify();
+                modifyStudent.modifyStudentInfo(studentData);
             }
         }
     }
 
 
-    public void removeData(int id) {
+    public void removeData() {
         // 수강생 ID 값 입력받기
         System.out.println("Enter Student ID: ");
         int student_ID = scanner.nextInt();

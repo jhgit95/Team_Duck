@@ -12,7 +12,6 @@ public class Main {
     private static List<StudentData> students;
     private static ArrayList<int[]> subjects;
 
-    HashMap<K, List<V>>; //K:STDID,
 
     public static void main(String[] args) {
 
@@ -58,7 +57,7 @@ public class Main {
             displayMenu_StudentManagement();
             choice = scanner.nextInt();
 
-            // 선택값에 대한 함수 실행 / 1. 등록 / 2. 조회 / 3. 수정 / 4. 메인으로 /
+            // 선택값에 대한 함수 실행 / 1. 등록 / 2. 조회 / 3. 수정 / 4. 삭제 / 5. 메인으로 /
             switch(choice) {
                 case 1:
                     System.out.println("Please enter student data to add data");
@@ -73,8 +72,11 @@ public class Main {
                     studentManager.modifyData();
                     break;
                 case 4:
-                    stop_keyword = "exit";
+                    System.out.println("Please enter student ID to remove data");
+                    studentManager.removeData();
                     break;
+                case 5:
+                    stop_keyword = "exit";
                 default:
                     System.out.println("Is not a valid choice.\nInput right choice again.\n");
             }
