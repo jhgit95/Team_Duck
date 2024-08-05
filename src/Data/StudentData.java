@@ -4,8 +4,7 @@ import java.util.ArrayList;
 
 public class StudentData {
     ScoreData scoreData;
-    SubjectData subjectData;
-    //객체생성 각각 ScoreData,SubjectData
+    //객체생성 각각 ScoreData
     protected int studentId;
     protected String studentName;
 
@@ -17,9 +16,6 @@ public class StudentData {
         this.studentId = studentId;
         this.studentName = name;
         this.studentState=state;
-//        this.subjectData=new SubjectData();
-//        this.scoreData=new ScoreData(studentId);
-//        //각객체를 Student객체에 종속시킴
     }
 
 
@@ -29,6 +25,8 @@ public class StudentData {
     int[] subjectDetails = new int[5];
 
     public void subjectDetailsInput(int subjectId,int subjectType, int score,int round, char grade){
+        subjectDetails = new int[5];
+        //초기화 안해주면 고장남!!
         this.subjectDetails[0] = subjectId;
         this.subjectDetails[1] = subjectType;
         this.subjectDetails[2] = score;
@@ -48,7 +46,8 @@ public class StudentData {
             default -> 0;
         };
     }
-    public int changeGradeChar(int grade){
+    public char changeGradeChar(int grade){
+        //메서드의 반환형이 int여서 char로 수정했습니다--multiverse22
         return switch (grade) {
             case  1-> 'A';
             case  2-> 'B';
@@ -61,7 +60,7 @@ public class StudentData {
     }
 
     public char changeScoreGrade(int subjectType, int score) {
-        //subjectType==R이면 필수과목
+        // subjectType==0이면 필수과목
         if (subjectType == 0) {
             if (score >= 95) {
                 return 'A';
@@ -78,7 +77,7 @@ public class StudentData {
             }
         }
 
-        //선택과목
+        // 선택과목
         else if (subjectType == 1) {
             if (score >= 90) {
                 return 'A';
@@ -97,24 +96,14 @@ public class StudentData {
         // e가 나올 경우 예외 처리 필요
         return 'e';
     }
-
-
-    public void setScoreList(int score,String subjectType, int round){
-        scoreData.setScoreList(score,subjectType, round);
+    public ArrayList<int[]> getSubjectList(){
+        //inquiry클래스에서 사용할 SubjectList를 get하는 메서드추가 --multiverse22
+        return subjectList;
     }
-    public ArrayList<String> getGradeList(){
-        return scoreData.getGradeList();
-        //종속된 ScoreData객체로 만든 scoreData내부 메서드 getGradeList()를실행시킴
+    public int getStudentState(){
+        //상태를 get하는 메서드추가 --multiverse22
+        return studentState;
     }
-    public ArrayList<String> getScoreList(){
-        return scoreData.getScoreList();
-        //종속된 ScoreData객체로 만든 scoreData내부 메서드 getScoreList()를실행시킴
-    }
-    public ArrayList<String[]> getSubjectDataSubjectList() {
-        return this.subjectData.getSubjectList();
-    }
-
-
     //내부 get,set메서들은 private으로 하면 접근할수 없음
     public int getStudentId() {
         return this.studentId;
