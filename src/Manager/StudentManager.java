@@ -15,6 +15,7 @@ public class StudentManager extends Manager {
     // private Modify modifyStudent
 
     public List<StudentData> studentDataList;
+    Scanner scanner = new Scanner(System.in);
 
     public StudentManager(List<StudentData> inputStudentDataList) {
         this.studentDataList = inputStudentDataList;
@@ -38,43 +39,39 @@ public class StudentManager extends Manager {
         if(subjectList.length < 5) {
             System.out.println("Not enough subjects");
         } else {
-            // 저장 메서드 호출..
-
-            System.out.println("\t*****************************************");
-            System.out.println("\t            Student is added!            ");
-            System.out.println("\t*****************************************\n\n");
+            // Add
         }
     }
 
     @Override
-    public void inquiryData(int student_ID) {
-        StudentData studentData = this.studentDataList.get(student_ID);
-
-        Inquiry studentInquiry = new Inquiry(studentData);
-        studentInquiry.InquiryStudentInfo();
-
-        System.out.println("\t*****************************************");
-        System.out.println("\t            Student is inquired!         ");
-        System.out.println("\t*****************************************\n\n");
+    public void inquiryData() {
+        int student_ID = scanner.nextInt();
+        for(StudentData studentData : studentDataList) {
+            if(studentData.getStudentId() == student_ID) {
+                Inquiry studentInquiry = new Inquiry();
+                studentInquiry.InquiryStudentInfo(studentData);
+            }
+        }
     }
 
 
     @Override
-    public void modifyData(int student_ID) {
-        System.out.println("\t*****************************************");
-        System.out.println("\t            Student is Modified!         ");
-        System.out.println("\t*****************************************\n\n");
+    public void modifyData() {
+        int student_ID = scanner.nextInt();
+        for(StudentData studentData : studentDataList) {
+            if(studentData.getStudentId() == student_ID) {
+                // modify
+            }
+        }
     }
 
 
     public void removeData(int id) {
-        StudentData studentData = this.studentDataList.get(id);
-        this.studentDataList.remove(id);
-
-
-        System.out.println("\t*****************************************");
-        System.out.println("\t            Student is Removed!          ");
-        System.out.println("\t*****************************************\n\n");
-
+        int student_ID = scanner.nextInt();
+        for(StudentData studentData : studentDataList) {
+            if(studentData.getStudentId() == student_ID) {
+                studentDataList.remove(studentData);
+            }
+        }
     }
 }

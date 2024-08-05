@@ -18,29 +18,17 @@ public class ScoreManager extends Manager {
 
     @Override
     public void addData() {
-        System.out.println("\t*****************************************");
-        System.out.println("\t             Score is added!             ");
-        System.out.println("\t*****************************************\n");
+
     }
 
     @Override
-    public void inquiryData(int student_ID) {
+    public void inquiryData() {
 
-        StudentData studentData = this.studentDataList.get(student_ID);
-
-        Inquiry scoreInquiry = new Inquiry(studentData);
-        scoreInquiry.InquiryScoreInfo();
-
-        System.out.println("\t*****************************************");
-        System.out.println("\t             Score is inquired!          ");
-        System.out.println("\t*****************************************\n");
     }
 
     @Override
-    public void modifyData(int score_ID) {
-        System.out.println("\t*****************************************");
-        System.out.println("\t             Score is Modified!          ");
-        System.out.println("\t*****************************************\n");
+    public void modifyData() {
+
     }
 
 }

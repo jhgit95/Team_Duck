@@ -9,53 +9,11 @@ import java.util.Scanner;
 public class Main {
 
     private static Scanner scanner = new Scanner(System.in);
+    private static List<StudentData> students;
 
 
     public static void main(String[] args) {
-        List<StudentData> students = new ArrayList();
-        Inquiry inquiry=new Inquiry();
-        StudentData student;
-        TestData testData=new TestData();
 
-        student=new StudentData(0);
-        testData.TestDataInput(student);
-        students.add(student);
-        inquiry.InquiryStudentInfo(student);
-        student=new StudentData(1);
-        testData.TestDataInput(student);
-        students.add(student);
-        inquiry.InquiryStudentInfo(student);
-        student=new StudentData(2);
-        testData.TestDataInput(student);
-        students.add(student);
-        inquiry.InquiryStudentInfo(student);
-        student=new StudentData(3);
-        testData.TestDataInput(student);
-        students.add(student);
-        inquiry.InquiryStudentInfo(student);
-        student=new StudentData(4);
-        testData.TestDataInput(student);
-        students.add(student);
-        inquiry.InquiryStudentInfo(student);
-        student=new StudentData(5);
-        testData.TestDataInput(student);
-        students.add(student);
-        inquiry.InquiryStudentInfo(student);
-        student=new StudentData(6);
-        testData.TestDataInput(student);
-        students.add(student);
-        inquiry.InquiryStudentInfo(student);
-        student=new StudentData(7);
-        testData.TestDataInput(student);
-        students.add(student);
-        inquiry.InquiryStudentInfo(student);
-        inquiry.InquiryStudentsList(students);
-        inquiry.InquiryByState(students);
-
-
-
-
-        /*
         int choice;
         String stop_keyword = "";
 
@@ -87,14 +45,9 @@ public class Main {
     }
 
 
-
-
-
-
-
     // 수강생 정보 관리
     public static void managementStudentInfo() {
-        StudentManager studentManager = new StudentManager();
+        StudentManager studentManager = new StudentManager(students);
         int choice;
         String stop_keyword = "";
 
@@ -106,13 +59,15 @@ public class Main {
             // 선택값에 대한 함수 실행 / 1. 등록 / 2. 조회 / 3. 수정 / 4. 메인으로 /
             switch(choice) {
                 case 1:
-                    System.out.println("Please enter data to add data");
+                    System.out.println("Please enter student data to add data");
                     studentManager.addData();
                     break;
                 case 2:
+                    System.out.println("Please enter student ID to inquiry data");
                     studentManager.inquiryData();
                     break;
                 case 3:
+                    System.out.println("Please enter student ID to add data");
                     studentManager.modifyData();
                     break;
                 case 4:
@@ -127,13 +82,9 @@ public class Main {
 
 
 
-
-
-
-
     // 점수 정보 관리
     public static void managementScoreInfo() {
-        ScoreManager scoreManager = new ScoreManager();
+        ScoreManager scoreManager = new ScoreManager(students);
         int choice;
         String stop_keyword = "";
 
@@ -145,12 +96,15 @@ public class Main {
             // 선택값에 대한 함수 실행 / 1. 등록 / 2. 조회 / 3. 수정 / 4. 메인으로 /
             switch(choice) {
                 case 1:
+                    System.out.println("Please enter student data to add data");
                     scoreManager.addData();
                     break;
                 case 2:
+                    System.out.println("Please enter student ID to add data");
                     scoreManager.inquiryData();
                     break;
                 case 3:
+                    System.out.println("Please enter student ID to add data");
                     scoreManager.modifyData();
                     break;
                 case 4:
@@ -216,6 +170,5 @@ public class Main {
         System.out.println("\t=                                       =");
         System.out.println("\t=---------------------------------------=\n");
 
-         */
     }
 }
