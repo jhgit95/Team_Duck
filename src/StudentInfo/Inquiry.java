@@ -18,13 +18,17 @@ public class Inquiry {
         String Name = studentData.getStudentName();
         ArrayList<int[]> subjectList = studentData.getSubjectList();
         int state=studentData.getStudentState();
+        List<Integer> list=new ArrayList<>();
+        //Stream활용을 위한 list생
         System.out.println("학생 번호:" +studentId);
         System.out.println("학생 이름:" + Name);
-        //System.out.println("학생의 과목 목록:"+subjectList);
+        System.out.println(Name + "님은");
         for(int i=0;i<subjectList.size();i++) {
-            System.out.println(subjectList.get(i)[0]);
-            //수정필요
+            list.add(subjectList.get(i)[0]);
         }
+        Stream<Integer> subject=list.stream().distinct();
+        subject.forEach(System.out::println);
+        System.out.println("과목을 수강중입니다.");
         System.out.println("학생의 상태:"+state);
     }
     public void InquirySubjectByRound(StudentData studentData,int subjectId){
@@ -52,9 +56,12 @@ public class Inquiry {
             System.out.println(Name + "님은");
             for(int i=0;i<subjectList.size();i++) {
                 list.add(subjectList.get(i)[0]);
+                //학생의 과목리스트중 id값만을 list에 넣음
             }
             Stream<Integer> subject=list.stream().distinct();
+            //리스트에 존재하는 id값중 중복제거
             subject.forEach(System.out::println);
+            //중복이 없어진 subject 스트림을 출력
             System.out.println("과목을 수강중입니다.");
             System.out.println(Name + "님의 현재 상태는" + state + "입니다");
             System.out.println("-----------------------------------------------------------------------------");
@@ -76,7 +83,23 @@ public class Inquiry {
         });
         return subjectList;
     }
-    public void InquiryByState(List<StudentData> studentsList) {
+    public void InquiryByState(List<StudentData> studentsList,int state) {
+        String color="";
+        if(state==1)
+            color="Green";
+        else if(state==2)
+            color="Yellow";
+        else
+            color="Red";
+        System.out.println("1=Green, 2=Yellow, 3=Red 중 "+color+" 상태인");
+        for(StudentData Data:studentsList) {
+            if(Data.getStudentState()==state){
+                String Name = Data.getStudentName();
+                int Id = Data.getStudentId();
+                System.out.println(Name +" 님의 id는"+ Id+ "입니다");
+            }
+        }
+
 
     }
     public void InquiryScoreInfo(StudentData studentData) {
