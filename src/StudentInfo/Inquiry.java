@@ -4,24 +4,20 @@ package StudentInfo;
 
 import Data.ScoreData;
 import Data.StudentData;
+import Data.SubjectData;
+
 import java.util.List;
 import java.util.ArrayList;
 
 public class Inquiry {
-    StudentData studentData;
-    ScoreData scoreData;
-    int studentId;
-    List<StudentData> studentsList;
+    Integer studentId;
+    SubjectData subjectData;
+    public Inquiry() {
+        SubjectData subjectData=new SubjectData();
 
-    public Inquiry(StudentData studentData) {
-        this.studentData = studentData;
-        this.studentId = studentData.getStudentId();
-    }
-    public Inquiry(List<StudentData> studentDataList) {
-        this.studentsList = studentDataList;
     }
 
-    public void InquiryStudentInfo() {
+    public void InquiryStudentInfo(StudentData studentData) {
         studentId=studentData.getStudentId();
         String Name = studentData.getStudentName();
         ArrayList<String> subjectList = studentData.getSubjectList();
@@ -30,35 +26,55 @@ public class Inquiry {
         System.out.println("학생 이름:" + Name);
         System.out.println("학생의 과목 목록:"+subjectList);
         System.out.println("학생의 상태:"+state);
-
-
     }
-    public void InquiryStudentsList(){
+    public void InquiryStudentsList(List<StudentData> studentsList){
         //학생리스트를 통째로받아옴
-        for (StudentData studentData : studentsList) {
+        for(StudentData Data:studentsList) {
+            String Name = Data.getStudentName();
+            int Id = Data.getStudentId();
+            List<String> subjectList = Data.getSubjectList();
+            String state = Data.getStudentState();
             System.out.println("-----------------------------------------------------------------------------");
-            System.out.println(studentData.getStudentName()+"님의 고유번호는 "+studentData.getStudentId()+"입니다");
-            System.out.println(studentData.getStudentName()+"님은"+studentData.getSubjectList()+"의 과목을 수강중입니다.");
-            System.out.println(studentData.getStudentName()+"님의 현재 상태는"+studentData.getStudentState()+"입니다");
+            System.out.println(Name + "님의 고유번호는 " + Id + "입니다");
+            System.out.println(Name + "님은" + subjectList + "의 과목을 수강중입니다.");
+            System.out.println(Name + "님의 현재 상태는" + state + "입니다");
             System.out.println("-----------------------------------------------------------------------------");
+
         }
     }
-    public void InquiryScoreInfo() {
+    public void InquiryByState(List<StudentData> studentsList){
+        for (StudentData studentData : studentsList) {
+            if(studentData.getStudentState().equals("맑음")){
+                InquiryStudentInfo(studentData);
+            }
+        }
+        for (StudentData studentData : studentsList) {
+            if(studentData.getStudentState().equals("비")){
+                InquiryStudentInfo(studentData);
+            }
+        }
+        for (StudentData studentData : studentsList) {
+            if(studentData.getStudentState().equals("천둥")){
+                InquiryStudentInfo(studentData);
+            }
+        }
+    }
+    public void InquiryScoreInfo(StudentData studentData) {
         String Name = studentData.getStudentName();
-        ArrayList<String> subjectList = studentData.getSubjectList();
-        ArrayList<String> scoreList = studentData.getScoreList();
-        ArrayList<String> gradeList = studentData.getGradeList();
+        ArrayList<String>[] scoreList = studentData.getScoreList();
         System.out.println(Name + "님의 점수는");
 
-        for(int i = 0; i < scoreList.size(); ++i) {
+        for(int i = 0; i < scoreList.length; ++i) {
+            for(int j=0; j < scoreList.length; ++j) {
 
-            System.out.println(subjectList.get(i) + "과목의 점수는 :" + scoreList.get(i) + "등급은 :" + gradeList.get(i));
+                //System.out.println(scoreList[i].get(j)+"과목의 점수는 :"++"등급은 :" +);
+            }
         }
 
     }
 
     public void InquirySubjectInfo() {
-        ArrayList<String[]> subjectList = this.studentData.getSubjectDataSubjectList();
+        ArrayList<String[]> subjectList = subjectData.getSubjectList();
 
         for(int i = 0; i < subjectList.size(); ++i) {
             String[] subject =subjectList.get(i);
