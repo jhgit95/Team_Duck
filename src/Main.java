@@ -10,7 +10,9 @@ public class Main {
 
     private static Scanner scanner = new Scanner(System.in);
     private static List<StudentData> students;
+    private static ArrayList<int[]> subjects;
 
+    HashMap<K, List<V>>; //K:STDID,
 
     public static void main(String[] args) {
 

@@ -6,24 +6,44 @@ import StudentInfo.Inquiry;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class ScoreManager extends Manager {
 
     public List<StudentData> studentDataList;
+    public ArrayList<int[]> subjectDataList;
+
+    Scanner scanner = new Scanner(System.in);
 
     public ScoreManager(List<StudentData> inputStudentDataList) {
-        // 초기화
         this.studentDataList = inputStudentDataList;
     }
 
     @Override
     public void addData() {
+        // 수강생 ID 값 입력받기
+        System.out.println("Enter Student ID: ");
+        int student_ID = scanner.nextInt();
+
+        // 입력받은 ID값에 해당하는 StudentData를 리스트에서 찾기
+        for(StudentData studentData : studentDataList) {
+            if(studentData.getStudentId() == student_ID) {
+                System.out.println("* Enter subject at least 5");
+                System.out.print("Subject ID: ");
+                List<Integer> subjectList;
+                for(int i=0 ; i<5 ;i++) {
+                    int subject = scanner.nextInt();
+                    subjectList.
+                }
+
+            }
+        }
 
     }
 
     @Override
     public void inquiryData() {
-
+        System.out.println("Enter Student ID to inquiry data");
     }
 
     @Override
