@@ -2,6 +2,12 @@ package Data;
 
 import java.util.ArrayList;
 
+
+// 스코어 클래스는 삭제 예정
+
+
+
+
 public class ScoreData {
     protected int subjectId;
     protected int studentId;
