@@ -34,7 +34,6 @@ public class StudentData {
         //점수 범위0~100
         this.subjectDetails[3] = round;
         //회차 범위 1~10
-        //grade가 굳이 필요한가??
         subjectList.add(subjectDetails);
     }
 
@@ -102,6 +101,9 @@ public class StudentData {
     public ArrayList<int[]> getSubjectList(){
         //inquiry클래스에서 사용할 SubjectList를 get하는 메서드추가 --multiverse22
         return subjectList;
+    }
+    public void setSubjectList(int i,int newScore){
+        this.subjectList.get(i)[2]=newScore;
     }
     public int getStudentState(){
         //상태를 get하는 메서드추가 --multiverse22

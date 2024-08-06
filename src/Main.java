@@ -15,8 +15,8 @@ public class Main {
         List<StudentData> students = new ArrayList<>();
         StudentData st=new StudentData(0,"asd",1);
         students.add(st);
-        st=new StudentData(1,"김길환",2);
-        students.add(st);
+        //st=new StudentData(1,"김길환",2);
+        //students.add(st);
         /*students.add(st);
         st=new StudentData(1,"11",1);
         students.add(st);
@@ -31,12 +31,13 @@ public class Main {
 
         st.subjectDetailsInput(0001,0,96,1);
         st.subjectDetailsInput(0001,0,86,2);
-        st.subjectDetailsInput(0001,0,94,3);
-        st.subjectDetailsInput(0001,0,94,5);
-        st.subjectDetailsInput(0001,0,94,4);
+        st.subjectDetailsInput(0001,0,95,3);
+        st.subjectDetailsInput(0001,0,95,5);
+        st.subjectDetailsInput(0001,0,95,4);
         st.subjectDetailsInput(0001,0,94,7);
         st.subjectDetailsInput(0001,0,94,6);
         st.subjectDetailsInput(0001,0,94,9);
+        st.subjectDetailsInput(0001,0,75,10);
 
         st.subjectDetailsInput(0002,0,96,1);
         st.subjectDetailsInput(0002,0,94,2);
@@ -46,13 +47,29 @@ public class Main {
         st.subjectDetailsInput(0002,0,94,9);
         st.subjectDetailsInput(0002,0,94,7);
         Inquiry inquiry=new Inquiry();
-        inquiry.InquiryScoreInfo(st);
-        //st학생의 점수 Inquiry
-        //inquiry.InquiryStudentInfo(st);
-        //inquiry.InquiryStudentsList(students);
-        //inquiry.InquirySubjectByRound(st,0001);
-        //inquiry.InquiryByState(students,1);
-        //inquiry.InquiryStudentsList(students);
+        System.out.println("점수정보조회");
+        inquiry.inquirySubjecList(st);
+        System.out.println("=======================");
+        System.out.println("평균등급조회");
+        char grade= inquiry.inquirySpecificAvgGrade(st,0001);
+        System.out.println(grade);
+        System.out.println("=======================");
+        System.out.println("학생정보조회");
+        inquiry.inquiryStudentInfo(st);
+        System.out.println("=======================");
+        System.out.println("학생들의 정보조회");
+        inquiry.inquiryStudentsList(students);
+        System.out.println("=======================");
+        System.out.println("학생의 특정과목회차별점수조회");
+        inquiry.inquirySubjectByRound(st,0001);
+        System.out.println("=======================");
+        System.out.println("상태별 학생들조회");
+        inquiry.inquiryByState(students,1);
+        System.out.println("=======================");
+        System.out.println("학생리스트 조회");
+        inquiry.inquiryStudentsList(students);
+        System.out.println("=======================");
+        inquiry.inquiryByStateAndRequireSubjectAvgGrade(students,1);
 
 
 

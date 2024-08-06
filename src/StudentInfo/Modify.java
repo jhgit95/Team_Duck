@@ -69,7 +69,15 @@ public class Modify {
                     System.out.println("입력한 점수 범위가 아닙니다. 점수는 0~100 사이만 가능합니다.");
                     return;
                 }
+                for(int i=0;i<subjects.size();i++)
+                {
+                    if (subjects.get(i)[0].equals(id))
+                        if (subjects.get(i)[3].equal(round))
+                        {
+                            studentData.setSubjectList(i,newScore);
+                        }
 
+                }
                 // 점수 수정
                 // 점수가 제대로 설정되었는지 확인(넣어도 되고 안넣어도됨 선택적 사항)
                 int upgradeScore = scoreData.getScore();
