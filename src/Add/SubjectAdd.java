@@ -19,21 +19,8 @@ public class SubjectAdd {
     // 과목 리스트 생성.
     //초기화 필수.
 
-//    상태값을 문자로 바꿔주는 기능이 Add 에서 필요할 경우 추가. -Data 참고.
-//    public String changeStateString(int subjectId){
-//        return switch (subjectId) {
-//            case '1' -> "Java";
-//            case '2' -> "객체지향";
-//            case '3' -> "Spring";
-//            case '4' -> "JPA";
-//            case '5' -> "MySQL";
-//            case '6' -> "디자인 패턴";
-//            case '7' -> "Spring Security";
-//            case '8' -> "Redis";
-//            case '9' -> "MongoDB";
-//
-//            default -> 0;
-//        };
+    //상태값을 문자로 바꿔주는 기능이 Add 에서 필요할 경우 추가. -Data 참고.
+
 
     // 과목 리스트, 과목 리스트를 담는 리스트를 생성하고  메서드...
 
@@ -49,7 +36,8 @@ public class SubjectAdd {
         return subjectList;
     }
 
-    //중복으로 받을 경우 처리하는법.
+    //중복으로 받을 경우 처리하는법. ????
+    // Scanner 로 받고 equals = return 처리??
     public void exists(){
 
         //반복문을 통해 예외처리. 중복일 경우 다시 입력.
