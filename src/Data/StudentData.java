@@ -15,7 +15,7 @@ public class StudentData {
     public StudentData(int studentId, String name, int state) {
         this.studentId = studentId;
         this.studentName = name;
-        this.studentState=state;
+        this.studentState = state;
     }
 
 
@@ -35,6 +35,8 @@ public class StudentData {
         subjectList.add(subjectDetails);
     }
 
+
+    // 등급 int 값으로 변환
     public int changeGradeInt(char grade){
         return switch (grade) {
             case 'A' -> 1;
@@ -46,6 +48,8 @@ public class StudentData {
             default -> 0;
         };
     }
+
+    // int값에 해당하는 등급 변환
     public char changeGradeChar(int grade){
         //메서드의 반환형이 int여서 char로 수정했습니다--multiverse22
         return switch (grade) {

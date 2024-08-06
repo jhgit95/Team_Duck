@@ -30,6 +30,8 @@ public class ScoreManager extends Manager {
         for(StudentData studentData : studentDataList) {
             if(studentData.getStudentId() == student_ID) {
                 // Add 호출
+                // Add addScore = new Add();
+                // addScore.fdjkng(studentData);
 
             }
         }

@@ -12,7 +12,6 @@ public class Main {
     private static List<StudentData> students;
     private static ArrayList<int[]> subjects;
 
-
     public static void main(String[] args) {
 
         int choice;
@@ -38,12 +37,14 @@ public class Main {
                     break;
                 default:
                     System.out.println("Is not a valid choice.\nInput right choice again.\n");
+
             }
 
 
         } while(!stop_keyword.equals("exit"));
 
     }
+
 
 
     // 수강생 정보 관리
@@ -68,7 +69,7 @@ public class Main {
                     studentManager.inquiryData();
                     break;
                 case 3:
-                    System.out.println("Please enter student ID to add data");
+                    System.out.println("Please enter student ID to modify data");
                     studentManager.modifyData();
                     break;
                 case 4:

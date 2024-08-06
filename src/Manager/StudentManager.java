@@ -30,11 +30,11 @@ public class StudentManager extends Manager {
         System.out.print("Name : ");
         String name = scanner.next();
 
-        System.out.print("Check a State  1. Grean 2.Yellow 3. Red");
+        System.out.print("Check a State  1. Green 2. Yellow 3. Red");
         int state = scanner.nextInt();
 
         // Add addStudent = new Add
-        //addStudentData(name, state);
+        // addStudent.addData(name, state);
         //
     }
 
