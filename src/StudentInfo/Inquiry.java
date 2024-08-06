@@ -247,7 +247,7 @@ public class Inquiry {
             int score = subjectList.get(i)[2];
             int round = subjectList.get(i)[3];
             char grade = studentData.changeScoreGrade(subjectList.get(i)[1],score);
-            System.out.println("Code:"+subjectName+"의 타입은"+Type+"입니다"+round+"회차의 점수는"+score+"점이고 등급은"+grade+"입니다.");
+            System.out.println("과목:"+subjectName+"의 타입은"+Type+"입니다"+round+"회차의 점수는"+score+"점이고 등급은"+grade+"입니다.");
             //[0][0] [0][1] [0][2] [0][3] 순서로 출력
         }
 

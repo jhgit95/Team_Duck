@@ -21,8 +21,9 @@ public class StudentAdd {
         System.out.println("이름을입력하세요");
         String Name =sc.nextLine();
         while(true) {
-            System.out.println("상태를 입력하세요");
+            System.out.println("상태를 입력하세요 1. 좋음 2. 보통 3. 나쁨");
             int state = sc.nextInt();
+            sc.nextLine();
             if (state >= 1 && state <= 3) {
                 st = new StudentData(number, Name, state);
                 number++;
@@ -41,54 +42,89 @@ public class StudentAdd {
         int subjectType=0;
         ArrayList<int[]> studentsubjectlist = studentData.getSubjectList();
         ArrayList<String[]> subjectInfoList = subjectData.getSubjectList();
+        //과제 코드 입력. + 예외처리 = subjectInfoList 의 크기보다 높은 값 입력하면 다시 입력.
+        //깨알 지식 int 타입의 subjectId 뒤에 +"" 를 붙여서 문자열로 변경했습니다.
         while (flag) {
             System.out.println("과목코드를 입력하세요");
             subjectId = sc.nextInt();
+            sc.nextLine();
             for (int i = 0; i < subjectInfoList.size(); i++) {
                 if(subjectInfoList.get(i)[0].equals(subjectId+""))
                 {
                     flag=false;
+                    break;
                 }
                 else
                 {
-                    System.out.println("잘못된 코드입니다 다시입력하세요");
                 }
             }
+            if(flag)
+                System.out.println("잘못된 코드입니다 다시입력하세요");
         }
-        flag=true;
-        while (flag){
-            System.out.println("과목타입을 입력하세요 0--필수 1--선택");
-            subjectType=sc.nextInt();
-            for (int i = 0; i < subjectInfoList.size(); i++) {
-                if(subjectInfoList.get(i)[0].equals(subjectId+"")) {
-                    if (subjectInfoList.get(i)[2].equals(subjectType + "")) {
-                        flag = false;
-                    } else {
-                        System.out.println("잘못된 타입입니다 다시입력하세요");
-                    }
-                }
-                else{
+        // 등록시 선택,필수 입력 삭제. InfoList 에 과제별로 설정인지, 필수인지 설정되어 있는 정보 사용.
+        for(int i=0;i<subjectInfoList.size();i++)
+        //반복문 모든 subjectInfoList 의 0번째 값(subjectId)에 적용.
+        //모든 subjectInfoList 의 2번째 값(subjectType) 을 확인.
+        //값이 필수면 0, 선택이면 1 로 입력.
+        {
+            if(subjectInfoList.get(i)[0].equals(subjectId+"")) {
+                if (subjectInfoList.get(i)[2].equals("필수")) {
+                    subjectType = 0;
+                } else if (subjectInfoList.get(i)[2].equals("선택")) {
+                    subjectType = 1;
+                } else {
 
                 }
             }
+            else{
+            }
         }
-
+        //회차를 받습니다. 1~10 사이 값을 입력해야합니다.
         System.out.println("입력하시려는 회차를 입력해주세요");
         int round=sc.nextInt();
-        for(int i=0;i<studentsubjectlist.size();i++)
-        {
-            if(studentsubjectlist.get(i)[2]==round&&studentsubjectlist.get(i)[0]==subjectId)
-            {
-                throw new RuntimeException();
-            }
-            else {
+        sc.nextLine();
+        //회차 예외처리. 회차가 0보다 작거나 10보다 크면 다시 입력 반복.
+        while(round < 0 || round > 10) {
+            System.out.println("존재하지 않는 회차입니다. 다시 입력해주세요!");
+            round=sc.nextInt();
+            sc.nextLine();
+        //회차가 0보다 크고 10보다 작거나 같다면 반복문 종료.
+            if(round >0 && round <= 10){
+        //회차 중복체크. 같은 회차에 2개의 과목 중복인지 체크.
+        //리스트 크기만큼 반복해서 round(회차 입력값) = studentsubjectlist.get(i)[2] i번째 회차값
+        //subjectId(과제 입력값) = studentsubjectlist.get(i)[0] i번째 과제 값 이 동시에 성립하면 중복!
+                for(int i=0;i<studentsubjectlist.size();i++)
+                {
+                    if(studentsubjectlist.get(i)[2]==round && studentsubjectlist.get(i)[0]==subjectId)
+                    {
+                        throw new RuntimeException();
+                    }
+                    else {
+                    }
+                }break;
             }
         }
+
+
+        // 점수를 받습니다. 0~100 사이 값을 입력해야합니다.
         System.out.println("점수를 입력해주세요");
         int score=sc.nextInt();
+        sc.nextLine();
+
+        //예외처리. 점수가 0보다 작거나, 100보다 크다면 다시 입력해주세요 안내와 함께 다시 입력을 받는다.
+        while(score < 0 || score > 100) {
+            System.out.println("다시 입력해주세요. 점수는 0~100점 사이입니다.");
+            score = sc.nextInt();
+            sc.nextLine();
+        //점수가 0보다 크면서 동시에 100보다 작거나 같다면 반복문 종료.
+            if (score > 0 && score <= 100){
+                break;
+            }
+        }
         st = studentData;
         st.subjectDetailsInput(subjectId, subjectType, score, round);
         return st;
+
     }
 }
 
