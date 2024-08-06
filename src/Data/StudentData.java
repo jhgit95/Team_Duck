@@ -114,7 +114,7 @@ public class StudentData {
         return studentState;
     }
     public void setStudentState(int state){
-        //상태를 get하는 메서드추가 --multiverse22
+        //상태를 set하는 메서드추가 --multiverse22
         this.studentState=state;
     }
     //내부 get,set메서들은 private으로 하면 접근할수 없음
