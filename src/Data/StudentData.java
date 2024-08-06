@@ -36,7 +36,7 @@ public class StudentData {
     // subjectType : 0 = 필수, 1 = 선택
     // 등급 : A = 1, B = 2, C = 3, D = 4, F = 5, N = 6
     public void subjectDetailsInput(int subjectId,int subjectType, int score,int round){
-        subjectDetails = new int[5];
+        subjectDetails = new int[detailsSize];
         //초기화 안해주면 고장남!!
         this.subjectDetails[0] = subjectId;
         this.subjectDetails[1] = subjectType;
