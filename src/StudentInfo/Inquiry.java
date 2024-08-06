@@ -10,7 +10,9 @@ public class Inquiry {
     String Name="";
     int state=0;
     ArrayList<int[]> subjectList;
+    //학생들의 점수리스트
     List<Integer> list;
+    boolean flag=false;
 
     public Inquiry() {
         subjectData=new SubjectData();
@@ -41,6 +43,7 @@ public class Inquiry {
         subjectList = studentData.getSubjectList();
         Name=studentData.getStudentName();
         subjectList=inquirySortBySubjectIdThenRound(subjectList);
+        //Id로 정렬후 round순으로 정렬하는 Inquiry클래스내부메서드
         System.out.println(Name+" 님의 "+subjectId+" 코드 과목의 회차별 점수는");
         for(int i=0;i<subjectList.size();i++) {
             if(subjectList.get(i)[0]==subjectId){
@@ -212,9 +215,7 @@ public class Inquiry {
     public void inquirySubjecList(StudentData studentData) {
         //특정학생의 수강과목점수조회
         Name = studentData.getStudentName();
-        //넘겨받은객체에서 이름받아오기
         ArrayList<int[]> subjectList = studentData.getSubjectList();
-        //학생의 점수리스트
         subjectData.inquirySubjectList();
         //과목의 리스트 출력해 어떤코드가 어떤과목인지 알수있게 하는 메서드
         System.out.println(Name + "님의 점수는");

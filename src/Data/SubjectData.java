@@ -109,7 +109,7 @@ public class SubjectData {
         return this.subjectId;
     }
 
-    public void getSubjectId(String subjectId) {
+    public void setSubjectId(String subjectId) {
         this.subjectId = subjectId;
     }
 
