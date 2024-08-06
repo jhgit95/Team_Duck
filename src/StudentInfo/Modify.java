@@ -89,15 +89,15 @@ public class Modify {
         }
 
         // 과목 리스트에서 해당 과목의 점수 수정
-        ArrayList<int[]> subjectList2 = studentData.getSubjectList();
-            for(int[] subject : subjectList2){
-                if(subject[0] ==subjectId && subject[3] == round){
-                   subject[2] = newScore;
-                   System.out.println("접수가 성공적으로 수정되었습니다.");
-                }
+        for (int[] subject : subjectList) {
+            if (subject[0] == subjectId && subject[3] == round) {
+                subject[2] = newScore;
+                System.out.println("접수가 성공적으로 수정되었습니다.");
             }
-        studentData.subjectDetailsInput(subjectId, subjectType, newScore, round);
-        System.out.println("점수 수정 완료");
+        }
+
+        // 수정된 subjectList를 studentData에 다시 설정
+        studentData.setSubjectList((subjectList));
         return studentData;
     }
 }

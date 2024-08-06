@@ -97,6 +97,10 @@ public class StudentData {
         // e가 나올 경우 예외 처리 필요
         return 'e';
     }
+
+    public void setSubjectList(ArrayList<int[]> subjectList){
+        this.subjectList = subjectList;
+    }
     public ArrayList<int[]> getSubjectList(){
         //inquiry클래스에서 사용할 SubjectList를 get하는 메서드추가 --multiverse22
         return subjectList;
