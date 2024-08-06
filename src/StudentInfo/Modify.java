@@ -48,26 +48,24 @@ public class Modify {
     }
 
     // 수강생 과목별 회차 점수 수정
-    public StudentData ModifyScoreInfo(StudentData studentData, SubjectData subjectData) {
-        ArrayList<String[]> subjects = subjectData.getSubjectList();
+    public StudentData ModifyScoreInfo(StudentData studentData) {
+        ArrayList<int[]> subjectList = studentData.getSubjectList();
 
         // 사용자에게 수정할 과목의 ID를 입력받음
         System.out.print("수정할 과목의 ID를 입력하세요: ");
         int subjectId = scanner.nextInt();
 
-        // 과목이 존재하는지 확인
-        boolean subjectExists = false;
-        int subjectType = 2;// 초기값 2설정, 존재하지 않는 과목 타입으로 나타냄
-        for (String[] subject : subjects) {
-            if (Integer.parseInt(subject[0]) == subjectId) {
-                String[] arr = {"1","java","필수"};
-
-                subjectExists = true;
-                subjectType = subject[2].equals("필수") ? 0 : 1;
+        // 과목이 존재유무 확인
+        boolean subjectCheck = false;
+        int subjectType = 2; // 초기값 2설정 (존재하지 않는 과목 설정)
+        for (int[] subject : subjectList) {
+            if (subject[0] == subjectId) {
+                subjectCheck = true;
+                subjectType = subject[1];
                 break;
             }
         }
-        if (!subjectExists) {
+        if (!subjectCheck) {
             System.out.println("해당 과목이 존재하지 않습니다.");
             return studentData;
         }
@@ -90,18 +88,16 @@ public class Modify {
             return studentData;
         }
 
-        // 새로운 점수에 대한 등급 계산
-//        char newGrade = studentData.changeScoreGrade(subjectType, newScore);
-
         // 과목 리스트에서 해당 과목의 점수 수정
-        ArrayList<int[]> subjectList = studentData.();
-            for(int[] subject : subjectList){
-                for()
-                if(subject[0] ==)
+        for (int[] subject : subjectList) {
+            if (subject[0] == subjectId && subject[3] == round) {
+                subject[2] = newScore;
+                System.out.println("접수가 성공적으로 수정되었습니다.");
             }
-        //
-        studentData.subjectDetailsInput(subjectId, subjectType, newScore, round);
-        System.out.println("점수 수정 완료");
+        }
+
+        // 수정된 subjectList를 studentData에 다시 설정
+        studentData.setSubjectList((subjectList));
         return studentData;
     }
 }*/
