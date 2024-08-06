@@ -1,3 +1,4 @@
+import Add.StudentAdd;
 import Manager.ScoreManager;
 import Manager.StudentManager;
 import Data.*;
@@ -12,12 +13,30 @@ public class Main {
 
 
     public static void main(String[] args) {
+        SubjectData subjectData = new SubjectData();
+        StudentAdd Add=new StudentAdd();
         List<StudentData> students = new ArrayList<>();
-        StudentData st=new StudentData(0,"asd",1);
+
+        StudentData st=Add.addStudent();
         students.add(st);
-        //st=new StudentData(1,"김길환",2);
-        //students.add(st);
-        /*students.add(st);
+
+        System.out.println("원하는 학생의 id값 입력");
+        int id=scanner.nextInt();
+        scanner.nextLine();
+        for(StudentData student:students){
+            if(student.getStudentId()==id)
+            {
+                st=Add.addSubject(student);
+            }
+        }
+        students.add(st);
+        Inquiry inquiry=new Inquiry();
+        inquiry.inquirySubjecList(st);
+        //inquiry.inquiryStudentsList(students);
+/*
+        st=new StudentData(1,"김길환",2);
+        students.add(st);
+        students.add(st);
         st=new StudentData(1,"11",1);
         students.add(st);
         st=new StudentData(2,"22",2);
@@ -27,7 +46,7 @@ public class Main {
         st=new StudentData(4,"44",3);
         students.add(st);
         st=new StudentData(5,"55",1);
-        students.add(st);*/
+        students.add(st);
 
         st.subjectDetailsInput(0001,0,96,1);
         st.subjectDetailsInput(0001,0,86,2);
@@ -46,7 +65,10 @@ public class Main {
         st.subjectDetailsInput(0002,0,94,3);
         st.subjectDetailsInput(0002,0,94,9);
         st.subjectDetailsInput(0002,0,94,7);
+
+
         Inquiry inquiry=new Inquiry();
+
         System.out.println("점수정보조회");
         inquiry.inquirySubjecList(st);
         System.out.println("=======================");

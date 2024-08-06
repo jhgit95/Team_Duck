@@ -212,6 +212,21 @@ public class Inquiry {
             }
         }
     }
+    public String changeStateString(int subjectId) {
+        return switch (subjectId) {
+            case 1 -> "Java";
+            case 2 -> "객체지향";
+            case 3 -> "Spring";
+            case 4 -> "JPA";
+            case 5 -> "MySQL";
+            case 6 -> "디자인 패턴";
+            case 7 -> "Spring Security";
+            case 8 -> "Redis";
+            case 9 -> "MongoDB";
+
+            default -> "잘못된값";
+        };
+    }
     public void inquirySubjecList(StudentData studentData) {
         //특정학생의 수강과목점수조회
         Name = studentData.getStudentName();
@@ -221,7 +236,7 @@ public class Inquiry {
         System.out.println(Name + "님의 점수는");
         subjectList=inquirySortBySubjectIdThenRound(subjectList);
         for(int i = 0; i < subjectList.size(); i++) {
-            int subjectId = subjectList.get(i)[0];
+            String subjectName = changeStateString(subjectList.get(i)[0]);
             String Type="";
             if(subjectList.get(i)[1]==0) {
                 Type="필수";
@@ -232,7 +247,7 @@ public class Inquiry {
             int score = subjectList.get(i)[2];
             int round = subjectList.get(i)[3];
             char grade = studentData.changeScoreGrade(subjectList.get(i)[1],score);
-            System.out.println("Code:"+subjectId+"의 타입은"+Type+"입니다"+round+"회차의 점수는"+score+"점이고 등급은"+grade+"입니다.");
+            System.out.println("Code:"+subjectName+"의 타입은"+Type+"입니다"+round+"회차의 점수는"+score+"점이고 등급은"+grade+"입니다.");
             //[0][0] [0][1] [0][2] [0][3] 순서로 출력
         }
 
