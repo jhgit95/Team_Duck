@@ -3,6 +3,7 @@ package Manager;
 import Data.ScoreData;
 import Data.StudentData;
 import StudentInfo.Inquiry;
+import StudentInfo.Modify;
 //import StudentInfo.Modify;
 
 import java.util.ArrayList;
@@ -60,9 +61,8 @@ public class ScoreManager extends Manager {
         // 입력받은 ID값에 해당하는 StudentData를 리스트에서 찾기
         for(StudentData studentData : studentDataList) {
             if(studentData.getStudentId() == student_ID) {
-                // modify
-                //Modify modifyScore = new Modify();
-                //studentData = modifyScore.modifyScoreInfo(studentData);
+                Modify modifyScore = new Modify();
+                studentData = modifyScore.ModifyScoreInfo(studentData);
             }
         }
     }

@@ -141,5 +141,4 @@ public class StudentData {
         this.studentState=state;
         scoreData.setScoreList(score,type,round);
     }
-
 }

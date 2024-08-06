@@ -47,6 +47,7 @@ public class Main {
         st.subjectDetailsInput(0002,0,94,7);
         Inquiry inquiry=new Inquiry();
         inquiry.InquiryScoreInfo(st);
+
         //st학생의 점수 Inquiry
         //inquiry.InquiryStudentInfo(st);
         //inquiry.InquiryStudentsList(students);

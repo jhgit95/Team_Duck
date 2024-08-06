@@ -30,6 +30,7 @@ public class Inquiry {
         System.out.println("과목을 수강중입니다.");
         System.out.println("학생의 상태:"+state);
     }
+
     public void InquirySubjectByRound(StudentData studentData,int subjectId){
         //특정 과목의 회차별 점수 Inquiry
         ArrayList<int[]> subjectList = studentData.getSubjectList();
