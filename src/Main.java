@@ -98,21 +98,17 @@ public class Main {
             displayMenu_ScoreManagement();
             choice = scanner.nextInt();
 
-            // 선택값에 대한 함수 실행 / 1. 등록 / 2. 조회 / 3. 수정 / 4. 메인으로 /
+            // 선택값에 대한 함수 실행 / 1. 조회 / 2. 수정 / 3. 메인으로 /
             switch(choice) {
                 case 1:
-                    System.out.println("Please enter student data to add data");
-                    scoreManager.addData();
-                    break;
-                case 2:
                     System.out.println("Please enter student ID to add data");
                     scoreManager.inquiryData();
                     break;
-                case 3:
+                case 2:
                     System.out.println("Please enter student ID to add data");
                     scoreManager.modifyData();
                     break;
-                case 4:
+                case 3:
                     stop_keyword = "exit";
                     break;
                 default:
@@ -156,7 +152,8 @@ public class Main {
         System.out.println("\t=         [1] Add Student Info          =");
         System.out.println("\t=         [2] Inquiry Student Info      =");
         System.out.println("\t=         [3] Modify Student Info       =");
-        System.out.println("\t=         [4] Back to Main              =");
+        System.out.println("\t=         [4] Remove Student Info       =");
+        System.out.println("\t=         [5] Back to Main              =");
         System.out.println("\t=                                       =");
         System.out.println("\t=---------------------------------------=\n");
     }
@@ -168,10 +165,9 @@ public class Main {
         System.out.println("\t=        What do you want to do?        =");
         System.out.println("\t=---------------------------------------=");
         System.out.println("\t=                                       =");
-        System.out.println("\t=         [1] Add Score Info            =");
-        System.out.println("\t=         [2] Inquiry Score Info        =");
-        System.out.println("\t=         [3] Modify Score Info         =");
-        System.out.println("\t=         [4] Back to Main              =");
+        System.out.println("\t=         [1] Inquiry Score Info        =");
+        System.out.println("\t=         [2] Modify Score Info         =");
+        System.out.println("\t=         [3] Back to Main              =");
         System.out.println("\t=                                       =");
         System.out.println("\t=---------------------------------------=\n");
 
