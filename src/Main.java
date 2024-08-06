@@ -1,4 +1,3 @@
-import Add.StudentAdd;
 import Manager.ScoreManager;
 import Manager.StudentManager;
 import Data.*;
@@ -10,119 +9,11 @@ import java.util.Scanner;
 public class Main {
 
     private static Scanner scanner = new Scanner(System.in);
-
+    private static List<StudentData> students;
+    private static ArrayList<int[]> subjects;
 
     public static void main(String[] args) {
-        SubjectData subjectData = new SubjectData();
-        StudentAdd Add=new StudentAdd();
-        List<StudentData> students = new ArrayList<>();
-        Inquiry inquiry=new Inquiry();
-        StudentData st;
-        st = Add.addStudent();
-        students.add(st);
-        st = Add.addStudent();
-        students.add(st);
-        st = Add.addStudent();
-        students.add(st);
 
-
-
-        System.out.println("원하는 학생의 id값 입력");
-        inquiry.inquiryStudentsListShort(students);
-        int id=scanner.nextInt();
-        scanner.nextLine();
-        for(StudentData student:students){
-            if(student.getStudentId()==id)
-            {
-                student=Add.addSubject(student);
-            }
-        }
-        System.out.println("원하는 학생의 id값 입력");
-        inquiry.inquiryStudentsListShort(students);
-        id=scanner.nextInt();
-        scanner.nextLine();
-        for(StudentData student:students){
-            if(student.getStudentId()==id)
-            {
-                student=Add.addSubject(student);
-            }
-        }
-        System.out.println("원하는 학생의 id값 입력");
-        inquiry.inquiryStudentsListShort(students);
-        id=scanner.nextInt();
-        scanner.nextLine();
-        for(StudentData student:students){
-            if(student.getStudentId()==id)
-            {
-                student=Add.addSubject(student);
-            }
-        }
-
-        //inquiry.inquirySubjecList(st);
-        inquiry.inquiryStudentsList(students);
-/*
-        st=new StudentData(1,"김길환",2);
-        students.add(st);
-        students.add(st);
-        st=new StudentData(1,"11",1);
-        students.add(st);
-        st=new StudentData(2,"22",2);
-        students.add(st);
-        st=new StudentData(3,"33",3);
-        students.add(st);
-        st=new StudentData(4,"44",3);
-        students.add(st);
-        st=new StudentData(5,"55",1);
-        students.add(st);
-
-        st.subjectDetailsInput(0001,0,96,1);
-        st.subjectDetailsInput(0001,0,86,2);
-        st.subjectDetailsInput(0001,0,95,3);
-        st.subjectDetailsInput(0001,0,95,5);
-        st.subjectDetailsInput(0001,0,95,4);
-        st.subjectDetailsInput(0001,0,94,7);
-        st.subjectDetailsInput(0001,0,94,6);
-        st.subjectDetailsInput(0001,0,94,9);
-        st.subjectDetailsInput(0001,0,75,10);
-
-        st.subjectDetailsInput(0002,0,96,1);
-        st.subjectDetailsInput(0002,0,94,2);
-        st.subjectDetailsInput(0002,0,94,6);
-        st.subjectDetailsInput(0002,0,94,4);
-        st.subjectDetailsInput(0002,0,94,3);
-        st.subjectDetailsInput(0002,0,94,9);
-        st.subjectDetailsInput(0002,0,94,7);
-
-
-        Inquiry inquiry=new Inquiry();
-
-        System.out.println("점수정보조회");
-        inquiry.inquirySubjecList(st);
-        System.out.println("=======================");
-        System.out.println("평균등급조회");
-        char grade= inquiry.inquirySpecificAvgGrade(st,0001);
-        System.out.println(grade);
-        System.out.println("=======================");
-        System.out.println("학생정보조회");
-        inquiry.inquiryStudentInfo(st);
-        System.out.println("=======================");
-        System.out.println("학생들의 정보조회");
-        inquiry.inquiryStudentsList(students);
-        System.out.println("=======================");
-        System.out.println("학생의 특정과목회차별점수조회");
-        inquiry.inquirySubjectByRound(st,0001);
-        System.out.println("=======================");
-        System.out.println("상태별 학생들조회");
-        inquiry.inquiryByState(students,1);
-        System.out.println("=======================");
-        System.out.println("학생리스트 조회");
-        inquiry.inquiryStudentsList(students);
-        System.out.println("=======================");
-        inquiry.inquiryByStateAndRequireSubjectAvgGrade(students,1);
-
-
-
-        /*
         int choice;
         String stop_keyword = "";
 
@@ -146,6 +37,7 @@ public class Main {
                     break;
                 default:
                     System.out.println("Is not a valid choice.\nInput right choice again.\n");
+
             }
 
 
@@ -155,13 +47,9 @@ public class Main {
 
 
 
-
-
-
-
     // 수강생 정보 관리
     public static void managementStudentInfo() {
-        StudentManager studentManager = new StudentManager();
+        StudentManager studentManager = new StudentManager(students);
         int choice;
         String stop_keyword = "";
 
@@ -170,20 +58,26 @@ public class Main {
             displayMenu_StudentManagement();
             choice = scanner.nextInt();
 
-            // 선택값에 대한 함수 실행 / 1. 등록 / 2. 조회 / 3. 수정 / 4. 메인으로 /
+            // 선택값에 대한 함수 실행 / 1. 등록 / 2. 조회 / 3. 수정 / 4. 삭제 / 5. 메인으로 /
             switch(choice) {
                 case 1:
+                    System.out.println("Please enter student data to add data");
                     studentManager.addData();
                     break;
                 case 2:
+                    System.out.println("Please enter student ID to inquiry data");
                     studentManager.inquiryData();
                     break;
                 case 3:
+                    System.out.println("Please enter student ID to modify data");
                     studentManager.modifyData();
                     break;
                 case 4:
-                    stop_keyword = "exit";
+                    System.out.println("Please enter student ID to remove data");
+                    studentManager.removeData();
                     break;
+                case 5:
+                    stop_keyword = "exit";
                 default:
                     System.out.println("Is not a valid choice.\nInput right choice again.\n");
             }
@@ -193,13 +87,9 @@ public class Main {
 
 
 
-
-
-
-
     // 점수 정보 관리
     public static void managementScoreInfo() {
-        ScoreManager scoreManager = new ScoreManager();
+        ScoreManager scoreManager = new ScoreManager(students);
         int choice;
         String stop_keyword = "";
 
@@ -208,18 +98,17 @@ public class Main {
             displayMenu_ScoreManagement();
             choice = scanner.nextInt();
 
-            // 선택값에 대한 함수 실행 / 1. 등록 / 2. 조회 / 3. 수정 / 4. 메인으로 /
+            // 선택값에 대한 함수 실행 / 1. 조회 / 2. 수정 / 3. 메인으로 /
             switch(choice) {
                 case 1:
-                    scoreManager.addData();
-                    break;
-                case 2:
+                    System.out.println("Please enter student ID to add data");
                     scoreManager.inquiryData();
                     break;
-                case 3:
+                case 2:
+                    System.out.println("Please enter student ID to add data");
                     scoreManager.modifyData();
                     break;
-                case 4:
+                case 3:
                     stop_keyword = "exit";
                     break;
                 default:
@@ -263,7 +152,8 @@ public class Main {
         System.out.println("\t=         [1] Add Student Info          =");
         System.out.println("\t=         [2] Inquiry Student Info      =");
         System.out.println("\t=         [3] Modify Student Info       =");
-        System.out.println("\t=         [4] Back to Main              =");
+        System.out.println("\t=         [4] Remove Student Info       =");
+        System.out.println("\t=         [5] Back to Main              =");
         System.out.println("\t=                                       =");
         System.out.println("\t=---------------------------------------=\n");
     }
@@ -275,13 +165,11 @@ public class Main {
         System.out.println("\t=        What do you want to do?        =");
         System.out.println("\t=---------------------------------------=");
         System.out.println("\t=                                       =");
-        System.out.println("\t=         [1] Add Score Info            =");
-        System.out.println("\t=         [2] Inquiry Score Info        =");
-        System.out.println("\t=         [3] Modify Score Info         =");
-        System.out.println("\t=         [4] Back to Main              =");
+        System.out.println("\t=         [1] Inquiry Score Info        =");
+        System.out.println("\t=         [2] Modify Score Info         =");
+        System.out.println("\t=         [3] Back to Main              =");
         System.out.println("\t=                                       =");
         System.out.println("\t=---------------------------------------=\n");
 
-         */
     }
 }

@@ -2,7 +2,7 @@
 
 import Data.ScoreData;
 import Data.StudentData;
-import netscape.javascript.JSObject;
+import
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -11,11 +11,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DataFile{
+public class JsonParser {
 
-    private String filePath;
+    private String filePath = "src/Data/Data.json";
 
-    public DataFile(String filePath) {
+    public JsonParser(String filePath) {
         this.filePath = filePath;
     }
 
@@ -37,51 +37,28 @@ public class DataFile{
     }
 
     // JSON 문자열을 파싱해서 Student 객체 리스트로 반환
-    public List<StudentData> loadStudents() throws IOException {
+    public ArrayList<StudentData> loadStudents() throws IOException {
         String jsonString = readFile(filePath);
-        List<StudentData> students = new ArrayList<>();
+        ArrayList<StudentData> students = new ArrayList<>();
 
-        // 파싱, Json 파일을 보면서 보면 이해하기 편함
-        int start = jsonString.indexOf("[", jsonString.indexOf("students")) + 1; // students 문자열 다음 첫번째로 오는 [ 를 찾기
-        int end = jsonString.indexOf("]", start); //  start 이후에 오는 ] 찾기
-        String studentJson = jsonString.substring(start, end).trim(); // trim은 문자열 앞뒤의 공백을 제거하는 것이므로 크게 신경쓸 필요는 없음
 
-        String[] splitStudentJson = studentJson.split("\\},\\{"); // 저걸 기준으로 데이터를 분리함
+        // 시작 지점의 여는 대괄호 '['와 끝 지점의 닫는 대괄호 ']'를 기점으로 문자열 나누기
+        int startIndex = jsonString.indexOf("[");
+        int endIndex = jsonString.indexOf("]");
+        String studentsArray = jsonString.substring(startIndex + 1, endIndex);
+        String[] entries = studentsArray.split("\\},\\{"); // 개인 학생으로 나누기
 
-        for (int i=0; i<splitStudentJson.length; i++) {
-            String entry = splitStudentJson[i].replaceAll("[\\[\\]{}]","").trim();
-            String[] fields = entry.split(",");
-            StudentData studentData = new StudentData(0); // StudentData 객체 선언
 
-            for(String field : fields) {
-                String[] keyValue = field.split(":");
-                String key = keyValue[0].trim().replaceAll("\"", "");
-                String value = keyValue[1].trim().replaceAll("\"", "");
+        // 학생 수 만큼 반복할 예정
+        for (String entry: entries) {
+            entry = entry.replace("{","").replace("}","").trim(); // 중괄호랑 공백 제거
+            String[] keyValue = entry.split(":");
 
-                switch (key) {
-                    case "StudentID":
-                        studentData.setStudentId(Integer.parseInt(value)); // StudentID 값을 받아서 초기화
-                        break;
-                    case "StudentName":
-                        studentData.setStudentName(value);
-                        break;
-                    case "State":
-                        studentData.setStudentState(value);
-                        break;
-                    case "SubjectList":// rotoRL
-                        String[] subjectIDs = value.replaceAll("\\[|\\]", "").split(",");
-                        List<Integer> subjectList = new ArrayList<>();
-                        for (String subjectID : subjectIDs) {
-                            subjectList.add(Integer.parseInt(subjectID.trim()));
-                        }
-                        studentData.addSubject(subjectIDs.toString());
-                        break;
-                }
-
-            }
-            students.add(studentData);
         }
-        return students;
+
+
+
+        return null;
     }
 
 
