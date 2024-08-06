@@ -46,7 +46,7 @@ public class ScoreManager extends Manager {
         for(StudentData studentData : studentDataList) {
             if(studentData.getStudentId() == student_ID) {
                 Inquiry scoreInquiry = new Inquiry();
-                scoreInquiry.InquiryScoreInfo(studentData);
+                scoreInquiry.inquirySubjecList(studentData);
             }
         }
     }

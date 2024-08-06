@@ -48,7 +48,7 @@ public class StudentManager extends Manager {
         for(StudentData studentData : studentDataList) {
             if(studentData.getStudentId() == student_ID) {
                 Inquiry studentInquiry = new Inquiry();
-                studentInquiry.InquiryStudentInfo(studentData);
+                studentInquiry.inquiryStudentInfo(studentData);
             }
         }
     }
