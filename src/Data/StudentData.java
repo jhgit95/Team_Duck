@@ -4,12 +4,12 @@ import java.util.ArrayList;
 
 public class StudentData {
     ScoreData scoreData;
-
+    //객체생성 각각 ScoreData
     protected int studentId;
     protected String studentName;
 
     // 1=Green, 2=Yellow, 3=Red
-    protected int studentState;
+    int studentState;
 
 
     public StudentData(int studentId, String name, int state) {
@@ -23,6 +23,7 @@ public class StudentData {
     // 등급 : A = 1, B = 2, C = 3, D = 4, F = 5, N = 6
     ArrayList<int[]> subjectList = new ArrayList<>();
     int[] subjectDetails = new int[5];
+    //grade변경시 5부분 수정필요
 
     public void subjectDetailsInput(int subjectId,int subjectType, int score,int round){
         subjectDetails = new int[5];
@@ -105,6 +106,17 @@ public class StudentData {
         //inquiry클래스에서 사용할 SubjectList를 get하는 메서드추가 --multiverse22
         return subjectList;
     }
+    public void setSubjectList(int i,int newScore){
+        this.subjectList.get(i)[2]=newScore;
+    }
+    public int getStudentState(){
+        //상태를 get하는 메서드추가 --multiverse22
+        return studentState;
+    }
+    public void setStudentState(int state){
+        //상태를 get하는 메서드추가 --multiverse22
+        this.studentState=state;
+    }
     //내부 get,set메서들은 private으로 하면 접근할수 없음
     public int getStudentId() {
         return this.studentId;
@@ -122,13 +134,20 @@ public class StudentData {
         this.studentName = name;
     }
 
+//
+//    public ArrayList<String> getSubjectList() {
+//        return this.subjectList;
+//    }
+//    public void addSubject(String subject) {
+//        this.subjectList.add(subject);
+//    }
 
-    public int getStudentState(){
-        return studentState;
-    }
-    public void setStudentState(int state){
-        this.studentState = state;
-    }
+//    public String getStudentState(){
+//        return studentState;
+//    }
+//    public void setStudentState(String state){
+//        this.studentState=state;
+//    }
 
     // 이 아래는 전부 테스트에 사용되는 메서드
 
