@@ -51,6 +51,13 @@ public class Inquiry {
             }
         }
     }
+    public void inquiryStudentsListShort(List<StudentData> studentsList) {
+        for(StudentData Data:studentsList) {
+            Name = Data.getStudentName();
+            studentId = Data.getStudentId();
+            System.out.println(Name + "님의 고유번호는 " + studentId + "입니다");
+        }
+    }
     public void inquiryStudentsList(List<StudentData> studentsList){
         //학생리스트를 통째로받아옴 학생전부의 정보를 조회하는메서드
         System.out.println("-----------------------------------------------------------------------------");

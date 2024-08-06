@@ -23,6 +23,7 @@ public class StudentAdd {
         while(true) {
             System.out.println("상태를 입력하세요");
             int state = sc.nextInt();
+            sc.nextLine();
             if (state >= 1 && state <= 3) {
                 st = new StudentData(number, Name, state);
                 number++;
@@ -41,40 +42,42 @@ public class StudentAdd {
         int subjectType=0;
         ArrayList<int[]> studentsubjectlist = studentData.getSubjectList();
         ArrayList<String[]> subjectInfoList = subjectData.getSubjectList();
+
         while (flag) {
             System.out.println("과목코드를 입력하세요");
             subjectId = sc.nextInt();
+            sc.nextLine();
             for (int i = 0; i < subjectInfoList.size(); i++) {
                 if(subjectInfoList.get(i)[0].equals(subjectId+""))
                 {
                     flag=false;
+                    break;
                 }
                 else
                 {
-                    System.out.println("잘못된 코드입니다 다시입력하세요");
                 }
             }
+            if(flag)
+                System.out.println("잘못된 코드입니다 다시입력하세요");
         }
-        flag=true;
-        while (flag){
-            System.out.println("과목타입을 입력하세요 0--필수 1--선택");
-            subjectType=sc.nextInt();
-            for (int i = 0; i < subjectInfoList.size(); i++) {
-                if(subjectInfoList.get(i)[0].equals(subjectId+"")) {
-                    if (subjectInfoList.get(i)[2].equals(subjectType + "")) {
-                        flag = false;
-                    } else {
-                        System.out.println("잘못된 타입입니다 다시입력하세요");
-                    }
-                }
-                else{
+        for(int i=0;i<subjectInfoList.size();i++)
+        {
+            if(subjectInfoList.get(i)[0].equals(subjectId+"")) {
+                if (subjectInfoList.get(i)[2].equals("필수")) {
+                    subjectType = 0;
+                } else if (subjectInfoList.get(i)[2].equals("선택")) {
+                    subjectType = 1;
+                } else {
 
                 }
+            }
+            else{
             }
         }
 
         System.out.println("입력하시려는 회차를 입력해주세요");
         int round=sc.nextInt();
+        sc.nextLine();
         for(int i=0;i<studentsubjectlist.size();i++)
         {
             if(studentsubjectlist.get(i)[2]==round&&studentsubjectlist.get(i)[0]==subjectId)
@@ -86,6 +89,7 @@ public class StudentAdd {
         }
         System.out.println("점수를 입력해주세요");
         int score=sc.nextInt();
+        sc.nextLine();
         st = studentData;
         st.subjectDetailsInput(subjectId, subjectType, score, round);
         return st;

@@ -16,23 +16,50 @@ public class Main {
         SubjectData subjectData = new SubjectData();
         StudentAdd Add=new StudentAdd();
         List<StudentData> students = new ArrayList<>();
-
-        StudentData st=Add.addStudent();
+        Inquiry inquiry=new Inquiry();
+        StudentData st;
+        st = Add.addStudent();
+        students.add(st);
+        st = Add.addStudent();
+        students.add(st);
+        st = Add.addStudent();
         students.add(st);
 
+
+
         System.out.println("원하는 학생의 id값 입력");
+        inquiry.inquiryStudentsListShort(students);
         int id=scanner.nextInt();
         scanner.nextLine();
         for(StudentData student:students){
             if(student.getStudentId()==id)
             {
-                st=Add.addSubject(student);
+                student=Add.addSubject(student);
             }
         }
-        students.add(st);
-        Inquiry inquiry=new Inquiry();
-        inquiry.inquirySubjecList(st);
-        //inquiry.inquiryStudentsList(students);
+        System.out.println("원하는 학생의 id값 입력");
+        inquiry.inquiryStudentsListShort(students);
+        id=scanner.nextInt();
+        scanner.nextLine();
+        for(StudentData student:students){
+            if(student.getStudentId()==id)
+            {
+                student=Add.addSubject(student);
+            }
+        }
+        System.out.println("원하는 학생의 id값 입력");
+        inquiry.inquiryStudentsListShort(students);
+        id=scanner.nextInt();
+        scanner.nextLine();
+        for(StudentData student:students){
+            if(student.getStudentId()==id)
+            {
+                student=Add.addSubject(student);
+            }
+        }
+
+        //inquiry.inquirySubjecList(st);
+        inquiry.inquiryStudentsList(students);
 /*
         st=new StudentData(1,"김길환",2);
         students.add(st);
