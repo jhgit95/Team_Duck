@@ -2,9 +2,12 @@ package Data;
 
 import java.util.ArrayList;
 
+// 학생의 정보를 필드값으로 받고, 성적은 2차원 배열로 구현한 성적표(subjectList)에 저장한다.
 public class StudentData {
-    ScoreData scoreData;
+    ScoreData scoreData; // 삭제 예정 코드
     //객체생성 각각 ScoreData
+
+
     protected int studentId;
     protected String studentName;
 
@@ -19,12 +22,19 @@ public class StudentData {
     }
 
 
+
+    // 성적표 : 각각의 성적을 전부 모아서 관리하는 배열
+    ArrayList<int[]> subjectList = new ArrayList<>();
+
+    // 성적 : 하나의 성적에 대한 정보를 담은 배열
+    int detailsSize = 4;
+    int[] subjectDetails = new int[detailsSize];
+
+
+    // 과목id, 과목타입, 점수, 회차
+    // subjectId : 과제 1(자바), 2(객체지향) ... 9(MongoDB)
     // subjectType : 0 = 필수, 1 = 선택
     // 등급 : A = 1, B = 2, C = 3, D = 4, F = 5, N = 6
-    ArrayList<int[]> subjectList = new ArrayList<>();
-    int[] subjectDetails = new int[5];
-    //grade변경시 5부분 수정필요
-
     public void subjectDetailsInput(int subjectId,int subjectType, int score,int round){
         subjectDetails = new int[5];
         //초기화 안해주면 고장남!!
@@ -37,67 +47,68 @@ public class StudentData {
         subjectList.add(subjectDetails);
     }
 
-    public int changeGradeInt(char grade){
-        return switch (grade) {
-            case 'A' -> 1;
-            case 'B' -> 2;
-            case 'C' -> 3;
-            case 'D' -> 4;
-            case 'F' -> 5;
-            case 'N' -> 6;
-            default -> 0;
-        };
-    }
-    public char changeGradeChar(int grade){
-        //메서드의 반환형이 int여서 char로 수정했습니다--multiverse22
-        return switch (grade) {
-            case  1-> 'A';
-            case  2-> 'B';
-            case  3-> 'C';
-            case  4-> 'D';
-            case  5-> 'F';
-            case  6-> 'N';
-            default -> 0;
-        };
-    }
-
-    public char changeScoreGrade(int subjectType, int score) {
-        // subjectType==0이면 필수과목
-        if (subjectType == 0) {
-            if (score >= 95) {
-                return 'A';
-            } else if (score >= 90) {
-                return 'B';
-            } else if (score >= 80) {
-                return 'C';
-            } else if (score >= 70) {
-                return 'D';
-            } else if (score >= 60) {
-                return 'F';
-            } else {
-                return 'N';
-            }
-        }
-
-        // 선택과목
-        else if (subjectType == 1) {
-            if (score >= 90) {
-                return 'A';
-            } else if (score >= 80) {
-                return 'B';
-            } else if (score >= 70) {
-                return 'C';
-            } else if (score >= 60) {
-                return 'D';
-            } else if (score >= 50) {
-                return 'F';
-            } else {
-                return 'N';
-            }
-        }
-        // e가 나올 경우 예외 처리 필요
-        return 'e';
-    }
+//삭제 예정
+//    public int changeGradeInt(char grade){
+//        return switch (grade) {
+//            case 'A' -> 1;
+//            case 'B' -> 2;
+//            case 'C' -> 3;
+//            case 'D' -> 4;
+//            case 'F' -> 5;
+//            case 'N' -> 6;
+//            default -> 0;
+//        };
+//    }
+//    public char changeGradeChar(int grade){
+//        //메서드의 반환형이 int여서 char로 수정했습니다--multiverse22
+//        return switch (grade) {
+//            case  1-> 'A';
+//            case  2-> 'B';
+//            case  3-> 'C';
+//            case  4-> 'D';
+//            case  5-> 'F';
+//            case  6-> 'N';
+//            default -> 0;
+//        };
+//    }
+//
+//    public char changeScoreGrade(int subjectType, int score) {
+//        // subjectType==0이면 필수과목
+//        if (subjectType == 0) {
+//            if (score >= 95) {
+//                return 'A';
+//            } else if (score >= 90) {
+//                return 'B';
+//            } else if (score >= 80) {
+//                return 'C';
+//            } else if (score >= 70) {
+//                return 'D';
+//            } else if (score >= 60) {
+//                return 'F';
+//            } else {
+//                return 'N';
+//            }
+//        }
+//
+//        // 선택과목
+//        else if (subjectType == 1) {
+//            if (score >= 90) {
+//                return 'A';
+//            } else if (score >= 80) {
+//                return 'B';
+//            } else if (score >= 70) {
+//                return 'C';
+//            } else if (score >= 60) {
+//                return 'D';
+//            } else if (score >= 50) {
+//                return 'F';
+//            } else {
+//                return 'N';
+//            }
+//        }
+//        // e가 나올 경우 예외 처리 필요
+//        return 'e';
+//    }
 
     public void setSubjectList(ArrayList<int[]> subjectList){
         this.subjectList = subjectList;
