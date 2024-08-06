@@ -23,15 +23,17 @@ public class StudentData {
     // 등급 : A = 1, B = 2, C = 3, D = 4, F = 5, N = 6
     ArrayList<int[]> subjectList = new ArrayList<>();
     int[] subjectDetails = new int[5];
+    //grade변경시 5부분 수정필요
 
-    public void subjectDetailsInput(int subjectId,int subjectType, int score,int round, char grade){
+    public void subjectDetailsInput(int subjectId,int subjectType, int score,int round){
         subjectDetails = new int[5];
         //초기화 안해주면 고장남!!
         this.subjectDetails[0] = subjectId;
         this.subjectDetails[1] = subjectType;
         this.subjectDetails[2] = score;
+        //점수 범위0~100
         this.subjectDetails[3] = round;
-        this.subjectDetails[4] = changeGradeInt(grade);
+        //회차 범위 1~10
         subjectList.add(subjectDetails);
     }
 
@@ -100,13 +102,24 @@ public class StudentData {
         // e가 나올 경우 예외 처리 필요
         return 'e';
     }
+
+    public void setSubjectList(ArrayList<int[]> subjectList){
+        this.subjectList = subjectList;
+    }
     public ArrayList<int[]> getSubjectList(){
         //inquiry클래스에서 사용할 SubjectList를 get하는 메서드추가 --multiverse22
         return subjectList;
     }
+    public void setSubjectList(int i,int newScore){
+        this.subjectList.get(i)[2]=newScore;
+    }
     public int getStudentState(){
         //상태를 get하는 메서드추가 --multiverse22
         return studentState;
+    }
+    public void setStudentState(int state){
+        //상태를 set하는 메서드추가 --multiverse22
+        this.studentState=state;
     }
     //내부 get,set메서들은 private으로 하면 접근할수 없음
     public int getStudentId() {
@@ -155,5 +168,4 @@ public class StudentData {
         this.studentState=state;
         scoreData.setScoreList(score,type,round);
     }
-
 }

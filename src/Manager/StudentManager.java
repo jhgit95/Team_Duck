@@ -3,7 +3,7 @@ package Manager;
 import Data.ScoreData;
 import Data.StudentData;
 import StudentInfo.Inquiry;
-import StudentInfo.Modify;
+//import StudentInfo.Modify;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,7 +48,7 @@ public class StudentManager extends Manager {
         for(StudentData studentData : studentDataList) {
             if(studentData.getStudentId() == student_ID) {
                 Inquiry studentInquiry = new Inquiry();
-                studentInquiry.InquiryStudentInfo(studentData);
+                studentInquiry.inquiryStudentInfo(studentData);
             }
         }
     }
@@ -64,8 +64,8 @@ public class StudentManager extends Manager {
         for(StudentData studentData : studentDataList) {
             if(studentData.getStudentId() == student_ID) {
                 // modify
-                Modify modifyStudent = new Modify();
-                modifyStudent.modifyStudentInfo(studentData);
+                //Modify modifyStudent = new Modify();
+                //modifyStudent.modifyStudentInfo(studentData);
             }
         }
     }

@@ -8,7 +8,6 @@ public class SubjectData {
 
     ArrayList<String[]> subjectList = new ArrayList<>();
     public SubjectData() {
-
         subjectList.add(new String[]{"1", "Java", "필수"});
         subjectList.add(new String[]{"2", "객체지향", "필수"});
         subjectList.add(new String[]{"3", "Spring", "필수"});
@@ -110,7 +109,7 @@ public class SubjectData {
         return this.subjectId;
     }
 
-    public void getSubjectId(String subjectId) {
+    public void setSubjectId(String subjectId) {
         this.subjectId = subjectId;
     }
 

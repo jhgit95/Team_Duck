@@ -1,4 +1,4 @@
-package Manager;
+/*package Manager;
 
 import Data.ScoreData;
 import Data.StudentData;
@@ -155,3 +155,4 @@ public class JsonParser {
 
 
 }
+*/
