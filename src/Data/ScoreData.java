@@ -95,10 +95,10 @@ public class ScoreData {
     }
 
 
-    public int getsSore() {
+    public int getScore() {
         return this.score;
     }
-    public void setsSore(int score) {
+    public void setScore(int score) {
         this.score = score;
     }
 

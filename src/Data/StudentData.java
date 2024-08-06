@@ -4,18 +4,18 @@ import java.util.ArrayList;
 
 public class StudentData {
     ScoreData scoreData;
-    //객체생성 각각 ScoreData
+
     protected int studentId;
     protected String studentName;
 
     // 1=Green, 2=Yellow, 3=Red
-    int studentState;
+    protected int studentState;
 
 
     public StudentData(int studentId, String name, int state) {
         this.studentId = studentId;
         this.studentName = name;
-        this.studentState=state;
+        this.studentState = state;
     }
 
 
@@ -24,7 +24,7 @@ public class StudentData {
     ArrayList<int[]> subjectList = new ArrayList<>();
     int[] subjectDetails = new int[5];
 
-    public void subjectDetailsInput(int subjectId,int subjectType, int score,int round, char grade){
+    public void subjectDetailsInput(int subjectId,int subjectType, int score,int round){
         subjectDetails = new int[5];
         //초기화 안해주면 고장남!!
         this.subjectDetails[0] = subjectId;
@@ -33,9 +33,6 @@ public class StudentData {
         //점수 범위0~100
         this.subjectDetails[3] = round;
         //회차 범위 1~10
-
-        //grade가 굳이 필요한가??
-        this.subjectDetails[4] = changeGradeInt(grade);
         subjectList.add(subjectDetails);
     }
 
@@ -104,10 +101,6 @@ public class StudentData {
         //inquiry클래스에서 사용할 SubjectList를 get하는 메서드추가 --multiverse22
         return subjectList;
     }
-    public int getStudentState(){
-        //상태를 get하는 메서드추가 --multiverse22
-        return studentState;
-    }
     //내부 get,set메서들은 private으로 하면 접근할수 없음
     public int getStudentId() {
         return this.studentId;
@@ -125,20 +118,13 @@ public class StudentData {
         this.studentName = name;
     }
 
-//
-//    public ArrayList<String> getSubjectList() {
-//        return this.subjectList;
-//    }
-//    public void addSubject(String subject) {
-//        this.subjectList.add(subject);
-//    }
 
-//    public String getStudentState(){
-//        return studentState;
-//    }
-//    public void setStudentState(String state){
-//        this.studentState=state;
-//    }
+    public int getStudentState(){
+        return studentState;
+    }
+    public void setStudentState(int state){
+        this.studentState = state;
+    }
 
     // 이 아래는 전부 테스트에 사용되는 메서드
 

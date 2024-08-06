@@ -12,29 +12,47 @@ public class Main {
 
 
     public static void main(String[] args) {
-        StudentData st=new StudentData(0,"asd",0);
-        st.subjectDetailsInput(0001,0,96,1,'A');
-        st.subjectDetailsInput(0001,0,86,2,'C');
-        st.subjectDetailsInput(0001,0,94,3,'B');
-        st.subjectDetailsInput(0001,0,94,5,'B');
-        st.subjectDetailsInput(0001,0,94,4,'B');
-        st.subjectDetailsInput(0001,0,94,7,'B');
-        st.subjectDetailsInput(0001,0,94,6,'B');
-        st.subjectDetailsInput(0001,0,94,9,'B');
+        List<StudentData> students = new ArrayList<>();
+        StudentData st=new StudentData(0,"asd",1);
+        students.add(st);
+        st=new StudentData(1,"김길환",2);
+        students.add(st);
+        /*students.add(st);
+        st=new StudentData(1,"11",1);
+        students.add(st);
+        st=new StudentData(2,"22",2);
+        students.add(st);
+        st=new StudentData(3,"33",3);
+        students.add(st);
+        st=new StudentData(4,"44",3);
+        students.add(st);
+        st=new StudentData(5,"55",1);
+        students.add(st);*/
 
-        st.subjectDetailsInput(0002,0,96,1,'A');
-        st.subjectDetailsInput(0002,0,94,2,'B');
-        st.subjectDetailsInput(0002,0,94,6,'B');
-        st.subjectDetailsInput(0002,0,94,4,'B');
-        st.subjectDetailsInput(0002,0,94,3,'B');
-        st.subjectDetailsInput(0002,0,94,9,'B');
-        st.subjectDetailsInput(0002,0,94,7,'B');
+        st.subjectDetailsInput(0001,0,96,1);
+        st.subjectDetailsInput(0001,0,86,2);
+        st.subjectDetailsInput(0001,0,94,3);
+        st.subjectDetailsInput(0001,0,94,5);
+        st.subjectDetailsInput(0001,0,94,4);
+        st.subjectDetailsInput(0001,0,94,7);
+        st.subjectDetailsInput(0001,0,94,6);
+        st.subjectDetailsInput(0001,0,94,9);
+
+        st.subjectDetailsInput(0002,0,96,1);
+        st.subjectDetailsInput(0002,0,94,2);
+        st.subjectDetailsInput(0002,0,94,6);
+        st.subjectDetailsInput(0002,0,94,4);
+        st.subjectDetailsInput(0002,0,94,3);
+        st.subjectDetailsInput(0002,0,94,9);
+        st.subjectDetailsInput(0002,0,94,7);
         Inquiry inquiry=new Inquiry();
-        //inquiry.InquiryScoreInfo(st);
+        inquiry.InquiryScoreInfo(st);
         //st학생의 점수 Inquiry
         //inquiry.InquiryStudentInfo(st);
-        //학생의 과목리스트 수정필요 중복과목은안나오게 기능구현필요
-        inquiry.InquirySubjectByRound(st,0001);
+        //inquiry.InquiryStudentsList(students);
+        //inquiry.InquirySubjectByRound(st,0001);
+        //inquiry.InquiryByState(students,1);
+        //inquiry.InquiryStudentsList(students);
 
 
 
