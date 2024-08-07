@@ -2,7 +2,6 @@ package StudentInfo;
 import Data.StudentData;
 import Data.SubjectData;
 import java.util.*;
-import java.util.stream.Stream;
 import java.util.Collections;
 
 public class Inquiry {
@@ -223,7 +222,7 @@ public class Inquiry {
             }
         }
     }
-    public void inquirySubjecList(StudentData studentData) {
+    public void inquirySubjectList(StudentData studentData) {
         //특정학생의 수강과목점수조회
         Name = studentData.getStudentName();
         ArrayList<int[]> subjectList = studentData.getSubjectList();

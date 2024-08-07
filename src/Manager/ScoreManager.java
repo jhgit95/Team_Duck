@@ -1,7 +1,6 @@
 package Manager;
 
 import Add.StudentAdd;
-import Data.ScoreData;
 import Data.StudentData;
 import StudentInfo.Inquiry;
 import StudentInfo.Modify;
@@ -89,7 +88,7 @@ public class ScoreManager extends Manager {
                     // 입력받은 ID값에 해당하는 StudentData를 리스트에서 찾기
                     for(StudentData studentData : studentDataList) {
                         if(studentData.getStudentId() == student_ID) {
-                            scoreInquiry.inquirySubjecList(studentData);
+                            scoreInquiry.inquirySubjectList(studentData);
                         }
                     }
                     flag = true;

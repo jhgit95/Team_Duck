@@ -64,6 +64,8 @@ public class Modify {
     // 수강생 과목별 회차 점수 수정
     public StudentData ModifyScoreInfo(StudentData studentData) {
         ArrayList<int[]> subjectList = studentData.getSubjectList();
+        Inquiry inquiry=new Inquiry();
+        inquiry.inquirySubjectList(studentData);
         boolean validInput = false;
 
         while (!validInput) {
