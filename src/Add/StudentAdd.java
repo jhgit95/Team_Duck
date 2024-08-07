@@ -29,7 +29,8 @@ public class StudentAdd {
         System.out.println("이름을입력하세요");
         String Name = sc.nextLine();
         while (true) {
-            System.out.println("상태를 입력하세요 1. 좋음 2. 보통 3. 나쁨");
+            System.out.println("상태를 입력하세요 1.Green 2.Yellow 3.Red");
+            //상태는 영어명으로 통일
             state = sc.nextInt();
             sc.nextLine();
             if (state > 3 || state < 1) {

@@ -9,6 +9,7 @@ public class Inquiry {
     SubjectData subjectData;
     String Name="";
     int state=0;
+    String stringState="";
     ArrayList<int[]> subjectList;
     //학생들의 점수리스트
     List<Integer> rAC;
@@ -18,7 +19,7 @@ public class Inquiry {
     public Inquiry() {
         subjectData=new SubjectData();
     }
-    public String changeStateString(int subjectId) {
+    public String changeSubjectString(int subjectId) {
         return switch (subjectId) {
             case 1 -> "Java";
             case 2 -> "객체지향";
@@ -33,22 +34,32 @@ public class Inquiry {
             default -> "잘못된값";
         };
     }
+    public String changeStateString(int state) {
+        return switch (state) {
+            case 1 -> "Green";
+            case 2 -> "Yellow";
+            case 3 -> "Red";
+
+            default -> "잘못된값";
+        };
+    }
     public void inquiryStudentInfo(StudentData studentData) {
         //학생객체를 받아 학생한명의 정보를 Inquiry하는 메서드
         studentId=studentData.getStudentId();
         Name = studentData.getStudentName();
         subjectList = studentData.getSubjectList();
-        state=studentData.getStudentState();
+        stringState=changeStateString(studentData.getStudentState());
+        //int타입 state를 String타입 stringState로 변경하는 메서드 changeStateString를 사용해 String타입으로 변경했습니다.
         rAC=studentData.getRequireAndChoice();
         Collections.sort(rAC);
         System.out.println("학생 고유번호:" +studentId);
         System.out.println("학생 이름:" + Name);
         System.out.println(Name + "님은");
         for(Integer subjectId:rAC)
-            System.out.print(changeStateString(subjectId)+" ");
+            System.out.print(changeSubjectString(subjectId)+" ");
         System.out.println();
         System.out.println("과목을 수강중입니다.");
-        System.out.println("학생의 상태:"+state);
+        System.out.println("학생의 상태:"+stringState);
     }
     public void inquirySubjectByRound(StudentData studentData,int subjectId){
         //특정 과목의 회차별 점수 Inquiry
@@ -56,7 +67,7 @@ public class Inquiry {
         Name=studentData.getStudentName();
         subjectList=inquirySortBySubjectIdThenRound(subjectList);
         //Id로 정렬후 round순으로 정렬하는 Inquiry클래스내부메서드
-        System.out.println(Name+" 님의 "+changeStateString(subjectId)+" 코드 과목의 회차별 점수는");
+        System.out.println(Name+" 님의 "+changeSubjectString(subjectId)+" 코드 과목의 회차별 점수는");
         for(int i=0;i<subjectList.size();i++) {
             if(subjectList.get(i)[0]==subjectId){
                 System.out.println(subjectList.get(i)[3]+"회차 점수:"+subjectList.get(i)[2]+"등급은:"+studentData.changeScoreGrade(subjectList.get(i)[1],subjectList.get(i)[2]));
@@ -79,16 +90,16 @@ public class Inquiry {
             subjectList = Data.getSubjectList();
             rAC=Data.getRequireAndChoice();
             Collections.sort(rAC);
-            state = Data.getStudentState();
+            stringState=changeStateString(Data.getStudentState());
             System.out.println();
             System.out.println("학생 고유번호:" +studentId);
             System.out.println("학생 이름:" + Name);
             System.out.println(Name + "님은");
             for(Integer subjectId:rAC)
-                System.out.print(changeStateString(subjectId)+" ");
+                System.out.print(changeSubjectString(subjectId)+" ");
             System.out.println();
             System.out.println("과목을 수강중입니다.");
-            System.out.println("학생의 상태:"+state);
+            System.out.println("학생의 상태:"+stringState);
             System.out.println();
         }
     }
@@ -138,8 +149,8 @@ public class Inquiry {
         else if (sum>=0.5)
             avgGrade='E';
         else avgGrade='F';
-        System.out.println(subjectId+"에 해당하는 과목은 "+changeStateString(subjectId));
-        System.out.println(Name+"학생의 "+changeStateString(subjectId)+"과목 평균등급은"+avgGrade+"입니다");
+        System.out.println(subjectId+"에 해당하는 과목은 "+changeSubjectString(subjectId));
+        System.out.println(Name+"학생의 "+changeSubjectString(subjectId)+"과목 평균등급은"+avgGrade+"입니다");
     }
     public void inquiryByStateAndRequireSubjectAvgGrade(List<StudentData> studentsList,int state){
         //학생들중 특정상태의 필수과목의 평균등급을 조회하는 메서드
@@ -190,7 +201,7 @@ public class Inquiry {
                 else if (sum >= 0.5)
                     avgGrade = 'E';
                 else avgGrade = 'F';
-                System.out.println("1=Green, 2=Yellow, 3=Red 중 "+state+"상태인");
+                System.out.println("1=Green, 2=Yellow, 3=Red 중 "+changeStateString(state)+"상태인");
                 System.out.println(Name+"님의 필수 과목 평균 등급은 "+avgGrade+"입니다");
             }
         }
@@ -213,7 +224,7 @@ public class Inquiry {
     }
     public void inquiryByState(List<StudentData> studentsList,int state) {
         //리스트와 상태를 넘겨받아 특정상태의 학생의 id값 Inquiry하는 메서드
-        System.out.println("1=Green, 2=Yellow, 3=Red 중 "+state+" 상태인");
+        System.out.println("Green,Yellow,Red 중 "+changeStateString(state)+" 상태인");
         for(StudentData Data:studentsList) {
             if(Data.getStudentState()==state){
                 Name = Data.getStudentName();
@@ -231,7 +242,7 @@ public class Inquiry {
         System.out.println(Name + "님의 점수는");
         subjectList=inquirySortBySubjectIdThenRound(subjectList);
         for(int i = 0; i < subjectList.size(); i++) {
-            String subjectName = changeStateString(subjectList.get(i)[0]);
+            String subjectName = changeSubjectString(subjectList.get(i)[0]);
             String Type="";
             if(subjectList.get(i)[1]==0) {
                 Type="필수";
