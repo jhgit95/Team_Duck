@@ -65,6 +65,7 @@ public class Inquiry {
         }
     }
     public void inquiryStudentsListShort(List<StudentData> studentsList) {
+        //학생리스트를 출력해 어떤학생이 어떤 고유번호를 가지고있는지 확인할수 있게만듬
         for(StudentData Data:studentsList) {
             Name = Data.getStudentName();
             studentId = Data.getStudentId();
