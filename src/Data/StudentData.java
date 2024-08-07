@@ -18,7 +18,7 @@ public class StudentData {
         this.studentState = state;
     }
 
-
+    ArrayList<Integer> requireAndChoice=new ArrayList<>();
     // subjectType : 0 = 필수, 1 = 선택
     // 등급 : A = 1, B = 2, C = 3, D = 4, F = 5, N = 6
     ArrayList<int[]> subjectList = new ArrayList<>();
@@ -98,7 +98,12 @@ public class StudentData {
         // e가 나올 경우 예외 처리 필요
         return 'e';
     }
-
+    public void setRequireAndChoice(ArrayList<Integer> requireAndChoice) {
+        this.requireAndChoice = requireAndChoice;
+    }
+    public ArrayList<Integer> getRequireAndChoice() {
+        return requireAndChoice;
+    }
     public void setSubjectList(ArrayList<int[]> subjectList){
         this.subjectList = subjectList;
     }
