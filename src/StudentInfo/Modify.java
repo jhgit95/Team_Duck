@@ -127,7 +127,7 @@ public class Modify {
                     if (subject[0] == subjectId && subject[3] == round) {
                         subject[2] = newScore;
                         System.out.println("과목ID : "  +subjectId + ", 해당회차 : " + round +
-                                "의 점수 수정이" + newScore + " 로 완료되었습니다.");
+                                " 의 점수 수정이 " + newScore + "점으로 완료되었습니다.");
                         validInput = true;
                         break;
                     }
