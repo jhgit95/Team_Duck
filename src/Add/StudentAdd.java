@@ -1,5 +1,6 @@
 package Add;
 
+
 import Data.StudentData;
 import Data.SubjectData;
 import StudentInfo.Inquiry;
@@ -7,6 +8,9 @@ import StudentInfo.Inquiry;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.List;
+
+import static Data.SubjectData.subjectListMaxCount;
+
 public class StudentAdd {
     StudentData st;
     int number = 0;
@@ -69,6 +73,12 @@ public class StudentAdd {
             if(flag){
                 System.out.println("존재하지 않는코드입니다.");
                 continue;
+            }
+            if(requireAndChoice.size()>=subjectListMaxCount)
+            //9이상의 subjectList는담을수 없다 subjectList의 최대갯수는 9개
+            {
+                System.out.println("담을수 있는 모든 과목을 담으셨습니다. 욕심이 많으시군요.");
+                break;
             }
             if (require >= 3 && choice >= 2) {
                 System.out.println("필수과목3개이상과 선택과목2개이상을 선택하셨습니다. 그만담으시겠습니까? 0(Yes), 1(No)");
