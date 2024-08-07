@@ -39,6 +39,8 @@ public class SubjectData {
         }
         System.out.println("==================================================");
     }
+
+    // 문자로 등급을 받으면, 성적에 넣을 int형으로 변환해주는 기능
     public static int changeGradeInt(char grade){
         return switch (grade) {
             case 'A' -> 1;
@@ -50,6 +52,8 @@ public class SubjectData {
             default -> 0;
         };
     }
+
+    // 성적 안에 들어갈 int형 등급을 문자로 바꿔주는 기능
     public static char changeGradeChar(int grade){
         //메서드의 반환형이 int여서 char로 수정했습니다--multiverse22
         return switch (grade) {
@@ -65,6 +69,7 @@ public class SubjectData {
         };
     }
 
+    // 과목 타입과 점수에 따라서 등급을 책정하는 기능
     public static char changeScoreGrade(int subjectType, int score) {
         // subjectType==0이면 필수과목
         if (subjectType == 0) {
