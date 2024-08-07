@@ -96,7 +96,7 @@ public class Modify {
                         System.out.println( subjectId + "의 과목 타입을 알 수 없습니다.");
                     }
                 } else { // 과목이 존재하지 않을때
-                    System.out.println(+ subjectId + "는 존재하지 않습니다.");
+                    System.out.println("해당 과목의 데이터가 없습니다.");
                     continue; // 다시 입력받도록함
                 }
 
