@@ -63,15 +63,30 @@ public class Inquiry {
     }
     public void inquirySubjectByRound(StudentData studentData,int subjectId){
         //특정 과목의 회차별 점수 Inquiry
+        //학생이 해당과목을 수강하지않는다면 예외처리
+        flag=true;
         subjectList = studentData.getSubjectList();
         Name=studentData.getStudentName();
         subjectList=inquirySortBySubjectIdThenRound(subjectList);
         //Id로 정렬후 round순으로 정렬하는 Inquiry클래스내부메서드
-        System.out.println(Name+" 님의 "+changeSubjectString(subjectId)+" 코드 과목의 회차별 점수는");
-        for(int i=0;i<subjectList.size();i++) {
-            if(subjectList.get(i)[0]==subjectId){
-                System.out.println(subjectList.get(i)[3]+"회차 점수:"+subjectList.get(i)[2]+"등급은:"+studentData.changeScoreGrade(subjectList.get(i)[1],subjectList.get(i)[2]));
+        flag=false;
+        //일단 flag를 false로 설정
+        for(int i=0;i<subjectList.size();i++)
+            if(subjectList.get(i)[0]==subjectId)
+            {
+                flag=true;
+                //해당하는 과목이있으면 flag를 true로변경
             }
+        if(flag) {
+            System.out.println(Name + " 님의 " + changeSubjectString(subjectId) + " 코드 과목의 회차별 점수는");
+            for (int i = 0; i < subjectList.size(); i++) {
+                if (subjectList.get(i)[0] == subjectId) {
+                    System.out.println(subjectList.get(i)[3] + "회차 점수:" + subjectList.get(i)[2] + "등급은:" + studentData.changeScoreGrade(subjectList.get(i)[1], subjectList.get(i)[2]));
+                }
+            }
+        }
+        else{
+            System.out.println("이 학생은 해당코드의 과목을 수강하지않았습니다.");
         }
     }
     public void inquiryStudentsListShort(List<StudentData> studentsList) {
@@ -103,59 +118,74 @@ public class Inquiry {
             System.out.println();
         }
     }
-    public void inquirySpecificAvgGrade(StudentData studentData, int subjectId){
+    public void inquirySpecificAvgGrade(StudentData studentData, int subjectId) {
         //특정과목의 id를 받으면 그과목의 평균등급을 Inquiry하는 메서드
+        //학생이 해당과목을 듣지않는다면 예외처리
+        flag=true;
         subjectList = studentData.getSubjectList();
-        List<Character> list=new ArrayList<>();
-        Name=studentData.getStudentName();
+        List<Character> list = new ArrayList<>();
+        Name = studentData.getStudentName();
         char avgGrade;
-        for(int i=0;i<subjectList.size();i++) {
-            if(subjectList.get(i)[0]==subjectId){
-                Character grade=studentData.changeScoreGrade(subjectList.get(i)[1],subjectList.get(i)[2]);
-                list.add(grade);
+        for (int i = 0; i < subjectList.size(); i++)
+            if (subjectList.get(i)[0] == subjectId) {
+                flag = true;
+                //해당하는 과목이있으면 flag를 true로변경
             }
-        }
-        double sum=0;
-        for(Character grade:list){
-            switch(grade) {
-                case 'A':
-                    sum+=4.5;
-                    break;
-                case 'B':
-                    sum+=3.5;
-                    break;
-                case 'C':
-                    sum+=2.5;
-                    break;
-                case 'D':
-                    sum+=1.5;
-                    break;
-                case 'E':
-                    sum+=0.5;
-                    break;
-                default:
-                    break;
+        if (flag) {
+            for (int i = 0; i < subjectList.size(); i++) {
+                if (subjectList.get(i)[0] == subjectId) {
+                    Character grade = studentData.changeScoreGrade(subjectList.get(i)[1], subjectList.get(i)[2]);
+                    list.add(grade);
+                }
             }
+            double sum = 0;
+            for (Character grade : list) {
+                switch (grade) {
+                    case 'A':
+                        sum += 4.5;
+                        break;
+                    case 'B':
+                        sum += 3.5;
+                        break;
+                    case 'C':
+                        sum += 2.5;
+                        break;
+                    case 'D':
+                        sum += 1.5;
+                        break;
+                    case 'E':
+                        sum += 0.5;
+                        break;
+                    default:
+                        break;
+                }
+            }
+            sum = sum / list.size();
+            if (sum >= 4.5)
+                avgGrade = 'A';
+            else if (sum >= 3.5)
+                avgGrade = 'B';
+            else if (sum >= 2.5)
+                avgGrade = 'C';
+            else if (sum >= 1.5)
+                avgGrade = 'D';
+            else if (sum >= 0.5)
+                avgGrade = 'E';
+            else avgGrade = 'F';
+            System.out.println(subjectId + "에 해당하는 과목은 " + changeSubjectString(subjectId));
+            System.out.println(Name + "학생의 " + changeSubjectString(subjectId) + "과목 평균등급은" + avgGrade + "입니다");
         }
-        sum=sum/list.size();
-        if(sum>=4.5)
-            avgGrade='A';
-        else if (sum>=3.5)
-            avgGrade='B';
-        else if (sum>=2.5)
-            avgGrade='C';
-        else if (sum>=1.5)
-            avgGrade='D';
-        else if (sum>=0.5)
-            avgGrade='E';
-        else avgGrade='F';
-        System.out.println(subjectId+"에 해당하는 과목은 "+changeSubjectString(subjectId));
-        System.out.println(Name+"학생의 "+changeSubjectString(subjectId)+"과목 평균등급은"+avgGrade+"입니다");
+        else{
+            System.out.println("해당학생은 해당과목을 수강하지 않았습니다.");
+        }
     }
     public void inquiryByStateAndRequireSubjectAvgGrade(List<StudentData> studentsList,int state){
         //학생들중 특정상태의 필수과목의 평균등급을 조회하는 메서드
+        flag=true;
         for(StudentData studentData:studentsList) {
-            if(studentData.getStudentState()==state) {
+            if(studentData.getStudentState()==state)
+            {
+                flag=false;
                 Name=studentData.getStudentName();
                 subjectList = studentData.getSubjectList();
                 List<Character> list = new ArrayList<>();
@@ -205,6 +235,9 @@ public class Inquiry {
                 System.out.println(Name+"님의 필수 과목 평균 등급은 "+avgGrade+"입니다");
             }
         }
+        //flag가 false인경우는 내부 if문을 한번도 타지않은경우 = 특정상태의 수강생이 없는경우
+        if(flag)
+            System.out.println(changeStateString(state)+" 상태의 수강생이 없습니다.");
     }
     public ArrayList<int[]> inquirySortBySubjectIdThenRound(ArrayList<int[]> subjectList){
         Collections.sort(subjectList, new Comparator<int[]>() {
@@ -224,14 +257,18 @@ public class Inquiry {
     }
     public void inquiryByState(List<StudentData> studentsList,int state) {
         //리스트와 상태를 넘겨받아 특정상태의 학생의 id값 Inquiry하는 메서드
+        flag=true;
         System.out.println("Green,Yellow,Red 중 "+changeStateString(state)+" 상태인");
         for(StudentData Data:studentsList) {
             if(Data.getStudentState()==state){
+                flag=false;
                 Name = Data.getStudentName();
                 studentId = Data.getStudentId();
                 System.out.println(Name +"학생의 고유번호는 "+ studentId+ " 입니다");
             }
         }
+        if(flag)
+            System.out.println(changeStateString(state)+"상태인 학생은 없습니다.");
     }
     public void inquirySubjectList(StudentData studentData) {
         //특정학생의 수강과목점수조회

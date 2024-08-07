@@ -121,6 +121,7 @@ public class ScoreManager extends Manager {
                         if(studentData.getStudentId() == student_ID) {
                             scoreInquiry.inquirySubjectByRound(studentData, subject_ID);
                         }
+                        //학생 id는 맞는데 과목id가 다른경우는 inquiry클래스에서 잡을수 없어서 예외처리해줘야함.
                     }
                     flag = true;
                     break;

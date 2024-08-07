@@ -134,6 +134,12 @@ public class StudentAdd {
             System.out.println("과목코드를 입력하세요");
             subjectId = sc.nextInt();
             sc.nextLine();
+            if(subjectId<1||subjectId>subjectListMaxCount)
+            {
+                //아예존재하지않는 코드의 값이 들어온다면 예외처리.
+                System.out.println("해당 코드의 과목은 존재하지 않습니다.");
+                continue;
+            }
             for (int i = 0; i < requireAndChoice.size(); i++) {
                 //학생의 requireAndChoice리스트를 확인 해당리스트에는 해당학생이 수강하는 subject id
                 //값이 중복없이 저장되어있음
@@ -167,7 +173,7 @@ public class StudentAdd {
             System.out.println("입력하시려는 회차를 입력해주세요");
             round=sc.nextInt();
             sc.nextLine();
-            if(round<0||round>10)
+            if(round<1||round>10)
             {
                 //회차 예외처리. 회차가 0보다 작거나 10보다 크면 다시 입력 반복.
                 System.out.println("회차는 1~10사이의 정수여야 합니다.");
