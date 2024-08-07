@@ -222,16 +222,16 @@ public class Inquiry {
                     for (Character grade : list) {
                         switch (grade) {
                             case 'A':
-                                sum += 4.5;
+                                sum += 4.0;
                                 break;
                             case 'B':
-                                sum += 3.5;
+                                sum += 3.0;
                                 break;
                             case 'C':
-                                sum += 2.5;
+                                sum += 2.0;
                                 break;
                             case 'D':
-                                sum += 1.5;
+                                sum += 1.0;
                                 break;
                             case 'E':
                                 sum += 0.5;
@@ -241,13 +241,13 @@ public class Inquiry {
                         }
                     }
                     sum = sum / list.size();
-                    if (sum >= 4.5)
+                    if (sum >= 4.0)
                         avgGrade = 'A';
-                    else if (sum >= 3.5)
+                    else if (sum >= 3.0)
                         avgGrade = 'B';
-                    else if (sum >= 2.5)
+                    else if (sum >= 2.0)
                         avgGrade = 'C';
-                    else if (sum >= 1.5)
+                    else if (sum >= 1.0)
                         avgGrade = 'D';
                     else if (sum >= 0.5)
                         avgGrade = 'E';
