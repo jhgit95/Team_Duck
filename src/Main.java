@@ -9,8 +9,13 @@ import java.util.Scanner;
 public class Main {
 
     private static Scanner scanner = new Scanner(System.in);
-    private static List<StudentData> students;
-    private static ArrayList<int[]> subjects;
+    private static List<StudentData> students = new ArrayList<>();
+    private static ArrayList<int[]> subjects = new ArrayList<>();
+
+    private static StudentManager studentManager = new StudentManager(students);
+    private static ScoreManager scoreManager = new ScoreManager(students);
+
+
 
     public static void main(String[] args) {
 
@@ -49,7 +54,7 @@ public class Main {
 
     // 수강생 정보 관리
     public static void managementStudentInfo() {
-        StudentManager studentManager = new StudentManager(students);
+
         int choice;
         String stop_keyword = "";
 
@@ -77,6 +82,7 @@ public class Main {
                     break;
                 case 5:
                     stop_keyword = "exit";
+                    break;
                 default:
                     System.out.println("Is not a valid choice.\nInput right choice again.\n");
             }
@@ -88,7 +94,6 @@ public class Main {
 
     // 점수 정보 관리
     public static void managementScoreInfo() {
-        ScoreManager scoreManager = new ScoreManager(students);
         int choice;
         String stop_keyword = "";
 
@@ -100,13 +105,17 @@ public class Main {
             // 선택값에 대한 함수 실행 / 1. 조회 / 2. 수정 / 3. 메인으로 /
             switch(choice) {
                 case 1:
-                    scoreManager.inquiryData();
+                    System.out.println("Please enter student ID to add data");
+                    scoreManager.addData();
                     break;
                 case 2:
+                    scoreManager.inquiryData();
+                    break;
+                case 3:
                     System.out.println("Please enter student ID to modify data");
                     scoreManager.modifyData();
                     break;
-                case 3:
+                case 4:
                     stop_keyword = "exit";
                     break;
                 default:
@@ -163,9 +172,10 @@ public class Main {
         System.out.println("\t=            What do you want to do?            =");
         System.out.println("\t=-----------------------------------------------=");
         System.out.println("\t=                                               =");
-        System.out.println("\t=           [1] Inquiry Score Info              =");
-        System.out.println("\t=           [2] Modify Score Info               =");
-        System.out.println("\t=           [3] Back to Main                    =");
+        System.out.println("\t=           [1] Add Score Info                  =");
+        System.out.println("\t=           [2] Inquiry Score Info              =");
+        System.out.println("\t=           [3] Modify Score Info               =");
+        System.out.println("\t=           [4] Back to Main                    =");
         System.out.println("\t=                                               =");
         System.out.println("\t=-----------------------------------------------=\n");
 

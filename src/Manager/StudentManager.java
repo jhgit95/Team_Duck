@@ -15,6 +15,10 @@ public class StudentManager extends Manager {
     public List<StudentData> studentDataList;
     public ArrayList<int[]> subjectDataList;
 
+    StudentAdd studentAdd = new StudentAdd();
+    Inquiry studentInquiry = new Inquiry();
+    Modify studentModify = new Modify();
+
     Scanner scanner = new Scanner(System.in);
 
     public StudentManager(List<StudentData> inputStudentDataList) {
@@ -23,8 +27,8 @@ public class StudentManager extends Manager {
 
     @Override
     public void addData() {
-        StudentAdd addStudent = new StudentAdd();
-        addStudent.addStudent();
+        StudentData studentData = studentAdd.addStudent();
+        studentDataList.add(studentData);
     }
 
     @Override
@@ -33,11 +37,11 @@ public class StudentManager extends Manager {
         displayinquiryStudent();
         int choice = scanner.nextInt();
         boolean flag = false;
-        Inquiry studentInquiry = new Inquiry();
 
         while(!flag) {
             switch(choice) {
                 case 1 : { // 아이디에 맞는 학생 조회
+                    studentInquiry.inquiryStudentsListShort(studentDataList);
                     // 수강생 ID 값 입력받기
                     int student_ID = 0;
                     boolean validInput = false;
@@ -101,6 +105,7 @@ public class StudentManager extends Manager {
 
     @Override
     public void modifyData() {
+        studentInquiry.inquiryStudentsListShort(studentDataList);
         // 수강생 ID 값 입력받기
         int student_ID = 0;
         boolean validInput = false;
@@ -120,7 +125,6 @@ public class StudentManager extends Manager {
         // 입력받은 ID값에 해당하는 StudentData를 리스트에서 찾기
         for(StudentData studentData : studentDataList) {
             if(studentData.getStudentId() == student_ID) {
-                Modify studentModify = new Modify();
                 studentModify.modifyStudentInfo(studentData);
             }
         }
