@@ -2,12 +2,12 @@ package Data;
 
 import java.util.*;
 public class SubjectData {
-    protected String subjectId;
-    protected String subjectName;
-    protected String subjectType;
+    private String subjectId;
+    private String subjectName;
+    private String subjectType;
     public static int subjectListMaxCount=9;
 
-    ArrayList<String[]> subjectList = new ArrayList<>();
+    private final ArrayList<String[]> subjectList = new ArrayList<>();
     public SubjectData() {
         subjectList.add(new String[]{"1", "Java", "필수"});
         subjectList.add(new String[]{"2", "객체지향", "필수"});
