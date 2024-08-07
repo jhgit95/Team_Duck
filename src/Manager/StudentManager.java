@@ -1,9 +1,7 @@
 package Manager;
 
-import Add.StudentAdd;
-import Data.StudentData;
-import StudentInfo.Inquiry;
-import StudentInfo.Modify;
+import Data.*;
+import StudentInfo.*;
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;
@@ -15,7 +13,7 @@ public class StudentManager extends Manager {
     public List<StudentData> studentDataList;
     public ArrayList<int[]> subjectDataList;
 
-    StudentAdd studentAdd = new StudentAdd();
+    Add studentAdd = new Add();
     Inquiry studentInquiry = new Inquiry();
     Modify studentModify = new Modify();
 

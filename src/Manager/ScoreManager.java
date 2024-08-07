@@ -1,9 +1,7 @@
 package Manager;
 
-import Add.StudentAdd;
 import Data.StudentData;
-import StudentInfo.Inquiry;
-import StudentInfo.Modify;
+import StudentInfo.*;
 //import StudentInfo.Modify;
 
 import java.util.ArrayList;
@@ -16,7 +14,7 @@ public class ScoreManager extends Manager {
     public List<StudentData> studentDataList;
     public ArrayList<int[]> subjectDataList;
 
-    StudentAdd scoreAdd = new StudentAdd();
+    Add scoreAdd = new Add();
     Inquiry scoreInquiry = new Inquiry();
     Modify scoreModify = new Modify();
 

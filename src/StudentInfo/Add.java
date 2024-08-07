@@ -1,26 +1,20 @@
-package Add;
+package StudentInfo;
 
-
-import Data.StudentData;
-import Data.SubjectData;
-import StudentInfo.Inquiry;
-
-import java.util.ArrayList;
-import java.util.Scanner;
-import java.util.List;
+import Data.*;
+import java.util.*;
 
 import static Data.SubjectData.subjectListMaxCount;
 //final int타입변수는 subjectData클래스내부에 있기때문에 import를 해야 사용할 수 있다.
 //subjectList의 최대값을 상수로 저장한값이다.
 
-public class StudentAdd {
+public class Add {
     StudentData st;
     int number = 0;
     Scanner sc = new Scanner(System.in);
     SubjectData subjectData = new SubjectData();
     Inquiry inquiry = new Inquiry();
-    public StudentAdd() {
 
+    public Add() {
     }
 
     //학생정보를 Add하는 메서드
@@ -168,7 +162,6 @@ public class StudentAdd {
                 }
             }
         }
-
         flag=true;
         while(flag) {
             System.out.println("입력하시려는 회차를 입력해주세요 0입력시 점수입력끝(0회차는 넣을수 없습니다!)");
@@ -234,26 +227,3 @@ public class StudentAdd {
 
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -1,11 +1,7 @@
 import Manager.ScoreManager;
 import Manager.StudentManager;
 import Data.*;
-import java.util.ArrayList;
-import java.util.InputMismatchException;
-import java.util.List;
-import StudentInfo.*;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
 

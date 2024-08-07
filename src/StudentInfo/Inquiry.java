@@ -58,7 +58,6 @@ public class Inquiry {
         System.out.println("학생 이름:" + Name);
         if(subjectList.isEmpty()) {
             System.out.println(Name+" 님은 점수 데이터가 없습니다.");
-
         }
         else {
             System.out.println(Name + " 님은");
@@ -68,7 +67,6 @@ public class Inquiry {
             System.out.println("과목을 수강중입니다.");
         }
             System.out.println("학생의 상태:" + stringState);
-
     }
     public void inquirySubjectByRound(StudentData studentData,int subjectId){
         //특정 과목의 회차별 점수 Inquiry
@@ -130,7 +128,6 @@ public class Inquiry {
                 for (Integer subjectId : rAC)
                     System.out.print(changeSubjectString(subjectId) + " ");
                 System.out.println("과목을 수강중입니다.");
-
             }
             System.out.println("학생의 상태:"+stringState);
             System.out.println();
@@ -211,7 +208,6 @@ public class Inquiry {
                 subjectList = studentData.getSubjectList();
                 if (subjectList.isEmpty()) {
                     System.out.println(Name+"학생은 점수데이터가 없습니다.");
-
                 } else {
                     List<Character> list = new ArrayList<>();
                     char avgGrade;
