@@ -118,7 +118,8 @@ public class Modify {
                 for (int[] subject : subjectList) {
                     if (subject[0] == subjectId && subject[3] == round) {
                         subject[2] = newScore;
-                        System.out.println("접수가 성공적으로 수정되었습니다.");
+                        System.out.println("과목ID : "  +subjectId + ", 해당회차 : " + round +
+                                "의 점수 수정이" + newScore + " 로 완료되었습니다.");
                         validInput = true;
                         break;
                     }
