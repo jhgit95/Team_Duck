@@ -18,6 +18,7 @@ public class Modify {
 
         while (!validInput) {
             try {
+
                 // 변경항목 선택
                 System.out.println("변경할 항목을 선택하세요.");
                 System.out.println("1. 학생 이름");
@@ -95,7 +96,7 @@ public class Modify {
                         System.out.println( subjectId + "의 과목 타입을 알 수 없습니다.");
                     }
                 } else { // 과목이 존재하지 않을때
-                    System.out.println(+ subjectId + "의 해당 과목 데이터가 없습니다.");
+                    System.out.println("해당 과목의 데이터가 없습니다.");
                     continue; // 다시 입력받도록함
                 }
 
@@ -122,14 +123,14 @@ public class Modify {
                     if (subject[0] == subjectId && subject[3] == round) {
                         subject[2] = newScore;
                         System.out.println("과목ID : "  +subjectId + ", 해당회차 : " + round +
-                                "의 점수 수정이" + newScore + " 로 완료되었습니다.");
+                                " 의 점수 수정이 " + newScore + "점으로 완료되었습니다.");
                         validInput = true;
                         break;
                     }
                 }
             } catch (Exception e) {
                 System.out.println("유효한 입력이 아닙니다. 다시 시도하세요.");
-                scanner.nextLine();
+                scanner.nextLine(); 
             }
         }
         // 수정된 subjectList를 studentData에 다시 설정

@@ -44,14 +44,18 @@ public class ScoreManager extends Manager {
                 scanner.next(); // 잘못된 입력을 소비하여 무한 루프 방지
             }
         }
-
+        int flag_ID = 0;
         // 입력받은 ID값에 해당하는 StudentData를 리스트에서 찾기
         for(int i = 0; i < studentDataList.size(); i++) {
             StudentData studentData = studentDataList.get(i);
             if(studentData.getStudentId() == student_ID) {
                 studentData = scoreAdd.addSubject(studentData);
                 studentDataList.set(i, studentData); // 리스트의 요소를 수정
+                flag_ID = 1;
             }
+        }
+        if(flag_ID == 0) {
+            System.out.println("Their is not exist the ID in Students!");
         }
 
     }
@@ -84,12 +88,16 @@ public class ScoreManager extends Manager {
                             scanner.next(); // 잘못된 입력을 소비하여 무한 루프 방지
                         }
                     }
-
+                    int flag_ID = 0;
                     // 입력받은 ID값에 해당하는 StudentData를 리스트에서 찾기
                     for(StudentData studentData : studentDataList) {
                         if(studentData.getStudentId() == student_ID) {
                             scoreInquiry.inquirySubjectList(studentData);
+                            flag_ID = 1;
                         }
+                    }
+                    if(flag_ID == 0) {
+                        System.out.println("Their is not exist the ID in Students!");
                     }
                     flag = true;
                     break;
@@ -116,12 +124,19 @@ public class ScoreManager extends Manager {
                         }
                     }
 
+                    int flag_ID = 0;
                     // 입력받은 ID값에 해당하는 StudentData를 리스트에서 찾기
                     for(StudentData studentData : studentDataList) {
                         if(studentData.getStudentId() == student_ID) {
                             scoreInquiry.inquirySubjectByRound(studentData, subject_ID);
+                            flag_ID = 1;
                         }
+                        //학생 id는 맞는데 과목id가 다른경우는 inquiry클래스에서 잡을수 없어서 예외처리해줘야함.
                     }
+                    if(flag_ID == 0) {
+                        System.out.println("Their is not exist the ID in Students!");
+                    }
+
                     flag = true;
                     break;
                 }
@@ -146,13 +161,18 @@ public class ScoreManager extends Manager {
                             scanner.next(); // 잘못된 입력을 소비하여 무한 루프 방지
                         }
                     }
-
+                    int flag_ID = 0;
                     // 입력받은 ID값에 해당하는 StudentData를 리스트에서 찾기
                     for(StudentData studentData : studentDataList) {
                         if(studentData.getStudentId() == student_ID) {
                             scoreInquiry.inquirySpecificAvgGrade(studentData, subject_ID);
+                            flag_ID = 1;
                         }
                     }
+                    if(flag_ID == 0) {
+                        System.out.println("Their is not exist the ID in Students!");
+                    }
+
                     flag = true;
                     break;
                 }
@@ -202,14 +222,18 @@ public class ScoreManager extends Manager {
                 scanner.next(); // 잘못된 입력을 소비하여 무한 루프 방지
             }
         }
-
+        int flag_ID = 0;
         // 입력받은 ID값에 해당하는 StudentData를 리스트에서 찾기
         for(int i = 0; i < studentDataList.size(); i++) {
             StudentData studentData = studentDataList.get(i);
             if(studentData.getStudentId() == student_ID) {
                 studentData = scoreModify.ModifyScoreInfo(studentData);
                 studentDataList.set(i, studentData); // 리스트의 요소를 수정
+                flag_ID = 1;
             }
+        }
+        if(flag_ID == 0) {
+            System.out.println("Their is not exist the ID in Students!");
         }
     }
 

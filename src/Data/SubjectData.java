@@ -5,6 +5,7 @@ public class SubjectData {
     protected String subjectId;
     protected String subjectName;
     protected String subjectType;
+    public static int subjectListMaxCount=9;
 
     ArrayList<String[]> subjectList = new ArrayList<>();
     public SubjectData() {

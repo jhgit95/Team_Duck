@@ -1,5 +1,6 @@
 package Add;
 
+
 import Data.StudentData;
 import Data.SubjectData;
 import StudentInfo.Inquiry;
@@ -7,6 +8,11 @@ import StudentInfo.Inquiry;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.List;
+
+import static Data.SubjectData.subjectListMaxCount;
+//final int타입변수는 subjectData클래스내부에 있기때문에 import를 해야 사용할 수 있다.
+//subjectList의 최대값을 상수로 저장한값이다.
+
 public class StudentAdd {
     StudentData st;
     int number = 0;
@@ -34,6 +40,7 @@ public class StudentAdd {
             state = sc.nextInt();
             sc.nextLine();
             if (state > 3 || state < 1) {
+                //state가 범위를 벗어난다면 처음으로 돌아가 상태값을 다시입력받게한다.
                 System.out.println("잘못된입력입니다 1~3사이의 상태값을 입력해주세요");
                 continue;
             }
@@ -47,18 +54,25 @@ public class StudentAdd {
             sc.nextLine();
             flag=true;
             if(requireAndChoice.contains(subjectId)) {
+                //학생의 과목리스트에 존재하면(중복불가)
                 System.out.println("입력하신 코드는 이미존재합니다");
                 continue;
             }
             for (int i = 0; i < subjectInfoList.size(); i++) {
                 if (subjectInfoList.get(i)[0].equals(subjectId + "")) {
                     if (subjectInfoList.get(i)[2].equals("선택")) {
+                        //입력받은코드와 같은 과목이 존재하면 그 과목의 타입이선택인지 필수인지확인함
+                        //이 if문을 통과한다면 flag값이 false가된다.
+                        //선택과목if문을 통과하면 choice값이 증가
                         requireAndChoice.add(subjectId);
                         flag=false;
                         choice++;
                         break;
                     }
                     if (subjectInfoList.get(i)[2].equals("필수")) {
+                        //입력받은코드와 같은 과목이 존재하면 그 과목의 타입이선택인지 필수인지확인함
+                        //이 if문을 통과한다면 flag값이 false가된다.
+                        //필수과목if문을 통과하면 require값이 증가
                         requireAndChoice.add(subjectId);
                         flag=false;
                         require++;
@@ -67,10 +81,20 @@ public class StudentAdd {
                 }
             }
             if(flag){
+                //만약 타입if문을 한번이라도 통과했다면 flag값이 false가 되어 동작하지않는다.
+                //하지만 한번도통과하지못했다면(입력받은 코드와 동일한 코드를 가진 과목이 없다면)
+                //존재하지않는코드라고 출력한후 while문 처음으로 돌아간다.
                 System.out.println("존재하지 않는코드입니다.");
                 continue;
             }
+            if(requireAndChoice.size()>=subjectListMaxCount)
+            //9이상의 subjectList는담을수 없다 subjectList의 최대갯수는 9개
+            {
+                System.out.println("담을수 있는 모든 과목을 담으셨습니다. 욕심이 많으시군요.");
+                break;
+            }
             if (require >= 3 && choice >= 2) {
+                //필수 3개이상과 선택2개이상을 담았다면 더담을때마다 그만담을지 물어본다.
                 System.out.println("필수과목3개이상과 선택과목2개이상을 선택하셨습니다. 그만담으시겠습니까? 0(Yes), 1(No)");
                 int yesOrNo = sc.nextInt();
                 sc.nextLine();
@@ -78,6 +102,8 @@ public class StudentAdd {
                     break;
             }
         }
+        //이후 입력받은값에 해당하는 학생객체를 만들고 학생객체에 존재하는 학생이듣는과목에 대한list인
+        //requireAndChoice리스트를 set한다.그후 st를 리턴
         st =new StudentData(number, Name, state);
         number++;
         st.setRequireAndChoice(requireAndChoice);
@@ -99,7 +125,7 @@ public class StudentAdd {
         subjectData.inquirySubjectList();
         System.out.print("해당 학생은 ");
         for(Integer E:requireAndChoice) {
-            System.out.print(inquiry.changeStateString(E)+", ");
+            System.out.print(inquiry.changeSubjectString(E)+", ");
         }
         System.out.print("과목을 수강중입니다.");
         //과제 코드 입력. + 예외처리 = subjectInfoList 의 크기보다 높은 값 입력하면 다시 입력.
@@ -108,6 +134,12 @@ public class StudentAdd {
             System.out.println("과목코드를 입력하세요");
             subjectId = sc.nextInt();
             sc.nextLine();
+            if(subjectId<1||subjectId>subjectListMaxCount)
+            {
+                //아예존재하지않는 코드의 값이 들어온다면 예외처리.
+                System.out.println("해당 코드의 과목은 존재하지 않습니다.");
+                continue;
+            }
             for (int i = 0; i < requireAndChoice.size(); i++) {
                 //학생의 requireAndChoice리스트를 확인 해당리스트에는 해당학생이 수강하는 subject id
                 //값이 중복없이 저장되어있음
@@ -141,16 +173,12 @@ public class StudentAdd {
             System.out.println("입력하시려는 회차를 입력해주세요");
             round=sc.nextInt();
             sc.nextLine();
-            if(round<0||round>10)
+            if(round<1||round>10)
             {
                 //회차 예외처리. 회차가 0보다 작거나 10보다 크면 다시 입력 반복.
                 System.out.println("회차는 1~10사이의 정수여야 합니다.");
                 continue;
             }
-            //회차가 0보다 크고 10보다 작거나 같다면 반복문 종료.
-                //회차 중복체크. 같은 회차에 2개의 과목 중복인지 체크.
-                //리스트 크기만큼 반복해서 round(회차 입력값) = studentsubjectlist.get(i)[2] i번째 회차값
-                //subjectId(과제 입력값) = studentsubjectlist.get(i)[0] i번째 과제 값 이 동시에 성립하면 중복!
             if(studentSubjectList.size()==0)
             {//사이즈가 0일때는 그냥 넣기 겹칠수가없음
                 break;
@@ -161,6 +189,7 @@ public class StudentAdd {
                 {
                     //동일id,round가 존재하면 예외처리
                     System.out.println("이미 중복된 회차가 존재합니다.");
+                    System.out.println("수정하고 싶으시면 Modify메뉴로 이동하십시오");
                     flag=true;
                     break;
                 }
@@ -195,26 +224,3 @@ public class StudentAdd {
 
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
