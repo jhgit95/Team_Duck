@@ -14,7 +14,6 @@ public class Main {
 
     public static void main(String[] args) {
 
-        int test;
         int choice;
         String stop_keyword = "";
 
@@ -46,6 +45,8 @@ public class Main {
 
     }
 
+
+
     // 수강생 정보 관리
     public static void managementStudentInfo() {
         StudentManager studentManager = new StudentManager(students);
@@ -64,7 +65,6 @@ public class Main {
                     studentManager.addData();
                     break;
                 case 2:
-                    System.out.println("Please enter student ID to inquiry data");
                     studentManager.inquiryData();
                     break;
                 case 3:
@@ -98,13 +98,12 @@ public class Main {
             choice = scanner.nextInt();
 
             // 선택값에 대한 함수 실행 / 1. 조회 / 2. 수정 / 3. 메인으로 /
-                switch(choice) {
-                    case 1:
-                    System.out.println("Please enter student ID to add data");
+            switch(choice) {
+                case 1:
                     scoreManager.inquiryData();
                     break;
                 case 2:
-                    System.out.println("Please enter student ID to add data");
+                    System.out.println("Please enter student ID to modify data");
                     scoreManager.modifyData();
                     break;
                 case 3:
@@ -119,50 +118,56 @@ public class Main {
     }
 
 
+
+
+
+
+
+
     // 메뉴판들 모아둔 곳
 
     public static void displayMenu_Main() {
-        System.out.println("\t=========================================");
-        System.out.println("\t=         NBC management system         =");
-        System.out.println("\t=========================================");
-        System.out.println("\t=        What do you want to do?        =");
-        System.out.println("\t=---------------------------------------=");
-        System.out.println("\t=                                       =");
-        System.out.println("\t=         [1] Student Management        =");
-        System.out.println("\t=         [2] Score Management          =");
-        System.out.println("\t=         [3] Done                      =");
-        System.out.println("\t=                                       =");
-        System.out.println("\t=---------------------------------------=\n");
+        System.out.println("\t=================================================");
+        System.out.println("\t=             NBC management system             =");
+        System.out.println("\t=================================================");
+        System.out.println("\t=            What do you want to do?            =");
+        System.out.println("\t=-----------------------------------------------=");
+        System.out.println("\t=                                               =");
+        System.out.println("\t=           [1] Student Management              =");
+        System.out.println("\t=           [2] Score Management                =");
+        System.out.println("\t=           [3] Done                            =");
+        System.out.println("\t=                                               =");
+        System.out.println("\t=-----------------------------------------------=\n");
     }
 
     public static void displayMenu_StudentManagement() {
-        System.out.println("\t=========================================");
-        System.out.println("\t=    NBC management system  -  Student  =");
-        System.out.println("\t=========================================");
-        System.out.println("\t=        What do you want to do?        =");
-        System.out.println("\t=---------------------------------------=");
-        System.out.println("\t=                                       =");
-        System.out.println("\t=         [1] Add Student Info          =");
-        System.out.println("\t=         [2] Inquiry Student Info      =");
-        System.out.println("\t=         [3] Modify Student Info       =");
-        System.out.println("\t=         [4] Remove Student Info       =");
-        System.out.println("\t=         [5] Back to Main              =");
-        System.out.println("\t=                                       =");
-        System.out.println("\t=---------------------------------------=\n");
+        System.out.println("\t=================================================");
+        System.out.println("\t=        NBC management system  -  Student      =");
+        System.out.println("\t=================================================");
+        System.out.println("\t=            What do you want to do?            =");
+        System.out.println("\t=-----------------------------------------------=");
+        System.out.println("\t=                                               =");
+        System.out.println("\t=           [1] Add Student Info                =");
+        System.out.println("\t=           [2] Inquiry Student Info            =");
+        System.out.println("\t=           [3] Modify Student Info             =");
+        System.out.println("\t=           [4] Remove Student Info             =");
+        System.out.println("\t=           [5] Back to Main                    =");
+        System.out.println("\t=                                               =");
+        System.out.println("\t=-----------------------------------------------=\n");
     }
 
     public static void displayMenu_ScoreManagement() {
-        System.out.println("\t=========================================");
-        System.out.println("\t=    NBC management system  -   Score   =");
-        System.out.println("\t=========================================");
-        System.out.println("\t=        What do you want to do?        =");
-        System.out.println("\t=---------------------------------------=");
-        System.out.println("\t=                                       =");
-        System.out.println("\t=         [1] Inquiry Score Info        =");
-        System.out.println("\t=         [2] Modify Score Info         =");
-        System.out.println("\t=         [3] Back to Main              =");
-        System.out.println("\t=                                       =");
-        System.out.println("\t=---------------------------------------=\n");
+        System.out.println("\t=================================================");
+        System.out.println("\t=        NBC management system  -   Score       =");
+        System.out.println("\t=================================================");
+        System.out.println("\t=            What do you want to do?            =");
+        System.out.println("\t=-----------------------------------------------=");
+        System.out.println("\t=                                               =");
+        System.out.println("\t=           [1] Inquiry Score Info              =");
+        System.out.println("\t=           [2] Modify Score Info               =");
+        System.out.println("\t=           [3] Back to Main                    =");
+        System.out.println("\t=                                               =");
+        System.out.println("\t=-----------------------------------------------=\n");
 
     }
 }
