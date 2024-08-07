@@ -40,36 +40,6 @@ public class SubjectData {
         }
         System.out.println("==================================================");
     }
-
-    // 문자로 등급을 받으면, 성적에 넣을 int형으로 변환해주는 기능
-    public static int changeGradeInt(char grade){
-        return switch (grade) {
-            case 'A' -> 1;
-            case 'B' -> 2;
-            case 'C' -> 3;
-            case 'D' -> 4;
-            case 'F' -> 5;
-            case 'N' -> 6;
-            default -> 0;
-        };
-    }
-
-    // 성적 안에 들어갈 int형 등급을 문자로 바꿔주는 기능
-    public static char changeGradeChar(int grade){
-        //메서드의 반환형이 int여서 char로 수정했습니다--multiverse22
-        return switch (grade) {
-            case  1-> 'A';
-            case  2-> 'B';
-            case  3-> 'C';
-            case  4-> 'D';
-            case  5-> 'F';
-            case  6-> 'N';
-            default -> 0;
-            //해당부분은 사용하지않는 다른알파벳을 리턴해 등급에서 예외사항발생을
-            //표현하는것이 좋을 것 같습니다.
-        };
-    }
-
     // 과목 타입과 점수에 따라서 등급을 책정하는 기능
     public static char changeScoreGrade(int subjectType, int score) {
         // subjectType==0이면 필수과목
@@ -108,40 +78,27 @@ public class SubjectData {
         // e가 나올 경우 예외 처리 필요
         return 'e';
     }
-
-
-
     public String getSubjectId() {
         return this.subjectId;
     }
-
     public void setSubjectId(String subjectId) {
         this.subjectId = subjectId;
     }
-
-
     public String getSubjectName() {
         return subjectName;
     }
-
     public void setSubjectName(String subjectName) {
         this.subjectName = subjectName;
     }
-
-
     public String getSubjectType() {
         return subjectType;
     }
-
     public void setSubjectType(String subjectType) {
         this.subjectType = subjectType;
     }
-
-
     public void addSubject(String[] subjectDetails) {
         subjectList.add(subjectDetails);
     }
-
     public ArrayList<String[]> getSubjectList() {
         return this.subjectList;
     }

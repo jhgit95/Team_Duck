@@ -69,7 +69,10 @@ public class Modify {
         //학생정보를 수정하기전 학생에 대한 과목점수정보를 Inquiry하는 클래스를 선언해 inquirySubjectList메서드를 사용해
         //학생에 대한 과목점수를 inquiry했습니다.
         boolean validInput = false;
-
+        if(subjectList.isEmpty()){
+            System.out.println("점수 데이터가 존재하지않습니다");
+            return studentData;
+        }
         while (!validInput) {
             try {
 

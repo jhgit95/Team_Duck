@@ -126,10 +126,9 @@ public class StudentAdd {
         System.out.print("해당 학생은 ");
         for(Integer E:requireAndChoice) {
             System.out.print(inquiry.changeSubjectString(E)+", ");
+            //E값을 changeSubjectString메서드에 넣으면 해당하는 과목이름이 반환됨
         }
         System.out.print("과목을 수강중입니다.");
-        //과제 코드 입력. + 예외처리 = subjectInfoList 의 크기보다 높은 값 입력하면 다시 입력.
-        //깨알 지식 int 타입의 subjectId 뒤에 +"" 를 붙여서 문자열로 변경했습니다.
         while (flag) {
             System.out.println("과목코드를 입력하세요");
             subjectId = sc.nextInt();
@@ -150,6 +149,7 @@ public class StudentAdd {
                 }
             }
             if(flag)
+                //1~9까지의 값이 들어왔지만 학생이 해당과목을 듣지않는경우의 예외처리
                 System.out.println("이 학생은 해당코드의 과목을 수강하고 있지 않습니다.");
         }
         // 등록시 선택,필수 입력 삭제. InfoList 에 과제별로 설정인지, 필수인지 설정되어 있는 정보 사용.
@@ -159,6 +159,7 @@ public class StudentAdd {
         //값이 필수면 0, 선택이면 1 로 입력.
         {
             if(subjectInfoList.get(i)[0].equals(subjectId+"")) {
+                //깨알 지식 int 타입의 subjectId 뒤에 +"" 를 붙여서 문자열로 변경했습니다.
                 if (subjectInfoList.get(i)[2].equals("필수")) {
                     subjectType = 0;
                 }

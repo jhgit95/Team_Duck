@@ -4,6 +4,8 @@ import Data.SubjectData;
 import java.util.*;
 import java.util.Collections;
 
+import static Data.SubjectData.changeScoreGrade;
+
 public class Inquiry {
     Integer studentId;
     SubjectData subjectData;
@@ -13,7 +15,7 @@ public class Inquiry {
     ArrayList<int[]> subjectList;
     //학생들의 점수리스트
     List<Integer> rAC;
-    //requireAndChoice
+    //requireAndChoice 학생의 과목만을 담은리스트
     boolean flag=false;
 
     public Inquiry() {
@@ -81,7 +83,7 @@ public class Inquiry {
             System.out.println(Name + " 님의 " + changeSubjectString(subjectId) + " 코드 과목의 회차별 점수는");
             for (int i = 0; i < subjectList.size(); i++) {
                 if (subjectList.get(i)[0] == subjectId) {
-                    System.out.println(subjectList.get(i)[3] + "회차 점수:" + subjectList.get(i)[2] + "등급은:" + studentData.changeScoreGrade(subjectList.get(i)[1], subjectList.get(i)[2]));
+                    System.out.println(subjectList.get(i)[3] + "회차 점수:" + subjectList.get(i)[2] + "등급은:" + changeScoreGrade(subjectList.get(i)[1], subjectList.get(i)[2]));
                 }
             }
         }
@@ -134,7 +136,7 @@ public class Inquiry {
         if (flag) {
             for (int i = 0; i < subjectList.size(); i++) {
                 if (subjectList.get(i)[0] == subjectId) {
-                    Character grade = studentData.changeScoreGrade(subjectList.get(i)[1], subjectList.get(i)[2]);
+                    Character grade = changeScoreGrade(subjectList.get(i)[1], subjectList.get(i)[2]);
                     list.add(grade);
                 }
             }
@@ -193,7 +195,7 @@ public class Inquiry {
                 for (int i = 0; i < subjectList.size(); i++) {
                     if (subjectList.get(i)[1] == 0) {
                         //타입이 0인 필수과목들의 등급만리스트에 .add
-                        Character grade = studentData.changeScoreGrade(subjectList.get(i)[1], subjectList.get(i)[2]);
+                        Character grade = changeScoreGrade(subjectList.get(i)[1], subjectList.get(i)[2]);
                         list.add(grade);
                     }
                 }
@@ -274,25 +276,27 @@ public class Inquiry {
         //특정학생의 수강과목점수조회
         Name = studentData.getStudentName();
         ArrayList<int[]> subjectList = studentData.getSubjectList();
-        subjectData.inquirySubjectList();
-        //과목의 리스트 출력해 어떤코드가 어떤과목인지 알수있게 하는 메서드
-        System.out.println(Name + "님의 점수는");
-        subjectList=inquirySortBySubjectIdThenRound(subjectList);
-        for(int i = 0; i < subjectList.size(); i++) {
-            String subjectName = changeSubjectString(subjectList.get(i)[0]);
-            String Type="";
-            if(subjectList.get(i)[1]==0) {
-                Type="필수";
+        if (subjectList.isEmpty())
+            System.out.println("점수 데이터가 존재하지 않습니다.");
+        else {
+            subjectData.inquirySubjectList();
+            //과목의 리스트 출력해 어떤코드가 어떤과목인지 알수있게 하는 메서드
+            System.out.println(Name + "님의 점수는");
+            subjectList = inquirySortBySubjectIdThenRound(subjectList);
+            for (int i = 0; i < subjectList.size(); i++) {
+                String subjectName = changeSubjectString(subjectList.get(i)[0]);
+                String Type = "";
+                if (subjectList.get(i)[1] == 0) {
+                    Type = "필수";
+                } else {
+                    Type = "선택";
+                }
+                int score = subjectList.get(i)[2];
+                int round = subjectList.get(i)[3];
+                char grade = changeScoreGrade(subjectList.get(i)[1], score);
+                System.out.println(Type + "과목의 " + subjectName + "의 " + round + "회차의 점수는 " + score + "점이고 등급은 " + grade + "입니다.");
+                //[0][0] [0][1] [0][2] [0][3] 순서로 출력
             }
-            else {
-                Type="선택";
-            }
-            int score = subjectList.get(i)[2];
-            int round = subjectList.get(i)[3];
-            char grade = studentData.changeScoreGrade(subjectList.get(i)[1],score);
-            System.out.println(Type+"과목의 "+subjectName+"의 "+round+"회차의 점수는 "+score+"점이고 등급은 "+grade+"입니다.");
-            //[0][0] [0][1] [0][2] [0][3] 순서로 출력
         }
-
     }
 }
