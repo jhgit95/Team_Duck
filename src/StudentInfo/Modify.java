@@ -18,7 +18,6 @@ public class Modify {
 
         while (!validInput) {
             try {
-
                 // 변경항목 선택
                 System.out.println("변경할 항목을 선택하세요.");
                 System.out.println("1. 학생 이름");
@@ -64,6 +63,10 @@ public class Modify {
     // 수강생 과목별 회차 점수 수정
     public StudentData ModifyScoreInfo(StudentData studentData) {
         ArrayList<int[]> subjectList = studentData.getSubjectList();
+        Inquiry inquiry=new Inquiry();
+        inquiry.inquirySubjectList(studentData);
+        //학생정보를 수정하기전 학생에 대한 과목점수정보를 Inquiry하는 클래스를 선언해 inquirySubjectList메서드를 사용해
+        //학생에 대한 과목점수를 inquiry했습니다.
         boolean validInput = false;
 
         while (!validInput) {
@@ -92,7 +95,7 @@ public class Modify {
                         System.out.println( subjectId + "의 과목 타입을 알 수 없습니다.");
                     }
                 } else { // 과목이 존재하지 않을때
-                    System.out.println(+ subjectId + "는 존재하지 않습니다.");
+                    System.out.println(+ subjectId + "의 해당 과목 데이터가 없습니다.");
                     continue; // 다시 입력받도록함
                 }
 
