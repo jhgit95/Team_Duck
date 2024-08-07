@@ -97,24 +97,6 @@ public class StudentAdd {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     /*
     int studentId;
     int number =0;
