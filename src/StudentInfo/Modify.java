@@ -70,6 +70,7 @@ public class Modify {
         //학생에 대한 과목점수를 inquiry했습니다.
         boolean validInput = false;
         if(subjectList.isEmpty()){
+            //리스트가 비어있으면 예외처리
             System.out.println("점수 데이터가 존재하지않습니다");
             return studentData;
         }

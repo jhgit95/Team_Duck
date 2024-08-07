@@ -171,9 +171,13 @@ public class StudentAdd {
 
         flag=true;
         while(flag) {
-            System.out.println("입력하시려는 회차를 입력해주세요");
+            System.out.println("입력하시려는 회차를 입력해주세요 0입력시 점수입력끝(0회차는 넣을수 없습니다!)");
             round=sc.nextInt();
             sc.nextLine();
+            if(round==0) {
+                round = 999;
+                break;
+            }
             if(round<1||round>10)
             {
                 //회차 예외처리. 회차가 0보다 작거나 10보다 크면 다시 입력 반복.
@@ -204,11 +208,16 @@ public class StudentAdd {
             if(!flag)
                 break;
         }
-
+        if(round==999) {
+            System.out.println("점수입력에 실패했습니다.");
+            return studentData;
+        }
 
         // 점수를 받습니다. 0~100 사이 값을 입력해야합니다.
         //예외처리. 점수가 0보다 작거나, 100보다 크다면 다시 입력해주세요 안내와 함께 다시 입력을 받는다.
         while(true) {
+            if(round==999)
+                break;
             System.out.println("점수를 입력해주세요");
             score=sc.nextInt();
             sc.nextLine();
