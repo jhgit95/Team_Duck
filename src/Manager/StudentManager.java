@@ -58,12 +58,18 @@ public class StudentManager extends Manager {
                         }
                     }
 
+                    int flag_ID = 0;
                     // 입력받은 ID값에 해당하는 StudentData를 리스트에서 찾기
                     for(StudentData studentData : studentDataList) {
                         if(studentData.getStudentId() == student_ID) {
                             studentInquiry.inquiryStudentInfo(studentData);
+                            flag_ID = 1;
                         }
                     }
+                    if(flag_ID == 0) {
+                        System.out.println("Their is not exist the ID in Students!");
+                    }
+
                     flag = true;
                     break;
                 }
@@ -121,19 +127,26 @@ public class StudentManager extends Manager {
                 scanner.next(); // 잘못된 입력을 소비하여 무한 루프 방지
             }
         }
-
+        int flag_ID = 0;
         // 입력받은 ID값에 해당하는 StudentData를 리스트에서 찾기
-        for(StudentData studentData : studentDataList) {
+        for(int i = 0; i < studentDataList.size(); i++) {
+            StudentData studentData = studentDataList.get(i);
             if(studentData.getStudentId() == student_ID) {
                 studentModify.modifyStudentInfo(studentData);
+                flag_ID = 1;
+                break;
             }
+        }
+        if(flag_ID == 0) {
+            System.out.println("Their is not exist the ID in Students!");
         }
     }
 
 
     public void removeData() {
+        studentInquiry.inquiryStudentsListShort(studentDataList);
         // 수강생 ID 값 입력받기
-        int student_ID = 0;
+        int student_ID = -1;
         boolean validInput = false;
 
         while (!validInput) {
@@ -147,12 +160,19 @@ public class StudentManager extends Manager {
                 scanner.next(); // 잘못된 입력을 소비하여 무한 루프 방지
             }
         }
-
+        int flag_ID = 0;
         // 입력받은 ID값에 해당하는 StudentData를 리스트에서 찾기
-        for(StudentData studentData : studentDataList) {
+        for(int i = 0; i < studentDataList.size(); i++) {
+            StudentData studentData = studentDataList.get(i);
             if(studentData.getStudentId() == student_ID) {
-                studentDataList.remove(studentData);
+                studentDataList.remove(i);
+                flag_ID = 1;
+                break;
             }
+
+        }
+        if(flag_ID == 0) {
+            System.out.println("Their is not exist the ID in Students!");
         }
     }
 
