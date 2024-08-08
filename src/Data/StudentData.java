@@ -3,55 +3,60 @@ package Data;
 import java.util.ArrayList;
 
 public class StudentData {
-    ScoreData scoreData;
-    SubjectData subjectData;
-    //객체생성 각각 ScoreData,SubjectData
-    int studentId;
-    String studentName;
-    ArrayList<String> subjectList = new ArrayList<>();
-
-    public StudentData(int studentId) {
+    private final int studentId;
+    private String studentName;
+    // 1=Green, 2=Yellow, 3=Red
+    private int studentState;
+    public StudentData(int studentId, String name, int state) {
         this.studentId = studentId;
-        this.subjectData=new SubjectData();
-        this.scoreData=new ScoreData(studentId);
-        //각객체를 Student객체에 종속시킴
+        this.studentName = name;
+        this.studentState = state;
     }
-    public void setScoreList(int score,String subjectType){
-        scoreData.setScoreList(score,subjectType);
+    private ArrayList<Integer> requireAndChoice=new ArrayList<>();
+    //학생이 무슨과목을듣는지 넣어놓는 리스트
+    // subjectType : 0 = 필수, 1 = 선택
+    // 등급 : A = 1, B = 2, C = 3, D = 4, F = 5, N = 6
+    final int detailsSize=4;
+    //배열크기가 바뀌면 detailsSize의 값을바꾸자.
+    private ArrayList<int[]> subjectList = new ArrayList<>();
+    int[] subjectDetails = new int[detailsSize];
+    public void subjectDetailsInput(int subjectId,int subjectType, int score,int round){
+        subjectDetails = new int[detailsSize];
+        //초기화 안해주면 고장남!!
+        this.subjectDetails[0] = subjectId;
+        this.subjectDetails[1] = subjectType;
+        //Type= 0 or 1
+        this.subjectDetails[2] = score;
+        //점수 범위0~100
+        this.subjectDetails[3] = round;
+        //회차 범위 1~10
+        subjectList.add(subjectDetails);
     }
-    public ArrayList<String> getGradeList(){
-        return scoreData.getGradeList();
-        //종속된 ScoreData객체로 만든 scoreData내부 메서드 getGradeList()를실행시킴
+    public void setRequireAndChoice(ArrayList<Integer> requireAndChoice) {
+        this.requireAndChoice = requireAndChoice;
     }
-    public ArrayList<String> getScoreList(){
-        return scoreData.getScoreList();
-        //종속된 ScoreData객체로 만든 scoreData내부 메서드 getScoreList()를실행시킴
+    public ArrayList<Integer> getRequireAndChoice() {
+        return requireAndChoice;
     }
-
-
-    //내부 get,set메서들은 private으로 하면 접근할수 없음
+    public void setSubjectList(ArrayList<int[]> subjectList){
+        this.subjectList = subjectList;
+    }
+    public ArrayList<int[]> getSubjectList(){
+        return subjectList;
+    }
+    public int getStudentState(){
+        return studentState;
+    }
+    public void setStudentState(int state){
+        this.studentState=state;
+    }
     public int getStudentId() {
         return this.studentId;
     }
-
-    public void setStudentId(int studentName) {
-        this.studentId = studentName;
-    }
-
-
     public String getStudentName() {
         return studentName;
     }
     public void setStudentName(String name) {
         this.studentName = name;
     }
-
-
-    public ArrayList<String> getSubjectList() {
-        return this.subjectList;
-    }
-    public void addSubject(String subject) {
-        this.subjectList.add(subject);
-    }
-
 }
